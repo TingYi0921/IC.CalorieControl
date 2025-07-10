@@ -25,5 +25,14 @@ namespace IC.CalorieControl
 		{
 			
 		}
+
+		private void btnLogout_Click(object sender, EventArgs e)
+		{
+			// 手動點擊返回登入
+			this.Hide();
+			LoginForm login = new LoginForm();
+			login.FormClosed += (s, args) => this.Close();
+			login.Show();
+		}
 	}
 }

@@ -60,12 +60,13 @@
 			this.btnLogout.TabIndex = 1;
 			this.btnLogout.Text = "登出";
 			this.btnLogout.UseVisualStyleBackColor = false;
+			this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
 			// 
 			// lblWelcome
 			// 
 			this.lblWelcome.AutoSize = true;
 			this.lblWelcome.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.lblWelcome.Location = new System.Drawing.Point(539, 17);
+			this.lblWelcome.Location = new System.Drawing.Point(529, 17);
 			this.lblWelcome.Name = "lblWelcome";
 			this.lblWelcome.Size = new System.Drawing.Size(65, 24);
 			this.lblWelcome.TabIndex = 2;
@@ -76,7 +77,7 @@
 			this.lblUserProfile.AutoSize = true;
 			this.lblUserProfile.BackColor = System.Drawing.Color.Gold;
 			this.lblUserProfile.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.lblUserProfile.Location = new System.Drawing.Point(65, 77);
+			this.lblUserProfile.Location = new System.Drawing.Point(55, 77);
 			this.lblUserProfile.Name = "lblUserProfile";
 			this.lblUserProfile.Size = new System.Drawing.Size(96, 26);
 			this.lblUserProfile.TabIndex = 3;
@@ -95,7 +96,7 @@
 			this.lblMealLog.AutoSize = true;
 			this.lblMealLog.BackColor = System.Drawing.Color.OrangeRed;
 			this.lblMealLog.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.lblMealLog.Location = new System.Drawing.Point(202, 77);
+			this.lblMealLog.Location = new System.Drawing.Point(192, 77);
 			this.lblMealLog.Name = "lblMealLog";
 			this.lblMealLog.Size = new System.Drawing.Size(159, 26);
 			this.lblMealLog.TabIndex = 5;
@@ -106,7 +107,7 @@
 			this.lblFoodItem.AutoSize = true;
 			this.lblFoodItem.BackColor = System.Drawing.Color.Yellow;
 			this.lblFoodItem.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.lblFoodItem.Location = new System.Drawing.Point(402, 77);
+			this.lblFoodItem.Location = new System.Drawing.Point(392, 77);
 			this.lblFoodItem.Name = "lblFoodItem";
 			this.lblFoodItem.Size = new System.Drawing.Size(138, 26);
 			this.lblFoodItem.TabIndex = 6;
@@ -117,7 +118,7 @@
 			this.lblActivityAndBMI.AutoSize = true;
 			this.lblActivityAndBMI.BackColor = System.Drawing.Color.DodgerBlue;
 			this.lblActivityAndBMI.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.lblActivityAndBMI.Location = new System.Drawing.Point(581, 77);
+			this.lblActivityAndBMI.Location = new System.Drawing.Point(571, 77);
 			this.lblActivityAndBMI.Name = "lblActivityAndBMI";
 			this.lblActivityAndBMI.Size = new System.Drawing.Size(159, 26);
 			this.lblActivityAndBMI.TabIndex = 7;

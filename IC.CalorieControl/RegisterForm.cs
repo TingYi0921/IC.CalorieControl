@@ -1,5 +1,6 @@
 ﻿using IC.CalorieControl.BLL;
 using IC.CalorieControl.Classes;
+using IC.CalorieControl.DAL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,7 +16,7 @@ namespace IC.CalorieControl
 {
 	public partial class RegisterForm : Form
 	{
-		private UserService userService = new UserService();
+		private readonly UserService userService = new UserService(new UserDal());
 		public RegisterForm()
 		{
 			InitializeComponent();

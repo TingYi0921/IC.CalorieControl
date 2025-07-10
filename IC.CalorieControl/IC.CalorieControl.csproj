@@ -49,6 +49,7 @@
     <Compile Include="BLL\UserService.cs" />
     <Compile Include="Classes\UserProfile.cs" />
     <Compile Include="DAL\UserDal.cs" />
+    <Compile Include="Interfaces\IUserRepository.cs" />
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>

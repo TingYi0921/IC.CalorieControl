@@ -1,5 +1,6 @@
 ﻿using IC.CalorieControl.Classes;
 using IC.CalorieControl.DAL;
+using IC.CalorieControl.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,12 @@ namespace IC.CalorieControl.BLL
 {
 	public class UserService
 	{
-		private UserDal userDal = new UserDal();
+		private readonly IUserRepository userRepository;
+		public UserService(IUserRepository userRepository)
+		{
+			this.userRepository = userRepository;
+		}
+
 		public bool Register(UserProfile user, out string message)
 		{
 			if (!Regex.IsMatch(user.UserName, "^[a-zA-Z0-9]+$"))
@@ -20,7 +26,7 @@ namespace IC.CalorieControl.BLL
 				return false;
 			}
 
-			if (userDal.IsUserExists(user.UserName))
+			if (userRepository.IsUserExists(user.UserName))
 			{
 				message = "該使用者名稱已存在!";
 				return false;
@@ -56,7 +62,7 @@ namespace IC.CalorieControl.BLL
 				return false;
 			}
 
-			userDal.RegisterUser(user);
+			userRepository.RegisterUser(user);
 			message = "註冊成功！";
 			return true;
 		}
@@ -65,7 +71,7 @@ namespace IC.CalorieControl.BLL
             if (!IsValidInput(userName) || !IsValidInput(password))
                 return null;
 
-            return userDal.GetUserByNameAndPassword(userName, password);
+            return userRepository.GetUserByNameAndPassword(userName, password);
         }
 
         private bool IsValidInput(string input)
@@ -75,7 +81,7 @@ namespace IC.CalorieControl.BLL
 
 		public void RecordLogin(int userId, string ip)
 		{
-			userDal.LogLoginSession(userId, ip);
+			userRepository.LogLoginSession(userId, ip);
 		}
 	}
 }
