@@ -291,6 +291,7 @@
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "RegisterForm";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Register";
 			this.Load += new System.EventHandler(this.RegisterForm_Load);
 			this.ResumeLayout(false);

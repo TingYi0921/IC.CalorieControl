@@ -29,138 +29,190 @@
 		private void InitializeComponent()
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-			this.lblMainTitle = new System.Windows.Forms.Label();
-			this.btnLogout = new System.Windows.Forms.Button();
 			this.lblWelcome = new System.Windows.Forms.Label();
-			this.lblUserProfile = new System.Windows.Forms.Label();
 			this.panel1 = new System.Windows.Forms.Panel();
-			this.lblMealLog = new System.Windows.Forms.Label();
-			this.lblFoodItem = new System.Windows.Forms.Label();
-			this.lblActivityAndBMI = new System.Windows.Forms.Label();
+			this.panel2 = new System.Windows.Forms.Panel();
+			this.panel3 = new System.Windows.Forms.Panel();
+			this.pictureBox1 = new System.Windows.Forms.PictureBox();
+			this.btnActivity = new System.Windows.Forms.Button();
+			this.btnNutrient = new System.Windows.Forms.Button();
+			this.btnMealLog = new System.Windows.Forms.Button();
+			this.btnUserProfile = new System.Windows.Forms.Button();
+			this.btnLogout = new System.Windows.Forms.Button();
+			this.panel1.SuspendLayout();
+			this.panel3.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.SuspendLayout();
-			// 
-			// lblMainTitle
-			// 
-			this.lblMainTitle.AutoSize = true;
-			this.lblMainTitle.Font = new System.Drawing.Font("微軟正黑體", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.lblMainTitle.ForeColor = System.Drawing.Color.Blue;
-			this.lblMainTitle.Location = new System.Drawing.Point(12, 9);
-			this.lblMainTitle.Name = "lblMainTitle";
-			this.lblMainTitle.Size = new System.Drawing.Size(379, 35);
-			this.lblMainTitle.TabIndex = 0;
-			this.lblMainTitle.Text = "Welcome to, Calorie Control";
-			// 
-			// btnLogout
-			// 
-			this.btnLogout.BackColor = System.Drawing.Color.DarkGray;
-			this.btnLogout.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.btnLogout.Location = new System.Drawing.Point(668, 14);
-			this.btnLogout.Name = "btnLogout";
-			this.btnLogout.Size = new System.Drawing.Size(100, 30);
-			this.btnLogout.TabIndex = 1;
-			this.btnLogout.Text = "登出";
-			this.btnLogout.UseVisualStyleBackColor = false;
-			this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
 			// 
 			// lblWelcome
 			// 
 			this.lblWelcome.AutoSize = true;
-			this.lblWelcome.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.lblWelcome.Location = new System.Drawing.Point(529, 17);
+			this.lblWelcome.Font = new System.Drawing.Font("微軟正黑體", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+			this.lblWelcome.ForeColor = System.Drawing.SystemColors.Window;
+			this.lblWelcome.Location = new System.Drawing.Point(410, 9);
 			this.lblWelcome.Name = "lblWelcome";
-			this.lblWelcome.Size = new System.Drawing.Size(65, 24);
-			this.lblWelcome.TabIndex = 2;
-			this.lblWelcome.Text = "label1";
-			// 
-			// lblUserProfile
-			// 
-			this.lblUserProfile.AutoSize = true;
-			this.lblUserProfile.BackColor = System.Drawing.Color.Gold;
-			this.lblUserProfile.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.lblUserProfile.Location = new System.Drawing.Point(55, 77);
-			this.lblUserProfile.Name = "lblUserProfile";
-			this.lblUserProfile.Size = new System.Drawing.Size(96, 26);
-			this.lblUserProfile.TabIndex = 3;
-			this.lblUserProfile.Text = "基本資料";
-			this.lblUserProfile.Click += new System.EventHandler(this.label1_Click);
+			this.lblWelcome.Size = new System.Drawing.Size(96, 26);
+			this.lblWelcome.TabIndex = 0;
+			this.lblWelcome.Text = "歡迎標籤";
 			// 
 			// panel1
 			// 
-			this.panel1.Location = new System.Drawing.Point(435, 275);
+			this.panel1.BackColor = System.Drawing.Color.DeepSkyBlue;
+			this.panel1.Controls.Add(this.lblWelcome);
+			this.panel1.Location = new System.Drawing.Point(189, 0);
 			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(347, 183);
-			this.panel1.TabIndex = 4;
+			this.panel1.Size = new System.Drawing.Size(591, 47);
+			this.panel1.TabIndex = 1;
 			// 
-			// lblMealLog
+			// panel2
 			// 
-			this.lblMealLog.AutoSize = true;
-			this.lblMealLog.BackColor = System.Drawing.Color.OrangeRed;
-			this.lblMealLog.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.lblMealLog.Location = new System.Drawing.Point(192, 77);
-			this.lblMealLog.Name = "lblMealLog";
-			this.lblMealLog.Size = new System.Drawing.Size(159, 26);
-			this.lblMealLog.TabIndex = 5;
-			this.lblMealLog.Text = "餐點及食物日誌";
+			this.panel2.Location = new System.Drawing.Point(191, 47);
+			this.panel2.Name = "panel2";
+			this.panel2.Size = new System.Drawing.Size(589, 410);
+			this.panel2.TabIndex = 2;
 			// 
-			// lblFoodItem
+			// panel3
 			// 
-			this.lblFoodItem.AutoSize = true;
-			this.lblFoodItem.BackColor = System.Drawing.Color.Yellow;
-			this.lblFoodItem.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.lblFoodItem.Location = new System.Drawing.Point(392, 77);
-			this.lblFoodItem.Name = "lblFoodItem";
-			this.lblFoodItem.Size = new System.Drawing.Size(138, 26);
-			this.lblFoodItem.TabIndex = 6;
-			this.lblFoodItem.Text = "營養成分分析";
+			this.panel3.BackColor = System.Drawing.Color.DeepSkyBlue;
+			this.panel3.Controls.Add(this.pictureBox1);
+			this.panel3.Controls.Add(this.btnActivity);
+			this.panel3.Controls.Add(this.btnNutrient);
+			this.panel3.Controls.Add(this.btnMealLog);
+			this.panel3.Controls.Add(this.btnUserProfile);
+			this.panel3.Controls.Add(this.btnLogout);
+			this.panel3.Location = new System.Drawing.Point(0, 0);
+			this.panel3.Name = "panel3";
+			this.panel3.Size = new System.Drawing.Size(191, 457);
+			this.panel3.TabIndex = 3;
 			// 
-			// lblActivityAndBMI
+			// pictureBox1
 			// 
-			this.lblActivityAndBMI.AutoSize = true;
-			this.lblActivityAndBMI.BackColor = System.Drawing.Color.DodgerBlue;
-			this.lblActivityAndBMI.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.lblActivityAndBMI.Location = new System.Drawing.Point(571, 77);
-			this.lblActivityAndBMI.Name = "lblActivityAndBMI";
-			this.lblActivityAndBMI.Size = new System.Drawing.Size(159, 26);
-			this.lblActivityAndBMI.TabIndex = 7;
-			this.lblActivityAndBMI.Text = "身體及活動紀錄";
+			this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+			this.pictureBox1.Location = new System.Drawing.Point(22, 0);
+			this.pictureBox1.Name = "pictureBox1";
+			this.pictureBox1.Size = new System.Drawing.Size(150, 150);
+			this.pictureBox1.TabIndex = 22;
+			this.pictureBox1.TabStop = false;
+			// 
+			// btnActivity
+			// 
+			this.btnActivity.BackColor = System.Drawing.Color.DeepSkyBlue;
+			this.btnActivity.FlatAppearance.BorderSize = 0;
+			this.btnActivity.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnActivity.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnActivity.ForeColor = System.Drawing.SystemColors.Window;
+			this.btnActivity.Image = ((System.Drawing.Image)(resources.GetObject("btnActivity.Image")));
+			this.btnActivity.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.btnActivity.Location = new System.Drawing.Point(0, 349);
+			this.btnActivity.Name = "btnActivity";
+			this.btnActivity.Size = new System.Drawing.Size(190, 40);
+			this.btnActivity.TabIndex = 21;
+			this.btnActivity.Text = "Activity Log";
+			this.btnActivity.UseVisualStyleBackColor = false;
+			// 
+			// btnNutrient
+			// 
+			this.btnNutrient.BackColor = System.Drawing.Color.DeepSkyBlue;
+			this.btnNutrient.FlatAppearance.BorderSize = 0;
+			this.btnNutrient.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnNutrient.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnNutrient.ForeColor = System.Drawing.SystemColors.Window;
+			this.btnNutrient.Image = ((System.Drawing.Image)(resources.GetObject("btnNutrient.Image")));
+			this.btnNutrient.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.btnNutrient.Location = new System.Drawing.Point(0, 285);
+			this.btnNutrient.Name = "btnNutrient";
+			this.btnNutrient.Size = new System.Drawing.Size(190, 40);
+			this.btnNutrient.TabIndex = 20;
+			this.btnNutrient.Text = "Nutrient";
+			this.btnNutrient.UseVisualStyleBackColor = false;
+			// 
+			// btnMealLog
+			// 
+			this.btnMealLog.BackColor = System.Drawing.Color.DeepSkyBlue;
+			this.btnMealLog.FlatAppearance.BorderSize = 0;
+			this.btnMealLog.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnMealLog.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnMealLog.ForeColor = System.Drawing.SystemColors.Window;
+			this.btnMealLog.Image = ((System.Drawing.Image)(resources.GetObject("btnMealLog.Image")));
+			this.btnMealLog.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.btnMealLog.Location = new System.Drawing.Point(0, 221);
+			this.btnMealLog.Name = "btnMealLog";
+			this.btnMealLog.Size = new System.Drawing.Size(190, 40);
+			this.btnMealLog.TabIndex = 19;
+			this.btnMealLog.Text = "Meal Log";
+			this.btnMealLog.UseVisualStyleBackColor = false;
+			// 
+			// btnUserProfile
+			// 
+			this.btnUserProfile.BackColor = System.Drawing.Color.DeepSkyBlue;
+			this.btnUserProfile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.btnUserProfile.FlatAppearance.BorderSize = 0;
+			this.btnUserProfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnUserProfile.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnUserProfile.ForeColor = System.Drawing.SystemColors.Window;
+			this.btnUserProfile.Image = ((System.Drawing.Image)(resources.GetObject("btnUserProfile.Image")));
+			this.btnUserProfile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.btnUserProfile.Location = new System.Drawing.Point(0, 157);
+			this.btnUserProfile.Name = "btnUserProfile";
+			this.btnUserProfile.Size = new System.Drawing.Size(190, 40);
+			this.btnUserProfile.TabIndex = 18;
+			this.btnUserProfile.Text = "User Profile";
+			this.btnUserProfile.UseVisualStyleBackColor = false;
+			// 
+			// btnLogout
+			// 
+			this.btnLogout.BackColor = System.Drawing.Color.DeepSkyBlue;
+			this.btnLogout.FlatAppearance.BorderSize = 0;
+			this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnLogout.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnLogout.ForeColor = System.Drawing.SystemColors.Window;
+			this.btnLogout.Image = ((System.Drawing.Image)(resources.GetObject("btnLogout.Image")));
+			this.btnLogout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.btnLogout.Location = new System.Drawing.Point(0, 413);
+			this.btnLogout.Name = "btnLogout";
+			this.btnLogout.Size = new System.Drawing.Size(190, 40);
+			this.btnLogout.TabIndex = 17;
+			this.btnLogout.Text = "Log Out";
+			this.btnLogout.UseVisualStyleBackColor = false;
+			this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
 			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-			this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+			this.BackColor = System.Drawing.SystemColors.Window;
 			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
 			this.ClientSize = new System.Drawing.Size(780, 457);
-			this.Controls.Add(this.lblActivityAndBMI);
-			this.Controls.Add(this.lblFoodItem);
-			this.Controls.Add(this.lblMealLog);
+			this.Controls.Add(this.panel3);
+			this.Controls.Add(this.panel2);
 			this.Controls.Add(this.panel1);
-			this.Controls.Add(this.lblUserProfile);
-			this.Controls.Add(this.lblWelcome);
-			this.Controls.Add(this.btnLogout);
-			this.Controls.Add(this.lblMainTitle);
 			this.DoubleBuffered = true;
-			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "MainForm";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Calorie Control";
+			this.panel1.ResumeLayout(false);
+			this.panel1.PerformLayout();
+			this.panel3.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.ResumeLayout(false);
-			this.PerformLayout();
 
 		}
 
 		#endregion
 
-		private System.Windows.Forms.Label lblMainTitle;
-		private System.Windows.Forms.Button btnLogout;
 		private System.Windows.Forms.Label lblWelcome;
-		private System.Windows.Forms.Label lblUserProfile;
 		private System.Windows.Forms.Panel panel1;
-		private System.Windows.Forms.Label lblMealLog;
-		private System.Windows.Forms.Label lblFoodItem;
-		private System.Windows.Forms.Label lblActivityAndBMI;
+		private System.Windows.Forms.Panel panel2;
+		private System.Windows.Forms.Panel panel3;
+		private System.Windows.Forms.Button btnActivity;
+		private System.Windows.Forms.Button btnNutrient;
+		private System.Windows.Forms.Button btnMealLog;
+		private System.Windows.Forms.Button btnUserProfile;
+		private System.Windows.Forms.Button btnLogout;
+		private System.Windows.Forms.PictureBox pictureBox1;
 	}
 }
