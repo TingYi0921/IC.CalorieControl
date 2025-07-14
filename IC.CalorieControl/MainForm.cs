@@ -21,11 +21,6 @@ namespace IC.CalorieControl
 			lblWelcome.Text = $"您好，{_userName}";
 		}
 
-		private void label1_Click(object sender, EventArgs e)
-		{
-			
-		}
-
 		private void btnLogout_Click(object sender, EventArgs e)
 		{
 			// 手動點擊返回登入

@@ -32,7 +32,7 @@
 			this.lblWelcome = new System.Windows.Forms.Label();
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.panel2 = new System.Windows.Forms.Panel();
-			this.panel3 = new System.Windows.Forms.Panel();
+			this.pnListItems = new System.Windows.Forms.Panel();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.btnActivity = new System.Windows.Forms.Button();
 			this.btnNutrient = new System.Windows.Forms.Button();
@@ -40,7 +40,7 @@
 			this.btnUserProfile = new System.Windows.Forms.Button();
 			this.btnLogout = new System.Windows.Forms.Button();
 			this.panel1.SuspendLayout();
-			this.panel3.SuspendLayout();
+			this.pnListItems.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -71,27 +71,27 @@
 			this.panel2.Size = new System.Drawing.Size(589, 410);
 			this.panel2.TabIndex = 2;
 			// 
-			// panel3
+			// pnListItems
 			// 
-			this.panel3.BackColor = System.Drawing.Color.DeepSkyBlue;
-			this.panel3.Controls.Add(this.pictureBox1);
-			this.panel3.Controls.Add(this.btnActivity);
-			this.panel3.Controls.Add(this.btnNutrient);
-			this.panel3.Controls.Add(this.btnMealLog);
-			this.panel3.Controls.Add(this.btnUserProfile);
-			this.panel3.Controls.Add(this.btnLogout);
-			this.panel3.Location = new System.Drawing.Point(0, 0);
-			this.panel3.Name = "panel3";
-			this.panel3.Size = new System.Drawing.Size(191, 457);
-			this.panel3.TabIndex = 3;
+			this.pnListItems.BackColor = System.Drawing.Color.DeepSkyBlue;
+			this.pnListItems.Controls.Add(this.pictureBox1);
+			this.pnListItems.Controls.Add(this.btnActivity);
+			this.pnListItems.Controls.Add(this.btnNutrient);
+			this.pnListItems.Controls.Add(this.btnMealLog);
+			this.pnListItems.Controls.Add(this.btnUserProfile);
+			this.pnListItems.Controls.Add(this.btnLogout);
+			this.pnListItems.Location = new System.Drawing.Point(0, 0);
+			this.pnListItems.Name = "pnListItems";
+			this.pnListItems.Size = new System.Drawing.Size(191, 457);
+			this.pnListItems.TabIndex = 3;
 			// 
 			// pictureBox1
 			// 
 			this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-			this.pictureBox1.Location = new System.Drawing.Point(22, 0);
+			this.pictureBox1.Location = new System.Drawing.Point(22, 2);
 			this.pictureBox1.Name = "pictureBox1";
 			this.pictureBox1.Size = new System.Drawing.Size(150, 150);
-			this.pictureBox1.TabIndex = 22;
+			this.pictureBox1.TabIndex = 40;
 			this.pictureBox1.TabStop = false;
 			// 
 			// btnActivity
@@ -103,10 +103,10 @@
 			this.btnActivity.ForeColor = System.Drawing.SystemColors.Window;
 			this.btnActivity.Image = ((System.Drawing.Image)(resources.GetObject("btnActivity.Image")));
 			this.btnActivity.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnActivity.Location = new System.Drawing.Point(0, 349);
+			this.btnActivity.Location = new System.Drawing.Point(0, 351);
 			this.btnActivity.Name = "btnActivity";
 			this.btnActivity.Size = new System.Drawing.Size(190, 40);
-			this.btnActivity.TabIndex = 21;
+			this.btnActivity.TabIndex = 39;
 			this.btnActivity.Text = "Activity Log";
 			this.btnActivity.UseVisualStyleBackColor = false;
 			// 
@@ -119,10 +119,10 @@
 			this.btnNutrient.ForeColor = System.Drawing.SystemColors.Window;
 			this.btnNutrient.Image = ((System.Drawing.Image)(resources.GetObject("btnNutrient.Image")));
 			this.btnNutrient.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnNutrient.Location = new System.Drawing.Point(0, 285);
+			this.btnNutrient.Location = new System.Drawing.Point(0, 287);
 			this.btnNutrient.Name = "btnNutrient";
 			this.btnNutrient.Size = new System.Drawing.Size(190, 40);
-			this.btnNutrient.TabIndex = 20;
+			this.btnNutrient.TabIndex = 38;
 			this.btnNutrient.Text = "Nutrient";
 			this.btnNutrient.UseVisualStyleBackColor = false;
 			// 
@@ -135,10 +135,10 @@
 			this.btnMealLog.ForeColor = System.Drawing.SystemColors.Window;
 			this.btnMealLog.Image = ((System.Drawing.Image)(resources.GetObject("btnMealLog.Image")));
 			this.btnMealLog.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnMealLog.Location = new System.Drawing.Point(0, 221);
+			this.btnMealLog.Location = new System.Drawing.Point(0, 223);
 			this.btnMealLog.Name = "btnMealLog";
 			this.btnMealLog.Size = new System.Drawing.Size(190, 40);
-			this.btnMealLog.TabIndex = 19;
+			this.btnMealLog.TabIndex = 37;
 			this.btnMealLog.Text = "Meal Log";
 			this.btnMealLog.UseVisualStyleBackColor = false;
 			// 
@@ -152,10 +152,10 @@
 			this.btnUserProfile.ForeColor = System.Drawing.SystemColors.Window;
 			this.btnUserProfile.Image = ((System.Drawing.Image)(resources.GetObject("btnUserProfile.Image")));
 			this.btnUserProfile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnUserProfile.Location = new System.Drawing.Point(0, 157);
+			this.btnUserProfile.Location = new System.Drawing.Point(0, 159);
 			this.btnUserProfile.Name = "btnUserProfile";
 			this.btnUserProfile.Size = new System.Drawing.Size(190, 40);
-			this.btnUserProfile.TabIndex = 18;
+			this.btnUserProfile.TabIndex = 36;
 			this.btnUserProfile.Text = "User Profile";
 			this.btnUserProfile.UseVisualStyleBackColor = false;
 			// 
@@ -168,10 +168,10 @@
 			this.btnLogout.ForeColor = System.Drawing.SystemColors.Window;
 			this.btnLogout.Image = ((System.Drawing.Image)(resources.GetObject("btnLogout.Image")));
 			this.btnLogout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnLogout.Location = new System.Drawing.Point(0, 413);
+			this.btnLogout.Location = new System.Drawing.Point(0, 415);
 			this.btnLogout.Name = "btnLogout";
 			this.btnLogout.Size = new System.Drawing.Size(190, 40);
-			this.btnLogout.TabIndex = 17;
+			this.btnLogout.TabIndex = 35;
 			this.btnLogout.Text = "Log Out";
 			this.btnLogout.UseVisualStyleBackColor = false;
 			this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
@@ -183,7 +183,7 @@
 			this.BackColor = System.Drawing.SystemColors.Window;
 			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
 			this.ClientSize = new System.Drawing.Size(780, 457);
-			this.Controls.Add(this.panel3);
+			this.Controls.Add(this.pnListItems);
 			this.Controls.Add(this.panel2);
 			this.Controls.Add(this.panel1);
 			this.DoubleBuffered = true;
@@ -196,7 +196,7 @@
 			this.Text = "Calorie Control";
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();
-			this.panel3.ResumeLayout(false);
+			this.pnListItems.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.ResumeLayout(false);
 
@@ -207,12 +207,12 @@
 		private System.Windows.Forms.Label lblWelcome;
 		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.Panel panel2;
-		private System.Windows.Forms.Panel panel3;
+		private System.Windows.Forms.Panel pnListItems;
+		private System.Windows.Forms.PictureBox pictureBox1;
 		private System.Windows.Forms.Button btnActivity;
 		private System.Windows.Forms.Button btnNutrient;
 		private System.Windows.Forms.Button btnMealLog;
 		private System.Windows.Forms.Button btnUserProfile;
 		private System.Windows.Forms.Button btnLogout;
-		private System.Windows.Forms.PictureBox pictureBox1;
 	}
 }
