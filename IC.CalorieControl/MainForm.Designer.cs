@@ -66,6 +66,7 @@
 			// 
 			// pnMainpanel
 			// 
+			this.pnMainpanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnMainpanel.BackgroundImage")));
 			this.pnMainpanel.Location = new System.Drawing.Point(191, 47);
 			this.pnMainpanel.Name = "pnMainpanel";
 			this.pnMainpanel.Size = new System.Drawing.Size(589, 410);

@@ -39,7 +39,7 @@ namespace IC.CalorieControl
 			txtPassword.Enabled = false;
 			txtPassword.Text = hashedPassword;
 			//txtPassword.UseSystemPasswordChar = true;
-			txtPassword.PasswordChar = '*'; // 使用密碼字符
+			txtPassword.PasswordChar = '*'; // 使用密碼符號
 		}
 		private UserProfile CloneUser(UserProfile user)
 		{
@@ -106,7 +106,7 @@ namespace IC.CalorieControl
 			_isEditing = true;
 			SetEditable(true);
 
-			// 你可以在這裡切換按鈕顯示／隱藏：
+			// 可以切換按鈕顯示／隱藏：
 			btnEdit.Visible = false;
 			btnSave.Visible = true;
 			btnCancel.Visible = true;
