@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace IC.CalorieControl.BLL
 {
@@ -88,12 +89,6 @@ namespace IC.CalorieControl.BLL
 				return false;
 			}
 
-			if (!Regex.IsMatch(user.PasswordHash, "^[a-zA-Z0-9]+$"))
-			{
-				message = "密碼只能包含英文字母與數字!";
-				return false;
-			}
-
 			if (user.Age < 0 || user.Age > 160 || user.Age % 1 != 0)
 			{
 				message = "年齡須為正整數，請重新輸入!";
@@ -119,6 +114,10 @@ namespace IC.CalorieControl.BLL
 		public UserProfile GetUserByUserName(string userName)
 		{
 			return userRepository.GetUserByUserName(userName);
+		}
+		public string GetCurrentUserPassword(string userName)
+		{
+			return userRepository.GetCurrentUserPassword(userName);
 		}
 		public UserProfile CloneUser(UserProfile user)
 		{

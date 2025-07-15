@@ -32,12 +32,21 @@ namespace IC.CalorieControl
 			{ 4, "高強度" },
 			{ 5, "超高強度" }
 		};
+		private void UserProfileControl_Load(object sender, EventArgs e)
+		{
+			string hashedPassword = userService.GetCurrentUserPassword(txtUserName.Text);
+
+			txtPassword.Enabled = false;
+			txtPassword.Text = hashedPassword;
+			txtPassword.PasswordChar = '*'; // 使用密碼字符
+		}
 		private UserProfile CloneUser(UserProfile user)
 		{
 			return new UserProfile
 			{
 				UserId = user.UserId,
 				UserName = user.UserName,
+				PasswordHash = user.PasswordHash,
 				Email = user.Email,
 				Age = user.Age,
 				Gender = user.Gender,
@@ -67,7 +76,6 @@ namespace IC.CalorieControl
 			txtUserName.Text = currentUser.UserName;
 			txtEmail.Text = currentUser.Email;
 			txtPassword.Text = currentUser.PasswordHash;
-			txtPassword.PasswordChar = '*'; // 使用密碼字符
 			txtAge.Text = currentUser.Age.ToString();
 			cmbGender.Text = currentUser.Gender;
 			txtHeight.Text = currentUser.HeightCm.ToString();
@@ -79,8 +87,7 @@ namespace IC.CalorieControl
 		{
 			txtUserName.Enabled = editable;
 			txtEmail.Enabled = editable;
-			txtPassword.Enabled = editable;
-			txtPassword.PasswordChar = '*'; // 使用密碼字符
+			txtPassword.Enabled = false;
 			txtAge.Enabled = editable;
 			txtHeight.Enabled = editable;
 			txtWeight.Enabled = editable;
@@ -113,7 +120,7 @@ namespace IC.CalorieControl
 			btnSave.Visible = false;
 			btnCancel.Visible = false;
 			currentUser.UserName = txtUserName.Text.Trim();
-			currentUser.PasswordHash = txtPassword.Text.Trim();
+			//currentUser.PasswordHash = txtPassword.Text.Trim();
 			currentUser.Email = txtEmail.Text.Trim();
 			currentUser.Age = int.TryParse(txtAge.Text, out int age) ? age : 0;
 			currentUser.Gender = cmbGender.Text.Trim();

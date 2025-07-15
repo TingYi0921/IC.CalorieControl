@@ -7,6 +7,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace IC.CalorieControl.DAL
 {
@@ -130,11 +131,12 @@ namespace IC.CalorieControl.DAL
 
 		public void UpdateUserProfile(UserProfile user)
 		{
-			string query = @"UPDATE UserProfile SET Email = @Email, PasswordHash = @PasswordHash, Age = @Age, Gender = @Gender, HeightCm = @HeightCm, WeightKg = @WeightKg, ActivityLevel = @ActivityLevel, UpdatedAt = @UpdatedAt WHERE UserId = @UserId";
+			string query = @"UPDATE UserProfile SET UserName = @UserName, Email = @Email, Age = @Age, Gender = @Gender, HeightCm = @HeightCm, WeightKg = @WeightKg, ActivityLevel = @ActivityLevel, UpdatedAt = @UpdatedAt WHERE UserId = @UserId";
 			var conn = new SqlConnection(connectionString);
 			var cmd = new SqlCommand(query, conn);
+			cmd.Parameters.AddWithValue("@UserName", user.UserName);
 			cmd.Parameters.AddWithValue("@Email", user.Email);
-			cmd.Parameters.AddWithValue("@PasswordHash", ComputeSha256Hash(user.PasswordHash));
+			//cmd.Parameters.AddWithValue("@PasswordHash", ComputeSha256Hash(user.PasswordHash));
 			cmd.Parameters.AddWithValue("@Age", user.Age);
 			cmd.Parameters.AddWithValue("@Gender", user.Gender);
 			cmd.Parameters.AddWithValue("@HeightCm", user.HeightCm);
@@ -143,7 +145,24 @@ namespace IC.CalorieControl.DAL
 			cmd.Parameters.AddWithValue("@UpdatedAt", user.UpdatedAt);
 			cmd.Parameters.AddWithValue("@UserId", user.UserId);
 			conn.Open();
-			cmd.ExecuteNonQuery();
+			int rowsAffected = cmd.ExecuteNonQuery();
+			MessageBox.Show($"資料庫更新筆數：{rowsAffected}");
+		}
+		public string GetCurrentUserPassword(string userName)
+		{
+			string query = @"
+                SELECT PasswordHash
+                FROM UserProfile
+                WHERE UserName = @UserName";
+
+			using (var conn = new SqlConnection(connectionString))
+			using (var cmd = new SqlCommand(query, conn))
+			{
+				cmd.Parameters.AddWithValue("@UserName", userName);
+				conn.Open();
+				var result = cmd.ExecuteScalar();
+				return result?.ToString();
+			}
 		}
 	}
 }

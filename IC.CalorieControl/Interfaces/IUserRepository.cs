@@ -13,6 +13,7 @@ namespace IC.CalorieControl.Interfaces
 		void RegisterUser(UserProfile user);
 		UserProfile GetUserByNameAndPassword(string userName, string password);
 		UserProfile GetUserByUserName(string userName);
+		string GetCurrentUserPassword(string userName);
 		UserProfile CloneUser(UserProfile user);
 		void UpdateUserProfile(UserProfile user);
 		void LogLoginSession(int userId, string ipAddress);
