@@ -53,8 +53,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CalorieControlSystemDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Classes\DailyNutritionSummary.cs" />
+    <Compile Include="Classes\FoodItem.cs" />
+    <Compile Include="Classes\MealLog.cs" />
     <Compile Include="Classes\UserProfile.cs" />
+    <Compile Include="DAL\FoodRepository.cs" />
+    <Compile Include="DAL\MealLogRepository.cs" />
     <Compile Include="DAL\UserDal.cs" />
+    <Compile Include="Interfaces\IFoodRepository.cs" />
+    <Compile Include="Interfaces\IMealLogRepository.cs" />
     <Compile Include="Interfaces\IUserRepository.cs" />
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
