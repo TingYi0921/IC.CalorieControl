@@ -57,7 +57,7 @@
 			// 
 			// pnTitle
 			// 
-			this.pnTitle.BackColor = System.Drawing.Color.DeepSkyBlue;
+			this.pnTitle.BackColor = System.Drawing.Color.MidnightBlue;
 			this.pnTitle.Controls.Add(this.lblWelcome);
 			this.pnTitle.Location = new System.Drawing.Point(189, 0);
 			this.pnTitle.Name = "pnTitle";

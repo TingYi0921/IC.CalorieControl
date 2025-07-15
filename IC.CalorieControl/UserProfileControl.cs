@@ -38,6 +38,7 @@ namespace IC.CalorieControl
 
 			txtPassword.Enabled = false;
 			txtPassword.Text = hashedPassword;
+			//txtPassword.UseSystemPasswordChar = true;
 			txtPassword.PasswordChar = '*'; // 使用密碼字符
 		}
 		private UserProfile CloneUser(UserProfile user)

@@ -49,9 +49,9 @@
 			this.btnSave = new System.Windows.Forms.Button();
 			this.btnEdit = new System.Windows.Forms.Button();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
-			this.pictureBox2 = new System.Windows.Forms.PictureBox();
+			this.label1 = new System.Windows.Forms.Label();
+			this.label2 = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// cmbActivityLevel
@@ -113,6 +113,8 @@
 			this.txtPassword.Location = new System.Drawing.Point(110, 215);
 			this.txtPassword.MaxLength = 16;
 			this.txtPassword.Name = "txtPassword";
+			this.txtPassword.PasswordChar = '*';
+			this.txtPassword.ReadOnly = true;
 			this.txtPassword.Size = new System.Drawing.Size(182, 27);
 			this.txtPassword.TabIndex = 29;
 			this.txtPassword.Tag = "長度請低於16個字元";
@@ -271,21 +273,35 @@
 			this.pictureBox1.TabIndex = 38;
 			this.pictureBox1.TabStop = false;
 			// 
-			// pictureBox2
+			// label1
 			// 
-			this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-			this.pictureBox2.Location = new System.Drawing.Point(0, 17);
-			this.pictureBox2.Name = "pictureBox2";
-			this.pictureBox2.Size = new System.Drawing.Size(350, 70);
-			this.pictureBox2.TabIndex = 39;
-			this.pictureBox2.TabStop = false;
+			this.label1.AutoSize = true;
+			this.label1.BackColor = System.Drawing.Color.MidnightBlue;
+			this.label1.Font = new System.Drawing.Font("Comic Sans MS", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label1.ForeColor = System.Drawing.Color.White;
+			this.label1.Location = new System.Drawing.Point(1, 28);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(452, 45);
+			this.label1.TabIndex = 39;
+			this.label1.Text = "Calorie Control User Profile";
+			// 
+			// label2
+			// 
+			this.label2.AutoSize = true;
+			this.label2.Font = new System.Drawing.Font("微軟正黑體", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+			this.label2.Location = new System.Drawing.Point(416, 92);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(160, 16);
+			this.label2.TabIndex = 40;
+			this.label2.Text = "註 : 性別及密碼無法進行修改";
 			// 
 			// UserProfileControl
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.PaleTurquoise;
-			this.Controls.Add(this.pictureBox2);
+			this.Controls.Add(this.label2);
+			this.Controls.Add(this.label1);
 			this.Controls.Add(this.pictureBox1);
 			this.Controls.Add(this.btnEdit);
 			this.Controls.Add(this.btnSave);
@@ -308,8 +324,8 @@
 			this.Controls.Add(this.lblUserName);
 			this.Name = "UserProfileControl";
 			this.Size = new System.Drawing.Size(589, 410);
+			this.Load += new System.EventHandler(this.UserProfileControl_Load);
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -337,6 +353,7 @@
 		private System.Windows.Forms.Button btnSave;
 		private System.Windows.Forms.Button btnEdit;
 		private System.Windows.Forms.PictureBox pictureBox1;
-		private System.Windows.Forms.PictureBox pictureBox2;
+		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.Label label2;
 	}
 }
