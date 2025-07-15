@@ -16,5 +16,9 @@ namespace IC.CalorieControl
 		{
 			InitializeComponent();
 		}
+		public void LoadSummary(int userId, DateTime date)
+		{
+			// TODO: 從 BLL 抓取統計資訊並顯示於 Label
+		}
 	}
 }

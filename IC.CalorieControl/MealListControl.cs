@@ -15,10 +15,18 @@ namespace IC.CalorieControl
 		public MealListControl()
 		{
 			InitializeComponent();
+			dtpLogDate.ValueChanged += dtpLogDate_ValueChanged_1;
+			btnDeleteLog.Click += btnDeleteLog_Click_1;
 		}
-		//this.Validate();
-		//this.foodItemBindingSource.EndEdit();
-		//this.tableAdapterManager.UpdateAll(this.calorieControlSystemDataSet1);
 
+		private void dtpLogDate_ValueChanged_1(object sender, EventArgs e)
+		{
+			// TODO: 重新載入資料表內容
+		}
+
+		private void btnDeleteLog_Click_1(object sender, EventArgs e)
+		{
+			// TODO: 刪除選取紀錄並重新整理表格
+		}
 	}
 }

@@ -17,12 +17,26 @@ namespace IC.CalorieControl
 	{
 		private string _userName;
 		private readonly UserService userService = new UserService(new UserDal());
+		private MealInputControl mealInputControl;
+		private MealListControl mealListControl;
+		private DailySummaryControl dailySummaryControl;
 
 		public MainForm(string userName)
 		{
 			InitializeComponent();
 			_userName = userName;
 			lblWelcome.Text = $"您好，{_userName}";
+			mealInputControl = new MealInputControl();
+			mealInputControl.Dock = DockStyle.Fill;
+			mealInputControl.OnAddToLogCompleted += () => LoadMealListControl();
+
+			mealListControl = new MealListControl();
+			mealListControl.Dock = DockStyle.Fill;
+
+			dailySummaryControl = new DailySummaryControl();
+			dailySummaryControl.Dock = DockStyle.Fill;
+
+			LoadMealInputControl();
 		}
 
 		private void btnUserProfile_MouseEnter(object sender, EventArgs e)
@@ -66,6 +80,14 @@ namespace IC.CalorieControl
 			btnLogout.BackColor = Color.DeepSkyBlue; // 鼠標移出時恢復背景顏色
 		}
 
+		private void btnLogout_Click(object sender, EventArgs e)
+		{
+			// 手動點擊返回登入
+			this.Hide();
+			LoginForm login = new LoginForm();
+			login.FormClosed += (s, args) => this.Close();
+			login.Show();
+		}
 		private void LoadUserProfileControl()
 		{
 			pnMainpanel.Controls.Clear(); // 清除舊的內容
@@ -76,19 +98,44 @@ namespace IC.CalorieControl
 			pnMainpanel.Controls.Add(profileControl);
 		}
 
-		private void btnLogout_Click(object sender, EventArgs e)
+		private void LoadMealInputControl()
 		{
-			// 手動點擊返回登入
-			this.Hide();
-			LoginForm login = new LoginForm();
-			login.FormClosed += (s, args) => this.Close();
-			login.Show();
+			pnMainpanel.Controls.Clear();
+			pnMainpanel.Controls.Add(mealInputControl);
 		}
 
+		private void LoadMealListControl()
+		{
+			pnMainpanel.Controls.Clear();
+			pnMainpanel.Controls.Add(mealListControl);
+		}
+
+		private void LoadDailySummaryControl()
+		{
+			pnMainpanel.Controls.Clear();
+			pnMainpanel.Controls.Add(dailySummaryControl);
+			dailySummaryControl.LoadSummary(userId: GetCurrentUserId(), date: DateTime.Today);
+		}
+		// 在主畫面選單 ListItem 中設定事件：
 		private void btnUserProfile_Click(object sender, EventArgs e)
 		{
 			LoadUserProfileControl();
 		}
+		private void btnMealLog_Click(object sender, EventArgs e)
+		{
+			LoadMealInputControl();
+		}
+
+		private void btnDailyLog_Click(object sender, EventArgs e)
+		{
+			LoadDailySummaryControl();
+		}
+
+		private int GetCurrentUserId()
+		{
+			// TODO: 實作取得目前登入的使用者 ID
+			return 1;
+		}
 	}
-	
+
 }
