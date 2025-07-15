@@ -43,11 +43,11 @@ namespace IC.CalorieControl
 		}
 		private void btnNutrient_MouseEnter(object sender, EventArgs e)
 		{
-			btnNutrient.BackColor = Color.LightSkyBlue; // 鼠標移入時改變背景顏色
+			btnDailyLog.BackColor = Color.LightSkyBlue; // 鼠標移入時改變背景顏色
 		}
 		private void btnNutrient_MouseLeave(object sender, EventArgs e)
 		{
-			btnNutrient.BackColor = Color.DeepSkyBlue; // 鼠標移出時恢復背景顏色
+			btnDailyLog.BackColor = Color.DeepSkyBlue; // 鼠標移出時恢復背景顏色
 		}
 		private void btnActivity_MouseEnter(object sender, EventArgs e)
 		{

@@ -53,10 +53,21 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CalorieControlSystemDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="CalorieControlSystemDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CalorieControlSystemDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Classes\DailyNutritionSummary.cs" />
     <Compile Include="Classes\FoodItem.cs" />
     <Compile Include="Classes\MealLog.cs" />
     <Compile Include="Classes\UserProfile.cs" />
+    <Compile Include="DailySummaryControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DailySummaryControl.Designer.cs">
+      <DependentUpon>DailySummaryControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="DAL\FoodRepository.cs" />
     <Compile Include="DAL\MealLogRepository.cs" />
     <Compile Include="DAL\UserDal.cs" />
@@ -75,6 +86,18 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MealInputControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MealInputControl.Designer.cs">
+      <DependentUpon>MealInputControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MealListControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MealListControl.Designer.cs">
+      <DependentUpon>MealListControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegisterForm.cs">
@@ -89,11 +112,20 @@
     <Compile Include="UserProfileControl.Designer.cs">
       <DependentUpon>UserProfileControl.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="DailySummaryControl.resx">
+      <DependentUpon>DailySummaryControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MealInputControl.resx">
+      <DependentUpon>MealInputControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MealListControl.resx">
+      <DependentUpon>MealListControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -120,6 +152,17 @@
     </None>
     <None Include="CalorieControlSystemDataSet.xss">
       <DependentUpon>CalorieControlSystemDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="CalorieControlSystemDataSet1.xsc">
+      <DependentUpon>CalorieControlSystemDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="CalorieControlSystemDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CalorieControlSystemDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CalorieControlSystemDataSet1.xss">
+      <DependentUpon>CalorieControlSystemDataSet1.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

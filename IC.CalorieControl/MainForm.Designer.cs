@@ -35,7 +35,7 @@
 			this.pnListItems = new System.Windows.Forms.Panel();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.btnActivity = new System.Windows.Forms.Button();
-			this.btnNutrient = new System.Windows.Forms.Button();
+			this.btnDailyLog = new System.Windows.Forms.Button();
 			this.btnMealLog = new System.Windows.Forms.Button();
 			this.btnUserProfile = new System.Windows.Forms.Button();
 			this.btnLogout = new System.Windows.Forms.Button();
@@ -77,7 +77,7 @@
 			this.pnListItems.BackColor = System.Drawing.Color.DeepSkyBlue;
 			this.pnListItems.Controls.Add(this.pictureBox1);
 			this.pnListItems.Controls.Add(this.btnActivity);
-			this.pnListItems.Controls.Add(this.btnNutrient);
+			this.pnListItems.Controls.Add(this.btnDailyLog);
 			this.pnListItems.Controls.Add(this.btnMealLog);
 			this.pnListItems.Controls.Add(this.btnUserProfile);
 			this.pnListItems.Controls.Add(this.btnLogout);
@@ -113,23 +113,23 @@
 			this.btnActivity.MouseEnter += new System.EventHandler(this.btnActivity_MouseEnter);
 			this.btnActivity.MouseLeave += new System.EventHandler(this.btnActivity_MouseLeave);
 			// 
-			// btnNutrient
+			// btnDailyLog
 			// 
-			this.btnNutrient.BackColor = System.Drawing.Color.DeepSkyBlue;
-			this.btnNutrient.FlatAppearance.BorderSize = 0;
-			this.btnNutrient.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.btnNutrient.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnNutrient.ForeColor = System.Drawing.SystemColors.Window;
-			this.btnNutrient.Image = ((System.Drawing.Image)(resources.GetObject("btnNutrient.Image")));
-			this.btnNutrient.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnNutrient.Location = new System.Drawing.Point(0, 287);
-			this.btnNutrient.Name = "btnNutrient";
-			this.btnNutrient.Size = new System.Drawing.Size(190, 40);
-			this.btnNutrient.TabIndex = 38;
-			this.btnNutrient.Text = "Nutrient";
-			this.btnNutrient.UseVisualStyleBackColor = false;
-			this.btnNutrient.MouseEnter += new System.EventHandler(this.btnNutrient_MouseEnter);
-			this.btnNutrient.MouseLeave += new System.EventHandler(this.btnNutrient_MouseLeave);
+			this.btnDailyLog.BackColor = System.Drawing.Color.DeepSkyBlue;
+			this.btnDailyLog.FlatAppearance.BorderSize = 0;
+			this.btnDailyLog.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnDailyLog.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnDailyLog.ForeColor = System.Drawing.SystemColors.Window;
+			this.btnDailyLog.Image = ((System.Drawing.Image)(resources.GetObject("btnDailyLog.Image")));
+			this.btnDailyLog.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.btnDailyLog.Location = new System.Drawing.Point(0, 287);
+			this.btnDailyLog.Name = "btnDailyLog";
+			this.btnDailyLog.Size = new System.Drawing.Size(190, 40);
+			this.btnDailyLog.TabIndex = 38;
+			this.btnDailyLog.Text = "Daily Log";
+			this.btnDailyLog.UseVisualStyleBackColor = false;
+			this.btnDailyLog.MouseEnter += new System.EventHandler(this.btnNutrient_MouseEnter);
+			this.btnDailyLog.MouseLeave += new System.EventHandler(this.btnNutrient_MouseLeave);
 			// 
 			// btnMealLog
 			// 
@@ -222,7 +222,7 @@
 		private System.Windows.Forms.Panel pnListItems;
 		private System.Windows.Forms.PictureBox pictureBox1;
 		private System.Windows.Forms.Button btnActivity;
-		private System.Windows.Forms.Button btnNutrient;
+		private System.Windows.Forms.Button btnDailyLog;
 		private System.Windows.Forms.Button btnMealLog;
 		private System.Windows.Forms.Button btnUserProfile;
 		private System.Windows.Forms.Button btnLogout;
