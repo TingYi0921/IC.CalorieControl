@@ -72,6 +72,8 @@
 			this.txtUserName.TabIndex = 3;
 			this.txtUserName.Enter += new System.EventHandler(this.txtUserName_Enter);
 			this.txtUserName.Leave += new System.EventHandler(this.txtUserName_Leave);
+			this.txtUserName.MouseEnter += new System.EventHandler(this.txtUserName_MouseEnter);
+			this.txtUserName.MouseLeave += new System.EventHandler(this.txtUserName_MouseLeave);
 			// 
 			// txtPassword
 			// 
@@ -82,6 +84,8 @@
 			this.txtPassword.TabIndex = 4;
 			this.txtPassword.Enter += new System.EventHandler(this.txtPassword_Enter);
 			this.txtPassword.Leave += new System.EventHandler(this.txtPassword_Leave);
+			this.txtPassword.MouseEnter += new System.EventHandler(this.txtPassword_MouseEnter);
+			this.txtPassword.MouseLeave += new System.EventHandler(this.txtPassword_MouseLeave);
 			// 
 			// btnLogin
 			// 

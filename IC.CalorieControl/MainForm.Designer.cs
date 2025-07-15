@@ -30,8 +30,8 @@
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
 			this.lblWelcome = new System.Windows.Forms.Label();
-			this.panel1 = new System.Windows.Forms.Panel();
-			this.panel2 = new System.Windows.Forms.Panel();
+			this.pnTitle = new System.Windows.Forms.Panel();
+			this.pnMainpanel = new System.Windows.Forms.Panel();
 			this.pnListItems = new System.Windows.Forms.Panel();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.btnActivity = new System.Windows.Forms.Button();
@@ -39,7 +39,7 @@
 			this.btnMealLog = new System.Windows.Forms.Button();
 			this.btnUserProfile = new System.Windows.Forms.Button();
 			this.btnLogout = new System.Windows.Forms.Button();
-			this.panel1.SuspendLayout();
+			this.pnTitle.SuspendLayout();
 			this.pnListItems.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.SuspendLayout();
@@ -55,21 +55,21 @@
 			this.lblWelcome.TabIndex = 0;
 			this.lblWelcome.Text = "歡迎標籤";
 			// 
-			// panel1
+			// pnTitle
 			// 
-			this.panel1.BackColor = System.Drawing.Color.DeepSkyBlue;
-			this.panel1.Controls.Add(this.lblWelcome);
-			this.panel1.Location = new System.Drawing.Point(189, 0);
-			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(591, 47);
-			this.panel1.TabIndex = 1;
+			this.pnTitle.BackColor = System.Drawing.Color.DeepSkyBlue;
+			this.pnTitle.Controls.Add(this.lblWelcome);
+			this.pnTitle.Location = new System.Drawing.Point(189, 0);
+			this.pnTitle.Name = "pnTitle";
+			this.pnTitle.Size = new System.Drawing.Size(591, 47);
+			this.pnTitle.TabIndex = 1;
 			// 
-			// panel2
+			// pnMainpanel
 			// 
-			this.panel2.Location = new System.Drawing.Point(191, 47);
-			this.panel2.Name = "panel2";
-			this.panel2.Size = new System.Drawing.Size(589, 410);
-			this.panel2.TabIndex = 2;
+			this.pnMainpanel.Location = new System.Drawing.Point(191, 47);
+			this.pnMainpanel.Name = "pnMainpanel";
+			this.pnMainpanel.Size = new System.Drawing.Size(589, 410);
+			this.pnMainpanel.TabIndex = 2;
 			// 
 			// pnListItems
 			// 
@@ -109,6 +109,8 @@
 			this.btnActivity.TabIndex = 39;
 			this.btnActivity.Text = "Activity Log";
 			this.btnActivity.UseVisualStyleBackColor = false;
+			this.btnActivity.MouseEnter += new System.EventHandler(this.btnActivity_MouseEnter);
+			this.btnActivity.MouseLeave += new System.EventHandler(this.btnActivity_MouseLeave);
 			// 
 			// btnNutrient
 			// 
@@ -125,6 +127,8 @@
 			this.btnNutrient.TabIndex = 38;
 			this.btnNutrient.Text = "Nutrient";
 			this.btnNutrient.UseVisualStyleBackColor = false;
+			this.btnNutrient.MouseEnter += new System.EventHandler(this.btnNutrient_MouseEnter);
+			this.btnNutrient.MouseLeave += new System.EventHandler(this.btnNutrient_MouseLeave);
 			// 
 			// btnMealLog
 			// 
@@ -141,6 +145,8 @@
 			this.btnMealLog.TabIndex = 37;
 			this.btnMealLog.Text = "Meal Log";
 			this.btnMealLog.UseVisualStyleBackColor = false;
+			this.btnMealLog.MouseEnter += new System.EventHandler(this.btnMealLog_MouseEnter);
+			this.btnMealLog.MouseLeave += new System.EventHandler(this.btnMealLog_MouseLeave);
 			// 
 			// btnUserProfile
 			// 
@@ -158,6 +164,9 @@
 			this.btnUserProfile.TabIndex = 36;
 			this.btnUserProfile.Text = "User Profile";
 			this.btnUserProfile.UseVisualStyleBackColor = false;
+			this.btnUserProfile.Click += new System.EventHandler(this.btnUserProfile_Click);
+			this.btnUserProfile.MouseEnter += new System.EventHandler(this.btnUserProfile_MouseEnter);
+			this.btnUserProfile.MouseLeave += new System.EventHandler(this.btnUserProfile_MouseLeave);
 			// 
 			// btnLogout
 			// 
@@ -175,6 +184,8 @@
 			this.btnLogout.Text = "Log Out";
 			this.btnLogout.UseVisualStyleBackColor = false;
 			this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+			this.btnLogout.MouseEnter += new System.EventHandler(this.btnLogout_MouseEnter);
+			this.btnLogout.MouseLeave += new System.EventHandler(this.btnLogout_MouseLeave);
 			// 
 			// MainForm
 			// 
@@ -184,8 +195,8 @@
 			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
 			this.ClientSize = new System.Drawing.Size(780, 457);
 			this.Controls.Add(this.pnListItems);
-			this.Controls.Add(this.panel2);
-			this.Controls.Add(this.panel1);
+			this.Controls.Add(this.pnMainpanel);
+			this.Controls.Add(this.pnTitle);
 			this.DoubleBuffered = true;
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -194,8 +205,8 @@
 			this.Name = "MainForm";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Calorie Control";
-			this.panel1.ResumeLayout(false);
-			this.panel1.PerformLayout();
+			this.pnTitle.ResumeLayout(false);
+			this.pnTitle.PerformLayout();
 			this.pnListItems.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.ResumeLayout(false);
@@ -205,8 +216,8 @@
 		#endregion
 
 		private System.Windows.Forms.Label lblWelcome;
-		private System.Windows.Forms.Panel panel1;
-		private System.Windows.Forms.Panel panel2;
+		private System.Windows.Forms.Panel pnTitle;
+		private System.Windows.Forms.Panel pnMainpanel;
 		private System.Windows.Forms.Panel pnListItems;
 		private System.Windows.Forms.PictureBox pictureBox1;
 		private System.Windows.Forms.Button btnActivity;

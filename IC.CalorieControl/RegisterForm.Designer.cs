@@ -67,7 +67,7 @@
 			this.lblUserName.AutoSize = true;
 			this.lblUserName.BackColor = System.Drawing.Color.Transparent;
 			this.lblUserName.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.lblUserName.Location = new System.Drawing.Point(40, 59);
+			this.lblUserName.Location = new System.Drawing.Point(49, 59);
 			this.lblUserName.Name = "lblUserName";
 			this.lblUserName.Size = new System.Drawing.Size(90, 21);
 			this.lblUserName.TabIndex = 1;
@@ -78,7 +78,7 @@
 			this.lblEmail.AutoSize = true;
 			this.lblEmail.BackColor = System.Drawing.Color.Transparent;
 			this.lblEmail.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.lblEmail.Location = new System.Drawing.Point(40, 101);
+			this.lblEmail.Location = new System.Drawing.Point(49, 101);
 			this.lblEmail.Name = "lblEmail";
 			this.lblEmail.Size = new System.Drawing.Size(74, 21);
 			this.lblEmail.TabIndex = 2;
@@ -89,7 +89,7 @@
 			this.lblPassword.AutoSize = true;
 			this.lblPassword.BackColor = System.Drawing.Color.Transparent;
 			this.lblPassword.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.lblPassword.Location = new System.Drawing.Point(40, 143);
+			this.lblPassword.Location = new System.Drawing.Point(49, 143);
 			this.lblPassword.Name = "lblPassword";
 			this.lblPassword.Size = new System.Drawing.Size(42, 21);
 			this.lblPassword.TabIndex = 3;
@@ -100,7 +100,7 @@
 			this.lblAge.AutoSize = true;
 			this.lblAge.BackColor = System.Drawing.Color.Transparent;
 			this.lblAge.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.lblAge.Location = new System.Drawing.Point(40, 185);
+			this.lblAge.Location = new System.Drawing.Point(49, 185);
 			this.lblAge.Name = "lblAge";
 			this.lblAge.Size = new System.Drawing.Size(42, 21);
 			this.lblAge.TabIndex = 4;
@@ -111,7 +111,7 @@
 			this.lblGender.AutoSize = true;
 			this.lblGender.BackColor = System.Drawing.Color.Transparent;
 			this.lblGender.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.lblGender.Location = new System.Drawing.Point(40, 227);
+			this.lblGender.Location = new System.Drawing.Point(49, 227);
 			this.lblGender.Name = "lblGender";
 			this.lblGender.Size = new System.Drawing.Size(42, 21);
 			this.lblGender.TabIndex = 5;
@@ -122,7 +122,7 @@
 			this.lblHeight.AutoSize = true;
 			this.lblHeight.BackColor = System.Drawing.Color.Transparent;
 			this.lblHeight.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.lblHeight.Location = new System.Drawing.Point(40, 269);
+			this.lblHeight.Location = new System.Drawing.Point(49, 269);
 			this.lblHeight.Name = "lblHeight";
 			this.lblHeight.Size = new System.Drawing.Size(97, 21);
 			this.lblHeight.TabIndex = 6;
@@ -133,7 +133,7 @@
 			this.lblWeight.AutoSize = true;
 			this.lblWeight.BackColor = System.Drawing.Color.Transparent;
 			this.lblWeight.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.lblWeight.Location = new System.Drawing.Point(40, 311);
+			this.lblWeight.Location = new System.Drawing.Point(49, 311);
 			this.lblWeight.Name = "lblWeight";
 			this.lblWeight.Size = new System.Drawing.Size(93, 21);
 			this.lblWeight.TabIndex = 7;
@@ -144,7 +144,7 @@
 			this.lblActivityLevel.AutoSize = true;
 			this.lblActivityLevel.BackColor = System.Drawing.Color.Transparent;
 			this.lblActivityLevel.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.lblActivityLevel.Location = new System.Drawing.Point(40, 353);
+			this.lblActivityLevel.Location = new System.Drawing.Point(49, 353);
 			this.lblActivityLevel.Name = "lblActivityLevel";
 			this.lblActivityLevel.Size = new System.Drawing.Size(74, 21);
 			this.lblActivityLevel.TabIndex = 8;
@@ -153,7 +153,7 @@
 			// txtUserName
 			// 
 			this.txtUserName.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.txtUserName.Location = new System.Drawing.Point(133, 53);
+			this.txtUserName.Location = new System.Drawing.Point(142, 53);
 			this.txtUserName.MaxLength = 12;
 			this.txtUserName.Name = "txtUserName";
 			this.txtUserName.Size = new System.Drawing.Size(182, 27);
@@ -164,7 +164,7 @@
 			// txtEmail
 			// 
 			this.txtEmail.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.txtEmail.Location = new System.Drawing.Point(133, 95);
+			this.txtEmail.Location = new System.Drawing.Point(142, 95);
 			this.txtEmail.Name = "txtEmail";
 			this.txtEmail.Size = new System.Drawing.Size(182, 27);
 			this.txtEmail.TabIndex = 10;
@@ -172,7 +172,7 @@
 			// txtPassword
 			// 
 			this.txtPassword.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.txtPassword.Location = new System.Drawing.Point(133, 137);
+			this.txtPassword.Location = new System.Drawing.Point(142, 137);
 			this.txtPassword.MaxLength = 16;
 			this.txtPassword.Name = "txtPassword";
 			this.txtPassword.Size = new System.Drawing.Size(182, 27);
@@ -184,7 +184,7 @@
 			// txtAge
 			// 
 			this.txtAge.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.txtAge.Location = new System.Drawing.Point(133, 179);
+			this.txtAge.Location = new System.Drawing.Point(142, 179);
 			this.txtAge.Name = "txtAge";
 			this.txtAge.Size = new System.Drawing.Size(182, 27);
 			this.txtAge.TabIndex = 12;
@@ -192,7 +192,7 @@
 			// txtHeight
 			// 
 			this.txtHeight.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.txtHeight.Location = new System.Drawing.Point(133, 263);
+			this.txtHeight.Location = new System.Drawing.Point(142, 263);
 			this.txtHeight.Name = "txtHeight";
 			this.txtHeight.Size = new System.Drawing.Size(182, 27);
 			this.txtHeight.TabIndex = 14;
@@ -200,7 +200,7 @@
 			// txtWeight
 			// 
 			this.txtWeight.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.txtWeight.Location = new System.Drawing.Point(133, 305);
+			this.txtWeight.Location = new System.Drawing.Point(142, 305);
 			this.txtWeight.Name = "txtWeight";
 			this.txtWeight.Size = new System.Drawing.Size(182, 27);
 			this.txtWeight.TabIndex = 15;
@@ -213,7 +213,7 @@
 			this.cmbGender.Items.AddRange(new object[] {
             "Male",
             "Female"});
-			this.cmbGender.Location = new System.Drawing.Point(133, 221);
+			this.cmbGender.Location = new System.Drawing.Point(142, 221);
 			this.cmbGender.Name = "cmbGender";
 			this.cmbGender.Size = new System.Drawing.Size(182, 27);
 			this.cmbGender.TabIndex = 17;
@@ -229,7 +229,7 @@
             "3",
             "4",
             "5"});
-			this.cmbActivityLevel.Location = new System.Drawing.Point(133, 347);
+			this.cmbActivityLevel.Location = new System.Drawing.Point(142, 347);
 			this.cmbActivityLevel.Name = "cmbActivityLevel";
 			this.cmbActivityLevel.Size = new System.Drawing.Size(182, 27);
 			this.cmbActivityLevel.TabIndex = 18;
@@ -238,7 +238,8 @@
 			// 
 			this.btnBackToLogin.BackColor = System.Drawing.Color.Red;
 			this.btnBackToLogin.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.btnBackToLogin.Location = new System.Drawing.Point(44, 390);
+			this.btnBackToLogin.ForeColor = System.Drawing.Color.White;
+			this.btnBackToLogin.Location = new System.Drawing.Point(53, 390);
 			this.btnBackToLogin.Name = "btnBackToLogin";
 			this.btnBackToLogin.Size = new System.Drawing.Size(100, 40);
 			this.btnBackToLogin.TabIndex = 19;
@@ -250,7 +251,8 @@
 			// 
 			this.btnRegister.BackColor = System.Drawing.Color.DodgerBlue;
 			this.btnRegister.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.btnRegister.Location = new System.Drawing.Point(215, 390);
+			this.btnRegister.ForeColor = System.Drawing.Color.White;
+			this.btnRegister.Location = new System.Drawing.Point(224, 390);
 			this.btnRegister.Name = "btnRegister";
 			this.btnRegister.Size = new System.Drawing.Size(100, 40);
 			this.btnRegister.TabIndex = 20;

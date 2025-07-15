@@ -61,6 +61,27 @@ namespace IC.CalorieControl
 				txtPassword.PasswordChar = '\0'; // 不使用密碼字符
 			}
 		}
+		private void txtUserName_MouseEnter(object sender, EventArgs e)
+		{
+			// 這裡可以添加用戶名輸入的相關邏輯
+			txtUserName.BackColor = Color.LightGray; // 鼠標移入時改變背景顏色
+		}
+		private void txtUserName_MouseLeave(object sender, EventArgs e)
+		{
+			// 這裡可以添加用戶名輸入的相關邏輯
+			txtUserName.BackColor = SystemColors.Control; // 鼠標移出時恢復背景顏色
+		}
+		private void txtPassword_MouseEnter(object sender, EventArgs e)
+		{
+			// 這裡可以添加密碼輸入的相關邏輯
+			txtPassword.BackColor = Color.LightGray; // 鼠標移入時改變背景顏色
+		}
+		private void txtPassword_MouseLeave(object sender, EventArgs e)
+		{
+			// 這裡可以添加密碼輸入的相關邏輯
+			txtPassword.BackColor = SystemColors.Control; // 鼠標移出時恢復背景顏色
+		}
+
 		private void btnLogin_Click(object sender, EventArgs e)
 		{
 			try

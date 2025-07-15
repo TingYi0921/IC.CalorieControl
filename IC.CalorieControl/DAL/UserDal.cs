@@ -82,5 +82,68 @@ namespace IC.CalorieControl.DAL
 			var bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(rawData));
 			return BitConverter.ToString(bytes).Replace("-", "").ToLower();
 		}
+
+		public UserProfile GetUserByUserName(string userName)
+		{
+			string query = "SELECT * FROM UserProfile WHERE UserName = @UserName";
+			var conn = new SqlConnection(connectionString);
+			var cmd = new SqlCommand(query, conn);
+			cmd.Parameters.AddWithValue("@UserName", userName);
+			conn.Open();
+			var reader = cmd.ExecuteReader();
+			if (reader.Read())
+			{
+				return new UserProfile
+				{
+					UserId = Convert.ToInt32(reader["UserId"]),
+					UserName = reader["UserName"].ToString(),
+					Email = reader["Email"].ToString(),
+					Age = Convert.ToInt32(reader["Age"]),
+					Gender = reader["Gender"].ToString(),
+					HeightCm = Convert.ToDecimal(reader["HeightCm"]),
+					WeightKg = Convert.ToDecimal(reader["WeightKg"]),
+					ActivityLevel = Convert.ToInt16(reader["ActivityLevel"]),
+					CreatedAt = Convert.ToDateTime(reader["CreatedAt"]),
+					UpdatedAt = Convert.ToDateTime(reader["UpdatedAt"])
+				};
+			}
+			return null;
+		}
+
+		public UserProfile CloneUser(UserProfile user)
+		{
+			return new UserProfile
+			{
+				UserId = user.UserId,
+				UserName = user.UserName,
+				Email = user.Email,
+				PasswordHash = user.PasswordHash,
+				Age = user.Age,
+				Gender = user.Gender,
+				HeightCm = user.HeightCm,
+				WeightKg = user.WeightKg,
+				ActivityLevel = user.ActivityLevel,
+				CreatedAt = user.CreatedAt,
+				UpdatedAt = user.UpdatedAt
+			};
+		}
+
+		public void UpdateUserProfile(UserProfile user)
+		{
+			string query = @"UPDATE UserProfile SET Email = @Email, PasswordHash = @PasswordHash, Age = @Age, Gender = @Gender, HeightCm = @HeightCm, WeightKg = @WeightKg, ActivityLevel = @ActivityLevel, UpdatedAt = @UpdatedAt WHERE UserId = @UserId";
+			var conn = new SqlConnection(connectionString);
+			var cmd = new SqlCommand(query, conn);
+			cmd.Parameters.AddWithValue("@Email", user.Email);
+			cmd.Parameters.AddWithValue("@PasswordHash", ComputeSha256Hash(user.PasswordHash));
+			cmd.Parameters.AddWithValue("@Age", user.Age);
+			cmd.Parameters.AddWithValue("@Gender", user.Gender);
+			cmd.Parameters.AddWithValue("@HeightCm", user.HeightCm);
+			cmd.Parameters.AddWithValue("@WeightKg", user.WeightKg);
+			cmd.Parameters.AddWithValue("@ActivityLevel", user.ActivityLevel);
+			cmd.Parameters.AddWithValue("@UpdatedAt", user.UpdatedAt);
+			cmd.Parameters.AddWithValue("@UserId", user.UserId);
+			conn.Open();
+			cmd.ExecuteNonQuery();
+		}
 	}
 }
