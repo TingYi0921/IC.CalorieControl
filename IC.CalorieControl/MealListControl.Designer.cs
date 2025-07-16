@@ -60,7 +60,7 @@
 			this.dtpLogDate.Name = "dtpLogDate";
 			this.dtpLogDate.Size = new System.Drawing.Size(200, 22);
 			this.dtpLogDate.TabIndex = 0;
-			this.dtpLogDate.ValueChanged += new System.EventHandler(this.dtpLogDate_ValueChanged_1);
+			this.dtpLogDate.ValueChanged += new System.EventHandler(this.dtpLogDate_ValueChanged);
 			// 
 			// label1
 			// 
@@ -201,7 +201,7 @@
 			this.btnDeleteLog.TabIndex = 43;
 			this.btnDeleteLog.Text = "刪除選取紀錄";
 			this.btnDeleteLog.UseVisualStyleBackColor = false;
-			this.btnDeleteLog.Click += new System.EventHandler(this.btnDeleteLog_Click_1);
+			this.btnDeleteLog.Click += new System.EventHandler(this.btnDeleteLog_Click);
 			// 
 			// MealListControl
 			// 

@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\MealService.cs" />
     <Compile Include="BLL\UserService.cs" />
     <Compile Include="CalorieControlSystemDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -60,7 +61,9 @@
     </Compile>
     <Compile Include="Classes\DailyNutritionSummary.cs" />
     <Compile Include="Classes\FoodItem.cs" />
+    <Compile Include="Classes\LoginSession.cs" />
     <Compile Include="Classes\MealLog.cs" />
+    <Compile Include="Classes\SessionManager.cs" />
     <Compile Include="Classes\UserProfile.cs" />
     <Compile Include="DailySummaryControl.cs">
       <SubType>UserControl</SubType>

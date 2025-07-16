@@ -1,4 +1,5 @@
-﻿using IC.CalorieControl.Classes;
+﻿using IC.CalorieControl.BLL;
+using IC.CalorieControl.Classes;
 using IC.CalorieControl.DAL;
 using System;
 using System.Collections.Generic;
@@ -15,12 +16,14 @@ namespace IC.CalorieControl
 	public partial class MealInputControl : UserControl
 	{
 		public event Action OnAddToLogCompleted;
-		private readonly MealService mealService;
-		private readonly int currentUserId = 1; // TODO: 從 Session 取得目前使用者 ID
+		private readonly MealService _mealService;
+		private readonly int _currentUserId = SessionManager.CurrentUserId;
 		public MealInputControl()
 		{
 			InitializeComponent();
-			mealService = new MealService(new FoodRepository("your-connection-string"), new MealLogRepository("your-connection-string"));
+			_mealService = new MealService
+				(new FoodRepository("Data Source=DESKTOP-PAKSETB\\SQLEXPRESS;Initial Catalog=CalorieControlSystem;Integrated Security=True"), 
+				new MealLogRepository("Data Source=DESKTOP-PAKSETB\\SQLEXPRESS;Initial Catalog=CalorieControlSystem;Integrated Security=True"));
 		}
 
 		private void btnAddToLog_Click(object sender, EventArgs e)
@@ -45,14 +48,17 @@ namespace IC.CalorieControl
 				Carbohydrates = carbs,
 				Protein = protein,
 				Fat = fat,
-				UserId = chkSaveAsFavorite.Checked ? currentUserId : null,
+				UserId = chkSaveAsFavorite.Checked ? (int?)_currentUserId : null,
 				CreatedAt = DateTime.Now,
 				UpdatedAt = DateTime.Now
 			};
 
 			if (chkSaveAsFavorite.Checked)
 			{
-				mealService.AddFoodItem(food);
+				if (_mealService.AddFoodItem(food, out string msg))
+					MessageBox.Show(msg, "完成", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				else
+					MessageBox.Show(msg, "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 			else
 			{
@@ -63,7 +69,7 @@ namespace IC.CalorieControl
 			// 建立 MealLog 紀錄
 			var log = new MealLog
 			{
-				UserId = currentUserId,
+				UserId = _currentUserId,
 				FoodId = food.FoodId,
 				LogTime = DateTime.Now,
 				Quantity = food.WeightGrams,
@@ -71,8 +77,10 @@ namespace IC.CalorieControl
 				UpdatedAt = DateTime.Now
 			};
 
-			mealService.AddMealLog(log);
-			MessageBox.Show("紀錄成功！");
+			if (_mealService.AddMealLog(log, out string logMsg))
+				MessageBox.Show(logMsg, "完成", MessageBoxButtons.OK, MessageBoxIcon.Information);
+			else
+				MessageBox.Show(logMsg, "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			OnAddToLogCompleted?.Invoke(); // 通知MainForm切換畫面
 		}
 	}

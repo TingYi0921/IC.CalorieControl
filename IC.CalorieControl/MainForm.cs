@@ -1,4 +1,5 @@
 ﻿using IC.CalorieControl.BLL;
+using IC.CalorieControl.Classes;
 using IC.CalorieControl.DAL;
 using System;
 using System.Collections.Generic;
@@ -16,25 +17,31 @@ namespace IC.CalorieControl
 	public partial class MainForm : Form
 	{
 		private string _userName;
-		private readonly UserService userService = new UserService(new UserDal());
-		private MealInputControl mealInputControl;
-		private MealListControl mealListControl;
-		private DailySummaryControl dailySummaryControl;
+		private readonly UserService _userService = new UserService(new UserDal());
+		private UserProfileControl _userProfileControl;
+		private MealInputControl _mealInputControl;
+		private MealListControl _mealListControl;
+		private DailySummaryControl _dailySummaryControl;
 
 		public MainForm(string userName)
 		{
 			InitializeComponent();
+			pnMainpanel.Visible = true;
+
 			_userName = userName;
 			lblWelcome.Text = $"您好，{_userName}";
-			mealInputControl = new MealInputControl();
-			mealInputControl.Dock = DockStyle.Fill;
-			mealInputControl.OnAddToLogCompleted += () => LoadMealListControl();
+			_userProfileControl = new UserProfileControl(_userService, _userName);
+			_userProfileControl.Dock = DockStyle.Fill;
 
-			mealListControl = new MealListControl();
-			mealListControl.Dock = DockStyle.Fill;
+			_mealInputControl = new MealInputControl();
+			_mealInputControl.Dock = DockStyle.Fill;
+			_mealInputControl.OnAddToLogCompleted += () => LoadMealListControl();
 
-			dailySummaryControl = new DailySummaryControl();
-			dailySummaryControl.Dock = DockStyle.Fill;
+			_mealListControl = new MealListControl();
+			_mealListControl.Dock = DockStyle.Fill;
+
+			_dailySummaryControl = new DailySummaryControl();
+			_dailySummaryControl.Dock = DockStyle.Fill;
 
 			LoadMealInputControl();
 		}
@@ -91,30 +98,26 @@ namespace IC.CalorieControl
 		private void LoadUserProfileControl()
 		{
 			pnMainpanel.Controls.Clear(); // 清除舊的內容
-
-			var profileControl = new UserProfileControl(userService, _userName);
-			profileControl.Dock = DockStyle.Fill;
-
-			pnMainpanel.Controls.Add(profileControl);
+			pnMainpanel.Controls.Add(_userProfileControl);
 		}
 
 		private void LoadMealInputControl()
 		{
 			pnMainpanel.Controls.Clear();
-			pnMainpanel.Controls.Add(mealInputControl);
+			pnMainpanel.Controls.Add(_mealInputControl);
 		}
 
 		private void LoadMealListControl()
 		{
 			pnMainpanel.Controls.Clear();
-			pnMainpanel.Controls.Add(mealListControl);
+			pnMainpanel.Controls.Add(_mealListControl);
 		}
 
 		private void LoadDailySummaryControl()
 		{
 			pnMainpanel.Controls.Clear();
-			pnMainpanel.Controls.Add(dailySummaryControl);
-			dailySummaryControl.LoadSummary(userId: GetCurrentUserId(), date: DateTime.Today);
+			pnMainpanel.Controls.Add(_dailySummaryControl);
+			_dailySummaryControl.LoadSummary(userId: GetCurrentUserId(), date: DateTime.Today);
 		}
 		// 在主畫面選單 ListItem 中設定事件：
 		private void btnUserProfile_Click(object sender, EventArgs e)
@@ -133,8 +136,14 @@ namespace IC.CalorieControl
 
 		private int GetCurrentUserId()
 		{
-			// TODO: 實作取得目前登入的使用者 ID
-			return 1;
+			return SessionManager.CurrentUserId;
+		}
+
+		private void pictureBox1_Click(object sender, EventArgs e)
+		{
+			pnMainpanel.Controls.Clear();
+			pnMainpanel.Visible = true;
+			pnMainpanel.BringToFront();  // 確保 panel 在最上層
 		}
 	}
 

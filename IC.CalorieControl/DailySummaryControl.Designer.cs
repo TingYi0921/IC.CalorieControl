@@ -105,7 +105,7 @@
 			this.lblTotalCalories.AutoSize = true;
 			this.lblTotalCalories.BackColor = System.Drawing.Color.Transparent;
 			this.lblTotalCalories.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.lblTotalCalories.Location = new System.Drawing.Point(255, 112);
+			this.lblTotalCalories.Location = new System.Drawing.Point(218, 112);
 			this.lblTotalCalories.Name = "lblTotalCalories";
 			this.lblTotalCalories.Size = new System.Drawing.Size(85, 31);
 			this.lblTotalCalories.TabIndex = 47;
@@ -116,7 +116,7 @@
 			this.lblTotalCarbs.AutoSize = true;
 			this.lblTotalCarbs.BackColor = System.Drawing.Color.Transparent;
 			this.lblTotalCarbs.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.lblTotalCarbs.Location = new System.Drawing.Point(255, 176);
+			this.lblTotalCarbs.Location = new System.Drawing.Point(218, 176);
 			this.lblTotalCarbs.Name = "lblTotalCarbs";
 			this.lblTotalCarbs.Size = new System.Drawing.Size(85, 31);
 			this.lblTotalCarbs.TabIndex = 48;
@@ -127,7 +127,7 @@
 			this.lblTotalProtein.AutoSize = true;
 			this.lblTotalProtein.BackColor = System.Drawing.Color.Transparent;
 			this.lblTotalProtein.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.lblTotalProtein.Location = new System.Drawing.Point(255, 240);
+			this.lblTotalProtein.Location = new System.Drawing.Point(218, 240);
 			this.lblTotalProtein.Name = "lblTotalProtein";
 			this.lblTotalProtein.Size = new System.Drawing.Size(85, 31);
 			this.lblTotalProtein.TabIndex = 49;
@@ -138,7 +138,7 @@
 			this.lblTotalFat.AutoSize = true;
 			this.lblTotalFat.BackColor = System.Drawing.Color.Transparent;
 			this.lblTotalFat.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.lblTotalFat.Location = new System.Drawing.Point(255, 304);
+			this.lblTotalFat.Location = new System.Drawing.Point(218, 304);
 			this.lblTotalFat.Name = "lblTotalFat";
 			this.lblTotalFat.Size = new System.Drawing.Size(85, 31);
 			this.lblTotalFat.TabIndex = 50;

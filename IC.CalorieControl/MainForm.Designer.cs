@@ -94,6 +94,7 @@
 			this.pictureBox1.Size = new System.Drawing.Size(150, 150);
 			this.pictureBox1.TabIndex = 40;
 			this.pictureBox1.TabStop = false;
+			this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
 			// 
 			// btnActivity
 			// 
@@ -128,6 +129,7 @@
 			this.btnDailyLog.TabIndex = 38;
 			this.btnDailyLog.Text = "Daily Log";
 			this.btnDailyLog.UseVisualStyleBackColor = false;
+			this.btnDailyLog.Click += new System.EventHandler(this.btnDailyLog_Click);
 			this.btnDailyLog.MouseEnter += new System.EventHandler(this.btnNutrient_MouseEnter);
 			this.btnDailyLog.MouseLeave += new System.EventHandler(this.btnNutrient_MouseLeave);
 			// 
@@ -146,6 +148,7 @@
 			this.btnMealLog.TabIndex = 37;
 			this.btnMealLog.Text = "Meal Log";
 			this.btnMealLog.UseVisualStyleBackColor = false;
+			this.btnMealLog.Click += new System.EventHandler(this.btnMealLog_Click);
 			this.btnMealLog.MouseEnter += new System.EventHandler(this.btnMealLog_MouseEnter);
 			this.btnMealLog.MouseLeave += new System.EventHandler(this.btnMealLog_MouseLeave);
 			// 

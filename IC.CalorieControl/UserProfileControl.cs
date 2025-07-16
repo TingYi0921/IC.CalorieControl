@@ -16,14 +16,16 @@ namespace IC.CalorieControl
 	public partial class UserProfileControl : UserControl
 	{
 		private bool _isEditing = false;
+		private readonly UserService userService;
+		private UserProfile currentUser;
+		private UserProfile originalUser;
+		private readonly int _currentUserId = SessionManager.CurrentUserId;
 		public UserProfileControl()
 		{
 			InitializeComponent();
 			SetEditable(false);
 		}
-		private readonly UserService userService;
-		private UserProfile currentUser;
-		private UserProfile originalUser;
+
 		private Dictionary<short, string> activityMap = new Dictionary<short, string>()
 		{
 			{ 1, "低強度" },

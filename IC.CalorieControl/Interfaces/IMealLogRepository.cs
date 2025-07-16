@@ -12,5 +12,6 @@ namespace IC.CalorieControl.Interfaces
 		void AddMealLog(MealLog log);
 		List<MealLog> GetMealLogs(int userId, DateTime date);
 		DailyNutritionSummary GetDailySummary(int userId, DateTime date);
+		void DeleteMealLog(int logId);
 	}
 }

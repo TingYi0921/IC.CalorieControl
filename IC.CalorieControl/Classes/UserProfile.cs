@@ -20,11 +20,4 @@ namespace IC.CalorieControl.Classes
 		public DateTime CreatedAt { get; set; }
 		public DateTime UpdatedAt { get; set; }
 	}
-	public class LoginSession
-	{
-		public int SessionId { get; set; }
-		public int UserId { get; set; }
-		public DateTime LoginTime { get; set; }
-		public string IpAddress { get; set; }
-	}
 }

@@ -1,4 +1,5 @@
 ﻿using IC.CalorieControl.Classes;
+using IC.CalorieControl.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace IC.CalorieControl.DAL
 {
-	public class FoodRepository
+	public class FoodRepository : IFoodRepository
 	{
 		private readonly string connectionString;
 

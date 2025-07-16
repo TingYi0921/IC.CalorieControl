@@ -102,5 +102,18 @@ namespace IC.CalorieControl.DAL
 				}
 			}
 		}
+		public void DeleteMealLog(int logId)
+		{
+			string sql = "DELETE FROM MealLog WHERE LogId = @LogId";
+			using (var conn = new SqlConnection(connectionString))
+			{
+				conn.Open();
+				using (var cmd = new SqlCommand(sql, conn))
+				{
+					cmd.Parameters.AddWithValue("@LogId", logId);
+					cmd.ExecuteNonQuery();
+				}
+			}
+		}
 	}
 }

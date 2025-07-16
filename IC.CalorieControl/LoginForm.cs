@@ -1,4 +1,5 @@
 ﻿using IC.CalorieControl.BLL;
+using IC.CalorieControl.Classes;
 using IC.CalorieControl.DAL;
 using System;
 using System.Collections.Generic;
@@ -102,6 +103,10 @@ namespace IC.CalorieControl
 					MainForm main = new MainForm(user.UserName);
 					main.FormClosed += (s, args) => this.Close();
 					main.Show();
+
+					// 設定當前使用者資訊
+					SessionManager.CurrentUserId = user.UserId;
+					SessionManager.CurrentUserName = user.UserName;
 				}
 				else
 				{
