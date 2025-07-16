@@ -134,6 +134,7 @@
 			this.Controls.Add(this.dtpLogDate);
 			this.Name = "MealListControl";
 			this.Size = new System.Drawing.Size(589, 424);
+			this.Load += new System.EventHandler(this.MealListControl_Load);
 			((System.ComponentModel.ISupportInitialize)(this.calorieControlSystemDataSet1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.foodItemBindingSource)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.dgvMealLog)).EndInit();
