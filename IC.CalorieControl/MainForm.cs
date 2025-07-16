@@ -18,6 +18,7 @@ namespace IC.CalorieControl
 	{
 		private string _userName;
 		private readonly UserService _userService = new UserService(new UserDal());
+		private MainForm _mainForm;
 		private UserProfileControl _userProfileControl;
 		private MealInputControl _mealInputControl;
 		private MealListControl _mealListControl;
@@ -30,20 +31,23 @@ namespace IC.CalorieControl
 
 			_userName = userName;
 			lblWelcome.Text = $"您好，{_userName}";
+
 			_userProfileControl = new UserProfileControl(_userService, _userName);
 			_userProfileControl.Dock = DockStyle.Fill;
 
 			_mealInputControl = new MealInputControl();
 			_mealInputControl.Dock = DockStyle.Fill;
 			_mealInputControl.OnAddToLogCompleted += () => LoadMealListControl();
+			_mealInputControl.OnViewTodayLogsRequested += () => LoadMealListControl();
 
 			_mealListControl = new MealListControl();
 			_mealListControl.Dock = DockStyle.Fill;
 
 			_dailySummaryControl = new DailySummaryControl();
 			_dailySummaryControl.Dock = DockStyle.Fill;
+			_dailySummaryControl.OnViewTodayLogsRequested += () => LoadMealListControl();
 
-			LoadMealInputControl();
+			LoadMainForm();
 		}
 
 		private void btnUserProfile_MouseEnter(object sender, EventArgs e)
@@ -90,11 +94,21 @@ namespace IC.CalorieControl
 		private void btnLogout_Click(object sender, EventArgs e)
 		{
 			// 手動點擊返回登入
+			// 清空 SessionManager
+			SessionManager.CurrentUserId = 0;
+			SessionManager.CurrentUserName = null;
 			this.Hide();
 			LoginForm login = new LoginForm();
 			login.FormClosed += (s, args) => this.Close();
 			login.Show();
 		}
+
+		private void LoadMainForm()
+		{
+			pnMainpanel.Controls.Clear(); // 清除舊的內容
+			pnMainpanel.Controls.Add(_mainForm);
+		}
+
 		private void LoadUserProfileControl()
 		{
 			pnMainpanel.Controls.Clear(); // 清除舊的內容
@@ -117,7 +131,7 @@ namespace IC.CalorieControl
 		{
 			pnMainpanel.Controls.Clear();
 			pnMainpanel.Controls.Add(_dailySummaryControl);
-			_dailySummaryControl.LoadSummary(userId: GetCurrentUserId(), date: DateTime.Today);
+			_dailySummaryControl.LoadSummaryForDate(date: DateTime.Today);
 		}
 		// 在主畫面選單 ListItem 中設定事件：
 		private void btnUserProfile_Click(object sender, EventArgs e)

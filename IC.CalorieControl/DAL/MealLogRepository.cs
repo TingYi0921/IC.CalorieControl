@@ -70,37 +70,38 @@ namespace IC.CalorieControl.DAL
 		}
 		public DailyNutritionSummary GetDailySummary(int userId, DateTime date)
 		{
+			var summary = new DailyNutritionSummary();
+
 			string sql = @"
-            SELECT SUM(f.Calories * m.Quantity / f.WeightGrams) AS TotalCalories,
-                   SUM(f.Carbohydrates * m.Quantity / f.WeightGrams) AS TotalCarbohydrates,
-                   SUM(f.Protein * m.Quantity / f.WeightGrams) AS TotalProtein,
-                   SUM(f.Fat * m.Quantity / f.WeightGrams) AS TotalFat
-            FROM MealLog m
-            JOIN FoodItem f ON m.FoodId = f.FoodId
-            WHERE m.UserId = @UserId AND CAST(m.LogTime AS DATE) = @Date";
-			using (var conn = new SqlConnection(connectionString))
+        SELECT 
+            ISNULL(SUM(ml.Quantity * fi.Calories / fi.WeightGrams), 0)    AS TotalCalories,
+            ISNULL(SUM(ml.Quantity * fi.Carbohydrates / fi.WeightGrams), 0) AS TotalCarbohydrates,
+            ISNULL(SUM(ml.Quantity * fi.Protein / fi.WeightGrams), 0)     AS TotalProtein,
+            ISNULL(SUM(ml.Quantity * fi.Fat / fi.WeightGrams), 0)         AS TotalFat
+        FROM MealLog ml
+        LEFT JOIN FoodItem fi ON ml.FoodId = fi.FoodId
+        WHERE ml.UserId = @UserId
+          AND CAST(ml.LogTime AS DATE) = @LogDate;
+    ";
+
+			using (SqlConnection conn = new SqlConnection(connectionString))
+			using (SqlCommand cmd = new SqlCommand(sql, conn))
 			{
+				cmd.Parameters.AddWithValue("@UserId", userId);
+				cmd.Parameters.AddWithValue("@LogDate", date.Date);
 				conn.Open();
-				using (var cmd = new SqlCommand(sql, conn))
+				using (var reader = cmd.ExecuteReader())
 				{
-					cmd.Parameters.AddWithValue("@UserId", userId);
-					cmd.Parameters.AddWithValue("@Date", date);
-					using (var reader = cmd.ExecuteReader())
+					if (reader.Read())
 					{
-						if (reader.Read())
-						{
-							return new DailyNutritionSummary
-							{
-								TotalCalories = reader.IsDBNull(0) ? 0 : reader.GetDecimal(0),
-								TotalCarbohydrates = reader.IsDBNull(1) ? 0 : reader.GetDecimal(1),
-								TotalProtein = reader.IsDBNull(2) ? 0 : reader.GetDecimal(2),
-								TotalFat = reader.IsDBNull(3) ? 0 : reader.GetDecimal(3)
-							};
-						}
-						return new DailyNutritionSummary();
+						summary.TotalCalories = reader.GetDecimal(reader.GetOrdinal("TotalCalories"));
+						summary.TotalCarbohydrates = reader.GetDecimal(reader.GetOrdinal("TotalCarbohydrates"));
+						summary.TotalProtein = reader.GetDecimal(reader.GetOrdinal("TotalProtein"));
+						summary.TotalFat = reader.GetDecimal(reader.GetOrdinal("TotalFat"));
 					}
 				}
 			}
+			return summary;
 		}
 		public void DeleteMealLog(int logId)
 		{

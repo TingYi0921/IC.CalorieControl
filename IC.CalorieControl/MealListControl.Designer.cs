@@ -36,18 +36,8 @@
 			this.foodItemBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.foodItemTableAdapter = new IC.CalorieControl.CalorieControlSystemDataSet1TableAdapters.FoodItemTableAdapter();
 			this.tableAdapterManager = new IC.CalorieControl.CalorieControlSystemDataSet1TableAdapters.TableAdapterManager();
-			this.dgvMealLog = new System.Windows.Forms.DataGridView();
-			this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.btnDeleteLog = new System.Windows.Forms.Button();
+			this.dgvMealLog = new System.Windows.Forms.DataGridView();
 			((System.ComponentModel.ISupportInitialize)(this.calorieControlSystemDataSet1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.foodItemBindingSource)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.dgvMealLog)).BeginInit();
@@ -107,89 +97,6 @@
 			this.tableAdapterManager.UpdateOrder = IC.CalorieControl.CalorieControlSystemDataSet1TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
 			this.tableAdapterManager.UserProfileTableAdapter = null;
 			// 
-			// dgvMealLog
-			// 
-			this.dgvMealLog.AutoGenerateColumns = false;
-			this.dgvMealLog.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dgvMealLog.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8,
-            this.dataGridViewTextBoxColumn9,
-            this.dataGridViewTextBoxColumn10});
-			this.dgvMealLog.DataSource = this.foodItemBindingSource;
-			this.dgvMealLog.Location = new System.Drawing.Point(0, 122);
-			this.dgvMealLog.Name = "dgvMealLog";
-			this.dgvMealLog.RowTemplate.Height = 24;
-			this.dgvMealLog.Size = new System.Drawing.Size(589, 302);
-			this.dgvMealLog.TabIndex = 42;
-			// 
-			// dataGridViewTextBoxColumn1
-			// 
-			this.dataGridViewTextBoxColumn1.DataPropertyName = "FoodId";
-			this.dataGridViewTextBoxColumn1.HeaderText = "FoodId";
-			this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-			this.dataGridViewTextBoxColumn1.ReadOnly = true;
-			// 
-			// dataGridViewTextBoxColumn2
-			// 
-			this.dataGridViewTextBoxColumn2.DataPropertyName = "Name";
-			this.dataGridViewTextBoxColumn2.HeaderText = "Name";
-			this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-			// 
-			// dataGridViewTextBoxColumn3
-			// 
-			this.dataGridViewTextBoxColumn3.DataPropertyName = "Calories";
-			this.dataGridViewTextBoxColumn3.HeaderText = "Calories";
-			this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-			// 
-			// dataGridViewTextBoxColumn4
-			// 
-			this.dataGridViewTextBoxColumn4.DataPropertyName = "WeightGrams";
-			this.dataGridViewTextBoxColumn4.HeaderText = "WeightGrams";
-			this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-			// 
-			// dataGridViewTextBoxColumn5
-			// 
-			this.dataGridViewTextBoxColumn5.DataPropertyName = "Carbohydrates";
-			this.dataGridViewTextBoxColumn5.HeaderText = "Carbohydrates";
-			this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-			// 
-			// dataGridViewTextBoxColumn6
-			// 
-			this.dataGridViewTextBoxColumn6.DataPropertyName = "Protein";
-			this.dataGridViewTextBoxColumn6.HeaderText = "Protein";
-			this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-			// 
-			// dataGridViewTextBoxColumn7
-			// 
-			this.dataGridViewTextBoxColumn7.DataPropertyName = "Fat";
-			this.dataGridViewTextBoxColumn7.HeaderText = "Fat";
-			this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-			// 
-			// dataGridViewTextBoxColumn8
-			// 
-			this.dataGridViewTextBoxColumn8.DataPropertyName = "UserId";
-			this.dataGridViewTextBoxColumn8.HeaderText = "UserId";
-			this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-			// 
-			// dataGridViewTextBoxColumn9
-			// 
-			this.dataGridViewTextBoxColumn9.DataPropertyName = "CreatedAt";
-			this.dataGridViewTextBoxColumn9.HeaderText = "CreatedAt";
-			this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-			// 
-			// dataGridViewTextBoxColumn10
-			// 
-			this.dataGridViewTextBoxColumn10.DataPropertyName = "UpdatedAt";
-			this.dataGridViewTextBoxColumn10.HeaderText = "UpdatedAt";
-			this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-			// 
 			// btnDeleteLog
 			// 
 			this.btnDeleteLog.BackColor = System.Drawing.Color.Red;
@@ -203,13 +110,25 @@
 			this.btnDeleteLog.UseVisualStyleBackColor = false;
 			this.btnDeleteLog.Click += new System.EventHandler(this.btnDeleteLog_Click);
 			// 
+			// dgvMealLog
+			// 
+			this.dgvMealLog.AllowUserToOrderColumns = true;
+			this.dgvMealLog.AutoGenerateColumns = false;
+			this.dgvMealLog.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dgvMealLog.DataSource = this.calorieControlSystemDataSet1;
+			this.dgvMealLog.Location = new System.Drawing.Point(0, 124);
+			this.dgvMealLog.Name = "dgvMealLog";
+			this.dgvMealLog.RowTemplate.Height = 24;
+			this.dgvMealLog.Size = new System.Drawing.Size(589, 300);
+			this.dgvMealLog.TabIndex = 44;
+			// 
 			// MealListControl
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.PaleTurquoise;
-			this.Controls.Add(this.btnDeleteLog);
 			this.Controls.Add(this.dgvMealLog);
+			this.Controls.Add(this.btnDeleteLog);
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.dtpLogDate);
@@ -232,17 +151,7 @@
 		private System.Windows.Forms.BindingSource foodItemBindingSource;
 		private CalorieControlSystemDataSet1TableAdapters.FoodItemTableAdapter foodItemTableAdapter;
 		private CalorieControlSystemDataSet1TableAdapters.TableAdapterManager tableAdapterManager;
-		private System.Windows.Forms.DataGridView dgvMealLog;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-		private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
 		private System.Windows.Forms.Button btnDeleteLog;
+		private System.Windows.Forms.DataGridView dgvMealLog;
 	}
 }

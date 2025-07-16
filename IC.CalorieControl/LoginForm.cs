@@ -16,7 +16,7 @@ namespace IC.CalorieControl
 {
 	public partial class LoginForm : Form
 	{
-		private readonly UserService userService = new UserService(new UserDal());
+		private readonly UserService _userService = new UserService(new UserDal());
 		public LoginForm()
 		{
 			InitializeComponent();
@@ -90,13 +90,13 @@ namespace IC.CalorieControl
 				string userName = txtUserName.Text.Trim();
 				string password = txtPassword.Text.Trim();
 
-				var user = userService.Login(userName, password);
+				var user = _userService.Login(userName, password);
 
 				if (user != null)
 				{
 					// 登入成功後紀錄登入紀錄
 					string ip = GetLocalIPAddress();
-					userService.RecordLogin(user.UserId, ip);
+					_userService.RecordLogin(user.UserId, ip);
 
 					// 跳轉到主畫面
 					this.Hide();

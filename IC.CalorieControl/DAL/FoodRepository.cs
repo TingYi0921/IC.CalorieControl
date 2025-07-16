@@ -2,6 +2,7 @@
 using IC.CalorieControl.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -19,24 +20,37 @@ namespace IC.CalorieControl.DAL
 		}
 		public void AddFoodItem(FoodItem item)
 		{
-			string sql = @"INSERT INTO FoodItem (Name, Calories, WeightGrams, Carbohydrates, Protein, Fat, UserId, CreatedAt, UpdatedAt)
-                       VALUES (@Name, @Calories, @WeightGrams, @Carbohydrates, @Protein, @Fat, @UserId, @CreatedAt, @UpdatedAt)";
-			using (var conn = new SqlConnection(connectionString))
+			string sql = @"
+                INSERT INTO FoodItem 
+                    (Name, Calories, WeightGrams, Carbohydrates, Protein, Fat, UserId, CreatedAt, UpdatedAt)
+                VALUES 
+                    (@Name, @Calories, @WeightGrams, @Carbohydrates, @Protein, @Fat, @UserId, @CreatedAt, @UpdatedAt);
+                SELECT CAST(SCOPE_IDENTITY() AS int);";
+
+			using (SqlConnection conn = new SqlConnection(connectionString))
+			using (SqlCommand cmd = new SqlCommand(sql, conn))
 			{
+				cmd.CommandType = CommandType.Text;
+				cmd.Parameters.AddWithValue("@Name", item.Name);
+				cmd.Parameters.AddWithValue("@Calories", item.Calories);
+				cmd.Parameters.AddWithValue("@WeightGrams", item.WeightGrams);
+				cmd.Parameters.AddWithValue("@Carbohydrates", item.Carbohydrates);
+				cmd.Parameters.AddWithValue("@Protein", item.Protein);
+				cmd.Parameters.AddWithValue("@Fat", item.Fat);
+				cmd.Parameters.AddWithValue(
+					"@UserId",
+					item.UserId.HasValue ? (object)item.UserId.Value : DBNull.Value
+				);
+				cmd.Parameters.AddWithValue("@CreatedAt", item.CreatedAt);
+				cmd.Parameters.AddWithValue("@UpdatedAt", item.UpdatedAt);
+
 				conn.Open();
-				using (var cmd = new SqlCommand(sql, conn))
+				object result = cmd.ExecuteScalar();
+				if (result != null && int.TryParse(result.ToString(), out int newId))
 				{
-					cmd.Parameters.AddWithValue("@Name", item.Name);
-					cmd.Parameters.AddWithValue("@Calories", item.Calories);
-					cmd.Parameters.AddWithValue("@WeightGrams", item.WeightGrams);
-					cmd.Parameters.AddWithValue("@Carbohydrates", item.Carbohydrates);
-					cmd.Parameters.AddWithValue("@Protein", item.Protein);
-					cmd.Parameters.AddWithValue("@Fat", item.Fat);
-					cmd.Parameters.AddWithValue("@UserId", item.UserId);
-					cmd.Parameters.AddWithValue("@CreatedAt", item.CreatedAt);
-					cmd.Parameters.AddWithValue("@UpdatedAt", item.UpdatedAt);
-					cmd.ExecuteNonQuery();
+					item.FoodId = newId;
 				}
+				conn.Close();
 			}
 		}
 		public List<FoodItem> GetUserFoodItems(int userId)

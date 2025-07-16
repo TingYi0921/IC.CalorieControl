@@ -29,28 +29,43 @@ namespace IC.CalorieControl
 
 		private void LoadMealLogs(DateTime date)
 		{
-			var logs = _mealService.GetLogsByDate(_currentUserId, date);
-			var data = new List<object>();
-			foreach (var log in logs)
+			// 1. 從 BLL 取出當日所有日誌
+			//var logs = _mealService.GetLogsByDate(_currentUserId, date);
+			var logs = _mealService.GetLogsByDate(SessionManager.CurrentUserId, date);
+			// 2. 組成匿名物件清單，用於綁定 DataGridView
+			var data = logs.Select(log =>
 			{
 				var food = _mealService.GetFoodItemById(log.FoodId);
-				data.Add(new
+				return new
 				{
 					log.LogId,
-					Name = food?.Name ?? "",
-					Calories = food != null ? (food.Calories * log.Quantity / food.WeightGrams).ToString("F2") : "0",
+					Name = food?.Name ?? "手動輸入",
+					Calories = food != null
+									  ? (food.Calories * log.Quantity / food.WeightGrams).ToString("F2")
+									  : log.Quantity.ToString("F2"),
 					Quantity = log.Quantity,
-					Carbohydrates = food != null ? (food.Carbohydrates * log.Quantity / food.WeightGrams).ToString("F2") : "0",
-					Protein = food != null ? (food.Protein * log.Quantity / food.WeightGrams).ToString("F2") : "0",
-					Fat = food != null ? (food.Fat * log.Quantity / food.WeightGrams).ToString("F2") : "0",
+					Carbohydrates = food != null
+									  ? (food.Carbohydrates * log.Quantity / food.WeightGrams).ToString("F2")
+									  : "0",
+					Protein = food != null
+									  ? (food.Protein * log.Quantity / food.WeightGrams).ToString("F2")
+									  : "0",
+					Fat = food != null
+									  ? (food.Fat * log.Quantity / food.WeightGrams).ToString("F2")
+									  : "0",
 					Time = log.LogTime.ToString("HH:mm")
-				});
-			}
+				};
+			}).ToList();
+
+			// 3. 清除舊的 DataSource，再重新綁定
+			dgvMealLog.DataSource = null;
+			dgvMealLog.AutoGenerateColumns = true;
 			dgvMealLog.DataSource = data;
+
+			// 4. 隱藏 LogId 欄位（僅作為內部識別使用）
 			if (dgvMealLog.Columns.Contains("LogId"))
 				dgvMealLog.Columns["LogId"].Visible = false;
 		}
-
 
 		private void dtpLogDate_ValueChanged(object sender, EventArgs e)
 		{

@@ -10,13 +10,14 @@ namespace IC.CalorieControl.BLL
 {
 	public class MealService
 	{
-		private readonly IFoodRepository foodRepo;
-		private readonly IMealLogRepository logRepo;
+		private readonly IFoodRepository _foodRepo;
+		private readonly IMealLogRepository _logRepo;
+		private readonly int _currentUserId = SessionManager.CurrentUserId;
 
 		public MealService(IFoodRepository foodRepo, IMealLogRepository logRepo)
 		{
-			this.foodRepo = foodRepo;
-			this.logRepo = logRepo;
+			this._foodRepo = foodRepo;
+			this._logRepo = logRepo;
 		}
 
 		/// <summary>
@@ -39,7 +40,7 @@ namespace IC.CalorieControl.BLL
 				message = "營養素數值不可為負。";
 				return false;
 			}
-			foodRepo.AddFoodItem(item);
+			_foodRepo.AddFoodItem(item);
 			message = "食物已加入收藏。";
 			return true;
 		}
@@ -49,7 +50,7 @@ namespace IC.CalorieControl.BLL
 		/// </summary>
 		public List<FoodItem> GetUserFoodItems(int userId)
 		{
-			return foodRepo.GetUserFoodItems(userId);
+			return _foodRepo.GetUserFoodItems(userId);
 		}
 
 		/// <summary>
@@ -57,7 +58,7 @@ namespace IC.CalorieControl.BLL
 		/// </summary>
 		public FoodItem GetFoodItemById(int foodId)
 		{
-			return foodRepo.GetFoodItemById(foodId);
+			return _foodRepo.GetFoodItemById(foodId);
 		}
 
 		/// <summary>
@@ -65,17 +66,12 @@ namespace IC.CalorieControl.BLL
 		/// </summary>
 		public bool AddMealLog(MealLog log, out string message)
 		{
-			if (log.FoodId <= 0)
-			{
-				message = "請先選擇或輸入一項食物。";
-				return false;
-			}
 			if (log.Quantity <= 0)
 			{
 				message = "食用份量必須大於 0。";
 				return false;
 			}
-			logRepo.AddMealLog(log);
+			_logRepo.AddMealLog(log);
 			message = "餐點已紀錄。";
 			return true;
 		}
@@ -85,7 +81,7 @@ namespace IC.CalorieControl.BLL
 		/// </summary>
 		public List<MealLog> GetLogsByDate(int userId, DateTime date)
 		{
-			return logRepo.GetMealLogs(userId, date);
+			return _logRepo.GetMealLogs(userId, date);
 		}
 
 		/// <summary>
@@ -98,7 +94,7 @@ namespace IC.CalorieControl.BLL
 				message = "無效的紀錄編號。";
 				return false;
 			}
-			logRepo.DeleteMealLog(logId);
+			_logRepo.DeleteMealLog(logId);
 			message = "餐點紀錄已刪除。";
 			return true;
 		}
@@ -108,7 +104,7 @@ namespace IC.CalorieControl.BLL
 		/// </summary>
 		public DailyNutritionSummary GetDailySummary(int userId, DateTime date)
 		{
-			return logRepo.GetDailySummary(userId, date);
+			return _logRepo.GetDailySummary(userId, date.Date);
 		}
 	}
 

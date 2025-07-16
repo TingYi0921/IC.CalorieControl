@@ -40,6 +40,9 @@
 			this.lblTotalFat = new System.Windows.Forms.Label();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.pictureBox2 = new System.Windows.Forms.PictureBox();
+			this.dtpSummaryDate = new System.Windows.Forms.DateTimePicker();
+			this.label6 = new System.Windows.Forms.Label();
+			this.btnViewLogs = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
 			this.SuspendLayout();
@@ -61,7 +64,7 @@
 			this.label1.AutoSize = true;
 			this.label1.BackColor = System.Drawing.Color.Transparent;
 			this.label1.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.label1.Location = new System.Drawing.Point(31, 112);
+			this.label1.Location = new System.Drawing.Point(31, 158);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(164, 31);
 			this.label1.TabIndex = 43;
@@ -72,7 +75,7 @@
 			this.label3.AutoSize = true;
 			this.label3.BackColor = System.Drawing.Color.Transparent;
 			this.label3.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.label3.Location = new System.Drawing.Point(31, 176);
+			this.label3.Location = new System.Drawing.Point(31, 220);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(140, 31);
 			this.label3.TabIndex = 44;
@@ -83,7 +86,7 @@
 			this.label4.AutoSize = true;
 			this.label4.BackColor = System.Drawing.Color.Transparent;
 			this.label4.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.label4.Location = new System.Drawing.Point(31, 240);
+			this.label4.Location = new System.Drawing.Point(31, 282);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(164, 31);
 			this.label4.TabIndex = 45;
@@ -94,7 +97,7 @@
 			this.label5.AutoSize = true;
 			this.label5.BackColor = System.Drawing.Color.Transparent;
 			this.label5.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.label5.Location = new System.Drawing.Point(31, 304);
+			this.label5.Location = new System.Drawing.Point(31, 344);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(140, 31);
 			this.label5.TabIndex = 46;
@@ -105,7 +108,7 @@
 			this.lblTotalCalories.AutoSize = true;
 			this.lblTotalCalories.BackColor = System.Drawing.Color.Transparent;
 			this.lblTotalCalories.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.lblTotalCalories.Location = new System.Drawing.Point(218, 112);
+			this.lblTotalCalories.Location = new System.Drawing.Point(218, 158);
 			this.lblTotalCalories.Name = "lblTotalCalories";
 			this.lblTotalCalories.Size = new System.Drawing.Size(85, 31);
 			this.lblTotalCalories.TabIndex = 47;
@@ -116,7 +119,7 @@
 			this.lblTotalCarbs.AutoSize = true;
 			this.lblTotalCarbs.BackColor = System.Drawing.Color.Transparent;
 			this.lblTotalCarbs.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.lblTotalCarbs.Location = new System.Drawing.Point(218, 176);
+			this.lblTotalCarbs.Location = new System.Drawing.Point(218, 220);
 			this.lblTotalCarbs.Name = "lblTotalCarbs";
 			this.lblTotalCarbs.Size = new System.Drawing.Size(85, 31);
 			this.lblTotalCarbs.TabIndex = 48;
@@ -127,7 +130,7 @@
 			this.lblTotalProtein.AutoSize = true;
 			this.lblTotalProtein.BackColor = System.Drawing.Color.Transparent;
 			this.lblTotalProtein.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.lblTotalProtein.Location = new System.Drawing.Point(218, 240);
+			this.lblTotalProtein.Location = new System.Drawing.Point(218, 282);
 			this.lblTotalProtein.Name = "lblTotalProtein";
 			this.lblTotalProtein.Size = new System.Drawing.Size(85, 31);
 			this.lblTotalProtein.TabIndex = 49;
@@ -138,7 +141,7 @@
 			this.lblTotalFat.AutoSize = true;
 			this.lblTotalFat.BackColor = System.Drawing.Color.Transparent;
 			this.lblTotalFat.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.lblTotalFat.Location = new System.Drawing.Point(218, 304);
+			this.lblTotalFat.Location = new System.Drawing.Point(218, 344);
 			this.lblTotalFat.Name = "lblTotalFat";
 			this.lblTotalFat.Size = new System.Drawing.Size(85, 31);
 			this.lblTotalFat.TabIndex = 50;
@@ -157,18 +160,53 @@
 			// pictureBox2
 			// 
 			this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-			this.pictureBox2.Location = new System.Drawing.Point(407, 47);
+			this.pictureBox2.Location = new System.Drawing.Point(449, 140);
 			this.pictureBox2.Name = "pictureBox2";
-			this.pictureBox2.Size = new System.Drawing.Size(182, 160);
+			this.pictureBox2.Size = new System.Drawing.Size(140, 117);
 			this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
 			this.pictureBox2.TabIndex = 52;
 			this.pictureBox2.TabStop = false;
+			// 
+			// dtpSummaryDate
+			// 
+			this.dtpSummaryDate.Location = new System.Drawing.Point(153, 103);
+			this.dtpSummaryDate.Name = "dtpSummaryDate";
+			this.dtpSummaryDate.Size = new System.Drawing.Size(200, 22);
+			this.dtpSummaryDate.TabIndex = 53;
+			this.dtpSummaryDate.ValueChanged += new System.EventHandler(this.dtpSummaryDate_ValueChanged);
+			// 
+			// label6
+			// 
+			this.label6.AutoSize = true;
+			this.label6.BackColor = System.Drawing.Color.Transparent;
+			this.label6.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+			this.label6.Location = new System.Drawing.Point(31, 96);
+			this.label6.Name = "label6";
+			this.label6.Size = new System.Drawing.Size(116, 31);
+			this.label6.TabIndex = 54;
+			this.label6.Text = "選擇日期:";
+			// 
+			// btnViewLogs
+			// 
+			this.btnViewLogs.BackColor = System.Drawing.Color.DeepSkyBlue;
+			this.btnViewLogs.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+			this.btnViewLogs.ForeColor = System.Drawing.Color.White;
+			this.btnViewLogs.Location = new System.Drawing.Point(448, 92);
+			this.btnViewLogs.Name = "btnViewLogs";
+			this.btnViewLogs.Size = new System.Drawing.Size(127, 33);
+			this.btnViewLogs.TabIndex = 55;
+			this.btnViewLogs.Text = "檢視餐點紀錄";
+			this.btnViewLogs.UseVisualStyleBackColor = false;
+			this.btnViewLogs.Click += new System.EventHandler(this.btnViewLogs_Click);
 			// 
 			// DailySummaryControl
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.PaleTurquoise;
+			this.Controls.Add(this.btnViewLogs);
+			this.Controls.Add(this.label6);
+			this.Controls.Add(this.dtpSummaryDate);
 			this.Controls.Add(this.pictureBox2);
 			this.Controls.Add(this.lblTotalFat);
 			this.Controls.Add(this.lblTotalProtein);
@@ -202,5 +240,8 @@
 		private System.Windows.Forms.Label lblTotalFat;
 		private System.Windows.Forms.PictureBox pictureBox1;
 		private System.Windows.Forms.PictureBox pictureBox2;
+		private System.Windows.Forms.DateTimePicker dtpSummaryDate;
+		private System.Windows.Forms.Label label6;
+		private System.Windows.Forms.Button btnViewLogs;
 	}
 }
