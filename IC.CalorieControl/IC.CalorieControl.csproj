@@ -73,7 +73,7 @@
     </Compile>
     <Compile Include="DAL\FoodRepository.cs" />
     <Compile Include="DAL\MealLogRepository.cs" />
-    <Compile Include="DAL\UserDal.cs" />
+    <Compile Include="DAL\UserRepository.cs" />
     <Compile Include="Interfaces\IFoodRepository.cs" />
     <Compile Include="Interfaces\IMealLogRepository.cs" />
     <Compile Include="Interfaces\IUserRepository.cs" />

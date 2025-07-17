@@ -22,10 +22,10 @@ namespace IC.CalorieControl.DAL
 		{
 			string sql = @"INSERT INTO MealLog (UserId, LogTime, FoodId, Quantity, CreatedAt, UpdatedAt)
                        VALUES (@UserId, @LogTime, @FoodId, @Quantity, @CreatedAt, @UpdatedAt)";
-			using (var conn = new SqlConnection(connectionString))
+			using (SqlConnection conn = new SqlConnection(connectionString))
 			{
 				conn.Open();
-				using (var cmd = new SqlCommand(sql, conn))
+				using (SqlCommand cmd = new SqlCommand(sql, conn))
 				{
 					cmd.Parameters.AddWithValue("@UserId", log.UserId);
 					cmd.Parameters.AddWithValue("@LogTime", log.LogTime);
@@ -41,10 +41,10 @@ namespace IC.CalorieControl.DAL
 		{
 			var list = new List<MealLog>();
 			string sql = @"SELECT * FROM MealLog WHERE UserId = @UserId AND CAST(LogTime AS DATE) = @Date";
-			using (var conn = new SqlConnection(connectionString))
+			using (SqlConnection conn = new SqlConnection(connectionString))
 			{
 				conn.Open();
-				using (var cmd = new SqlCommand(sql, conn))
+				using (SqlCommand cmd = new SqlCommand(sql, conn))
 				{
 					cmd.Parameters.AddWithValue("@UserId", userId);
 					cmd.Parameters.AddWithValue("@Date", date);
@@ -106,10 +106,10 @@ namespace IC.CalorieControl.DAL
 		public void DeleteMealLog(int logId)
 		{
 			string sql = "DELETE FROM MealLog WHERE LogId = @LogId";
-			using (var conn = new SqlConnection(connectionString))
+			using (SqlConnection conn = new SqlConnection(connectionString))
 			{
 				conn.Open();
-				using (var cmd = new SqlCommand(sql, conn))
+				using (SqlCommand cmd = new SqlCommand(sql, conn))
 				{
 					cmd.Parameters.AddWithValue("@LogId", logId);
 					cmd.ExecuteNonQuery();

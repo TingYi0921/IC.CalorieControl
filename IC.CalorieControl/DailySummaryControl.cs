@@ -16,7 +16,7 @@ namespace IC.CalorieControl
 {
 	public partial class DailySummaryControl : UserControl
 	{
-		public event Action OnViewTodayLogsRequested; // 用於檢視當日紀錄事件
+		public event Action<DateTime> OnViewTodayLogsRequested; // 用於檢視當日紀錄事件
 		private readonly MealService _mealService;
 		public DailySummaryControl()
 		{
@@ -56,7 +56,7 @@ namespace IC.CalorieControl
 		private void btnViewLogs_Click(object sender, EventArgs e)
 		{
 			// 通知 MainForm 顯示當日紀錄列表
-			OnViewTodayLogsRequested?.Invoke();
+			OnViewTodayLogsRequested?.Invoke(dtpSummaryDate.Value.Date);
 		}
 	}
 }

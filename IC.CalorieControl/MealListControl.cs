@@ -43,8 +43,17 @@ namespace IC.CalorieControl
 			dtpLogDate.Value = DateTime.Today;
 			LoadMealLogs(DateTime.Today);
 		}
-		private void LoadMealLogs(DateTime date)
+		public void LoadMealLogs(DateTime date)
 		{
+			// 先解除 ValueChanged 事件，避免下面設定 Value 觸發重入
+			dtpLogDate.ValueChanged -= dtpLogDate_ValueChanged;
+
+			// 1. 同步更新日期選擇器
+			dtpLogDate.Value = date.Date;
+
+			// 重新綁回事件
+			dtpLogDate.ValueChanged += dtpLogDate_ValueChanged;
+
 			// 1. 先讀出所有符合條件的日誌
 			var logs = _mealService.GetLogsByDate(SessionManager.CurrentUserId, date.Date);
 
@@ -94,7 +103,7 @@ namespace IC.CalorieControl
 			dgvMealLog.AutoGenerateColumns = true;
 			dgvMealLog.DataSource = data;
 
-			// 5. 隱藏內部識別用的 LogId
+			// 5. 隱藏內部辨識用的 LogId
 			if (dgvMealLog.Columns.Contains("LogId"))
 				dgvMealLog.Columns["LogId"].Visible = false;
 		}

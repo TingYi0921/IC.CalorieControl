@@ -57,9 +57,9 @@ namespace IC.CalorieControl.DAL
 		{
 			var list = new List<FoodItem>();
 			string sql = "SELECT * FROM FoodItem WHERE UserId IS NULL OR UserId = @UserId";
-			using (var conn = new SqlConnection(connectionString))
+			using (SqlConnection conn = new SqlConnection(connectionString))
 			{
-				using (var cmd = new SqlCommand(sql, conn))
+				using (SqlCommand cmd = new SqlCommand(sql, conn))
 				{
 					cmd.Parameters.AddWithValue("@UserId", userId);
 					conn.Open();
@@ -89,9 +89,9 @@ namespace IC.CalorieControl.DAL
 		public FoodItem GetFoodItemById(int foodId)
 		{
 			string sql = "SELECT * FROM FoodItem WHERE FoodId = @FoodId";
-			using (var conn = new SqlConnection(connectionString))
+			using (SqlConnection conn = new SqlConnection(connectionString))
 			{
-				using (var cmd = new SqlCommand(sql, conn))
+				using (SqlCommand cmd = new SqlCommand(sql, conn))
 				{
 					cmd.Parameters.AddWithValue("@FoodId", foodId);
 					conn.Open();

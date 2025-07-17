@@ -17,7 +17,7 @@ namespace IC.CalorieControl
 	public partial class MainForm : Form
 	{
 		private string _userName;
-		private readonly UserService _userService = new UserService(new UserDal());
+		private readonly UserService _userService = new UserService(new UserRepository());
 		private MainForm _mainForm;
 		private UserProfileControl _userProfileControl;
 		private MealInputControl _mealInputControl;
@@ -37,16 +37,18 @@ namespace IC.CalorieControl
 
 			_mealInputControl = new MealInputControl();
 			_mealInputControl.Dock = DockStyle.Fill;
-			_mealInputControl.OnAddToLogCompleted += () => LoadMealListControl();
-			_mealInputControl.OnViewTodayLogsRequested += () => LoadMealListControl();
+			_mealInputControl.OnAddToLogCompleted += date => LoadMealListControl(date);
+			_mealInputControl.OnViewTodayLogsRequested += date => LoadMealListControl(date);
 
 			_mealListControl = new MealListControl();
 			_mealListControl.Dock = DockStyle.Fill;
 
 			_dailySummaryControl = new DailySummaryControl();
 			_dailySummaryControl.Dock = DockStyle.Fill;
-			_dailySummaryControl.OnViewTodayLogsRequested += () => LoadMealListControl();
+			_dailySummaryControl.OnViewTodayLogsRequested += date => LoadMealListControl(date);
 
+			// 只要點選「Meal Log」就顯示 inputCtrl
+			btnMealLog.Click += (s, e) => ShowControl(_mealInputControl);
 			LoadMainForm();
 		}
 
@@ -121,17 +123,18 @@ namespace IC.CalorieControl
 			pnMainpanel.Controls.Add(_mealInputControl);
 		}
 
-		private void LoadMealListControl()
+		private void LoadMealListControl(DateTime date)
 		{
 			pnMainpanel.Controls.Clear();
 			pnMainpanel.Controls.Add(_mealListControl);
+			_mealListControl.LoadMealLogs(date);
 		}
 
-		private void LoadDailySummaryControl()
+		private void LoadDailySummaryControl(DateTime date)
 		{
 			pnMainpanel.Controls.Clear();
 			pnMainpanel.Controls.Add(_dailySummaryControl);
-			_dailySummaryControl.LoadSummaryForDate(date: DateTime.Today);
+			_dailySummaryControl.LoadSummaryForDate(date);
 		}
 		// 在主畫面選單 ListItem 中設定事件：
 		private void btnUserProfile_Click(object sender, EventArgs e)
@@ -145,19 +148,21 @@ namespace IC.CalorieControl
 
 		private void btnDailyLog_Click(object sender, EventArgs e)
 		{
-			LoadDailySummaryControl();
+			LoadDailySummaryControl(DateTime.Today);
 		}
-
-		//private int GetCurrentUserId()
-		//{
-		//	return SessionManager.CurrentUserId;
-		//}
 
 		private void pictureBox1_Click(object sender, EventArgs e)
 		{
 			pnMainpanel.Controls.Clear();
 			pnMainpanel.Visible = true;
 			pnMainpanel.BringToFront();  // 確保 panel 在最上層
+		}
+
+		private void ShowControl(UserControl ctrl)
+		{
+			pnMainpanel.Controls.Clear();
+			ctrl.Dock = DockStyle.Fill;
+			pnMainpanel.Controls.Add(ctrl);
 		}
 	}
 

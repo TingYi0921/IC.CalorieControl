@@ -16,7 +16,7 @@ namespace IC.CalorieControl
 {
 	public partial class LoginForm : Form
 	{
-		private readonly UserService _userService = new UserService(new UserDal());
+		private readonly UserService _userService = new UserService(new UserRepository());
 		public LoginForm()
 		{
 			InitializeComponent();

@@ -16,14 +16,21 @@ namespace IC.CalorieControl
 {
 	public partial class MealInputControl : UserControl
 	{
-		public event Action OnAddToLogCompleted;
-		public event Action OnViewTodayLogsRequested; // 用於檢視當日紀錄事件
+		public event Action<DateTime> OnAddToLogCompleted;
+		public event Action<DateTime> OnViewTodayLogsRequested; // 用於檢視當日紀錄事件
+
 		private readonly MealService _mealService;
 		private readonly int _currentUserId = SessionManager.CurrentUserId;
 
 		public MealInputControl()
 		{
 			InitializeComponent();
+
+			// 確保格式
+			dtpInputLogDate.Format = DateTimePickerFormat.Custom;
+			dtpInputLogDate.CustomFormat = "yyyy-MM-dd";
+			dtpInputLogDate.Value = DateTime.Today;
+
 			_mealService = new MealService
 				(new FoodRepository("Data Source=DESKTOP-PAKSETB\\SQLEXPRESS;Initial Catalog=CalorieControlSystem;Integrated Security=True"), 
 				new MealLogRepository("Data Source=DESKTOP-PAKSETB\\SQLEXPRESS;Initial Catalog=CalorieControlSystem;Integrated Security=True"));
@@ -78,6 +85,7 @@ namespace IC.CalorieControl
 
 		private void btnAddToLog_Click(object sender, EventArgs e)
 		{
+			DateTime selectedDate = dtpInputLogDate.Value.Date;
 			// 檢查必填
 			if (string.IsNullOrWhiteSpace(txtFoodName.Text))
 			{
@@ -136,7 +144,7 @@ namespace IC.CalorieControl
 			{
 				UserId = SessionManager.CurrentUserId,
 				FoodId = food.FoodId,
-				LogTime = DateTime.Now,
+				LogTime = selectedDate,
 				Quantity = weight,
 				CreatedAt = DateTime.Now,
 				UpdatedAt = DateTime.Now
@@ -144,15 +152,15 @@ namespace IC.CalorieControl
 			//MessageBox.Show($"[Debug] 新增日誌時 UserId = {SessionManager.CurrentUserId}");
 
 			if (_mealService.AddMealLog(log, out string logMsg))
-				MessageBox.Show(logMsg, "完成", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				MessageBox.Show("餐點已加入 " + selectedDate.ToString("yyyy-MM-dd") + " 的日誌！", "完成", MessageBoxButtons.OK, MessageBoxIcon.Information);
 			else
 				MessageBox.Show(logMsg, "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-			OnAddToLogCompleted?.Invoke();
+			OnAddToLogCompleted?.Invoke(selectedDate);
 		}
 		private void btnViewLogs_Click(object sender, EventArgs e)
 		{
-			OnViewTodayLogsRequested?.Invoke();
+			OnViewTodayLogsRequested?.Invoke(dtpInputLogDate.Value.Date);
 		}
 	}
 }

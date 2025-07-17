@@ -11,15 +11,15 @@ using System.Windows.Forms;
 
 namespace IC.CalorieControl.DAL
 {
-	public class UserDal : IUserRepository
+	public class UserRepository : IUserRepository
 	{
 		private readonly string connectionString = "Data Source=DESKTOP-PAKSETB\\SQLEXPRESS;Initial Catalog=CalorieControlSystem;Integrated Security=True";
 
 		public bool IsUserExists(string userName)
 		{
 			string query = "SELECT COUNT(*) FROM UserProfile WHERE UserName = @UserName";
-			using (var conn = new SqlConnection(connectionString))
-			using (var cmd = new SqlCommand(query, conn))
+			using (SqlConnection conn = new SqlConnection(connectionString))
+			using (SqlCommand cmd = new SqlCommand(query, conn))
 			{
 				cmd.Parameters.AddWithValue("@UserName", userName);
 				conn.Open();
@@ -31,8 +31,8 @@ namespace IC.CalorieControl.DAL
 		{
 			string query = @"INSERT INTO UserProfile (UserName, Email, PasswordHash, Age, Gender, HeightCm, WeightKg, ActivityLevel, CreatedAt, UpdatedAt)
                              VALUES (@UserName, @Email, @PasswordHash, @Age, @Gender, @HeightCm, @WeightKg, @ActivityLevel, @CreatedAt, @UpdatedAt)";
-			using (var conn = new SqlConnection(connectionString))
-			using (var cmd = new SqlCommand(query, conn))
+			using (SqlConnection conn = new SqlConnection(connectionString))
+			using (SqlCommand cmd = new SqlCommand(query, conn))
 			{
 				cmd.Parameters.AddWithValue("@UserName", user.UserName);
 				cmd.Parameters.AddWithValue("@Email", user.Email);
@@ -52,8 +52,8 @@ namespace IC.CalorieControl.DAL
 		public UserProfile GetUserByNameAndPassword(string userName, string password)
 		{
 			string query = "SELECT UserId, UserName FROM UserProfile WHERE UserName = @UserName AND PasswordHash = @PasswordHash";
-			using (var conn = new SqlConnection(connectionString))
-			using (var cmd = new SqlCommand(query, conn))
+			using (SqlConnection conn = new SqlConnection(connectionString))
+			using (SqlCommand cmd = new SqlCommand(query, conn))
 			{
 				cmd.Parameters.AddWithValue("@UserName", userName);
 				cmd.Parameters.AddWithValue("@PasswordHash", ComputeSha256Hash(password));
@@ -74,8 +74,8 @@ namespace IC.CalorieControl.DAL
 		public void LogLoginSession(int userId, string ipAddress)
 		{
 			string query = @"INSERT INTO LoginSession (UserId, LoginTime, IpAddress) VALUES (@UserId, @LoginTime, @IpAddress)";
-			using (var conn = new SqlConnection(connectionString))
-			using (var cmd = new SqlCommand(query, conn))
+			using (SqlConnection conn = new SqlConnection(connectionString))
+			using (SqlCommand cmd = new SqlCommand(query, conn))
 			{
 				cmd.Parameters.AddWithValue("@UserId", userId);
 				cmd.Parameters.AddWithValue("@LoginTime", DateTime.UtcNow);
@@ -95,8 +95,8 @@ namespace IC.CalorieControl.DAL
 		public UserProfile GetUserByUserName(string userName)
 		{
 			string query = "SELECT * FROM UserProfile WHERE UserName = @UserName";
-			using (var conn = new SqlConnection(connectionString))
-			using (var cmd = new SqlCommand(query, conn))
+			using (SqlConnection conn = new SqlConnection(connectionString))
+			using (SqlCommand cmd = new SqlCommand(query, conn))
 			{
 				cmd.Parameters.AddWithValue("@UserName", userName);
 				conn.Open();
@@ -142,8 +142,8 @@ namespace IC.CalorieControl.DAL
 		public void UpdateUserProfile(UserProfile user)
 		{
 			string query = @"UPDATE UserProfile SET UserName = @UserName, Email = @Email, Age = @Age, Gender = @Gender, HeightCm = @HeightCm, WeightKg = @WeightKg, ActivityLevel = @ActivityLevel, UpdatedAt = @UpdatedAt WHERE UserId = @UserId";
-			using (var conn = new SqlConnection(connectionString))
-			using (var cmd = new SqlCommand(query, conn))
+			using (SqlConnection conn = new SqlConnection(connectionString))
+			using (SqlCommand cmd = new SqlCommand(query, conn))
 			{
 				cmd.Parameters.AddWithValue("@UserName", user.UserName);
 				cmd.Parameters.AddWithValue("@Email", user.Email);
@@ -167,8 +167,8 @@ namespace IC.CalorieControl.DAL
                 FROM UserProfile
                 WHERE UserName = @UserName";
 
-			using (var conn = new SqlConnection(connectionString))
-			using (var cmd = new SqlCommand(query, conn))
+			using (SqlConnection conn = new SqlConnection(connectionString))
+			using (SqlCommand cmd = new SqlCommand(query, conn))
 			{
 				cmd.Parameters.AddWithValue("@UserName", userName);
 				conn.Open();
