@@ -213,6 +213,7 @@
 			// 
 			// cbFoodList
 			// 
+			this.cbFoodList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cbFoodList.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
 			this.cbFoodList.FormattingEnabled = true;
 			this.cbFoodList.Location = new System.Drawing.Point(145, 105);

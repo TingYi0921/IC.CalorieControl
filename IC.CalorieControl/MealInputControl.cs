@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace IC.CalorieControl
 {
@@ -19,6 +20,7 @@ namespace IC.CalorieControl
 		public event Action OnViewTodayLogsRequested; // 用於檢視當日紀錄事件
 		private readonly MealService _mealService;
 		private readonly int _currentUserId = SessionManager.CurrentUserId;
+
 		public MealInputControl()
 		{
 			InitializeComponent();
@@ -30,12 +32,23 @@ namespace IC.CalorieControl
 
 		private void LoadFavoriteFoods()
 		{
-			var foods = _mealService.GetUserFoodItems(_currentUserId);
-			// 加入一個預設空白選項
-			foods.Insert(0, new FoodItem { FoodId = 0, Name = "-- 手動輸入 --" });
-			cbFoodList.DataSource = foods;
+			var allFoods = _mealService.GetUserFoodItems(_currentUserId);
+
+			// 2. 依 Name 去重，只保留每個食物名稱的第一筆
+			var uniqueFoods = allFoods
+				.GroupBy(f => f.Name)
+				.Select(g => g.First())
+				.ToList();
+
+			// 3. 加入一個「手動輸入」選項（Key = 0）
+			var manual = new FoodItem { FoodId = 0, Name = "-- 手動輸入 --" };
+			uniqueFoods.Insert(0, manual);
+
+			// 4. 綁定 ComboBox
+			cbFoodList.DataSource = null;
 			cbFoodList.DisplayMember = "Name";
 			cbFoodList.ValueMember = "FoodId";
+			cbFoodList.DataSource = uniqueFoods;
 		}
 		private void cbFoodList_SelectedIndexChanged(object sender, EventArgs e)
 		{
@@ -62,7 +75,6 @@ namespace IC.CalorieControl
 				chkSaveAsFavorite.Checked = true;
 			}
 		}
-
 
 		private void btnAddToLog_Click(object sender, EventArgs e)
 		{
@@ -138,7 +150,6 @@ namespace IC.CalorieControl
 
 			OnAddToLogCompleted?.Invoke();
 		}
-
 		private void btnViewLogs_Click(object sender, EventArgs e)
 		{
 			OnViewTodayLogsRequested?.Invoke();

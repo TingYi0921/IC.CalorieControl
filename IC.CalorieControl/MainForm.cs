@@ -148,10 +148,10 @@ namespace IC.CalorieControl
 			LoadDailySummaryControl();
 		}
 
-		private int GetCurrentUserId()
-		{
-			return SessionManager.CurrentUserId;
-		}
+		//private int GetCurrentUserId()
+		//{
+		//	return SessionManager.CurrentUserId;
+		//}
 
 		private void pictureBox1_Click(object sender, EventArgs e)
 		{

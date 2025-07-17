@@ -106,6 +106,6 @@ namespace IC.CalorieControl.BLL
 		{
 			return _logRepo.GetDailySummary(userId, date.Date);
 		}
-	}
+}
 
 }

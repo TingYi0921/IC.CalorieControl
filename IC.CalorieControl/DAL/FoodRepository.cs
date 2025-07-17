@@ -59,10 +59,10 @@ namespace IC.CalorieControl.DAL
 			string sql = "SELECT * FROM FoodItem WHERE UserId IS NULL OR UserId = @UserId";
 			using (var conn = new SqlConnection(connectionString))
 			{
-				conn.Open();
 				using (var cmd = new SqlCommand(sql, conn))
 				{
 					cmd.Parameters.AddWithValue("@UserId", userId);
+					conn.Open();
 					using (var reader = cmd.ExecuteReader())
 					{
 						while (reader.Read())
@@ -91,10 +91,10 @@ namespace IC.CalorieControl.DAL
 			string sql = "SELECT * FROM FoodItem WHERE FoodId = @FoodId";
 			using (var conn = new SqlConnection(connectionString))
 			{
-				conn.Open();
 				using (var cmd = new SqlCommand(sql, conn))
 				{
 					cmd.Parameters.AddWithValue("@FoodId", foodId);
+					conn.Open();
 					using (var reader = cmd.ExecuteReader())
 					{
 						if (reader.Read())

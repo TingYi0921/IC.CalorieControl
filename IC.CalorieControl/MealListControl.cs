@@ -28,13 +28,14 @@ namespace IC.CalorieControl
 			new MealLogRepository("Data Source=DESKTOP-PAKSETB\\SQLEXPRESS;Initial Catalog=CalorieControlSystem;Integrated Security=True")
 			);
 
+			// 控制項載入時立即讀取今天的紀錄
+			this.Load += MealListControl_Load;
+
 			// 日期變更後重新載入
 			dtpLogDate.Format = DateTimePickerFormat.Custom;
 			dtpLogDate.CustomFormat = "yyyy-MM-dd";
 			dtpLogDate.ValueChanged += (s, e) => LoadMealLogs(dtpLogDate.Value.Date);
-
-			// 控制項載入時立即讀取今天的紀錄
-			this.Load += MealListControl_Load;
+			//dgvMealLog.DataSource = FoodRepository.GetUserFoodItems(_currentUserId);
 		}
 		private void MealListControl_Load(object sender, EventArgs e)
 		{
@@ -80,10 +81,10 @@ namespace IC.CalorieControl
 			}).ToList();
 
 			// 偵錯：看看匿名清單第一筆長什麼樣子
-			if (data.Any())
-				Debug.WriteLine($"[MealListControl] First item: {string.Join(", ", data.First().GetType().GetProperties().Select(p => p.Name + "=" + p.GetValue(data.First())))}");
-			else
-				Debug.WriteLine("[MealListControl] No data to bind");
+			//if (data.Any())
+			//	Debug.WriteLine($"[MealListControl] First item: {string.Join(", ", data.First().GetType().GetProperties().Select(p => p.Name + "=" + p.GetValue(data.First())))}");
+			//else
+			//	Debug.WriteLine("[MealListControl] No data to bind");
 
 			// 3. 清除任何既有綁定，並整列清除欄位（如果你之前手動加過欄位）
 			dgvMealLog.DataSource = null;
