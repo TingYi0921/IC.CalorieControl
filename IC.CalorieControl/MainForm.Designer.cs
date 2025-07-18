@@ -32,6 +32,7 @@
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
 			this.lblWelcome = new System.Windows.Forms.Label();
 			this.pnTitle = new System.Windows.Forms.Panel();
+			this.lblTimer = new System.Windows.Forms.Label();
 			this.pnMainpanel = new System.Windows.Forms.Panel();
 			this.pnListItems = new System.Windows.Forms.Panel();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -40,7 +41,6 @@
 			this.btnMealLog = new System.Windows.Forms.Button();
 			this.btnUserProfile = new System.Windows.Forms.Button();
 			this.btnLogout = new System.Windows.Forms.Button();
-			this.lblTimer = new System.Windows.Forms.Label();
 			this.Timer = new System.Windows.Forms.Timer(this.components);
 			this.pnTitle.SuspendLayout();
 			this.pnListItems.SuspendLayout();
@@ -67,6 +67,17 @@
 			this.pnTitle.Name = "pnTitle";
 			this.pnTitle.Size = new System.Drawing.Size(591, 47);
 			this.pnTitle.TabIndex = 1;
+			// 
+			// lblTimer
+			// 
+			this.lblTimer.AutoSize = true;
+			this.lblTimer.Font = new System.Drawing.Font("微軟正黑體", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+			this.lblTimer.ForeColor = System.Drawing.SystemColors.Window;
+			this.lblTimer.Location = new System.Drawing.Point(342, 9);
+			this.lblTimer.Name = "lblTimer";
+			this.lblTimer.Size = new System.Drawing.Size(96, 26);
+			this.lblTimer.TabIndex = 1;
+			this.lblTimer.Text = "現在時間";
 			// 
 			// pnMainpanel
 			// 
@@ -117,6 +128,7 @@
 			this.btnActivity.TabIndex = 39;
 			this.btnActivity.Text = "Activity Log";
 			this.btnActivity.UseVisualStyleBackColor = false;
+			this.btnActivity.Click += new System.EventHandler(this.btnActivity_Click);
 			this.btnActivity.MouseEnter += new System.EventHandler(this.btnActivity_MouseEnter);
 			this.btnActivity.MouseLeave += new System.EventHandler(this.btnActivity_MouseLeave);
 			// 
@@ -196,17 +208,6 @@
 			this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
 			this.btnLogout.MouseEnter += new System.EventHandler(this.btnLogout_MouseEnter);
 			this.btnLogout.MouseLeave += new System.EventHandler(this.btnLogout_MouseLeave);
-			// 
-			// lblTimer
-			// 
-			this.lblTimer.AutoSize = true;
-			this.lblTimer.Font = new System.Drawing.Font("微軟正黑體", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.lblTimer.ForeColor = System.Drawing.SystemColors.Window;
-			this.lblTimer.Location = new System.Drawing.Point(342, 9);
-			this.lblTimer.Name = "lblTimer";
-			this.lblTimer.Size = new System.Drawing.Size(96, 26);
-			this.lblTimer.TabIndex = 1;
-			this.lblTimer.Text = "現在時間";
 			// 
 			// Timer
 			// 

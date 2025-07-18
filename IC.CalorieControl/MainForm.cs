@@ -17,13 +17,16 @@ namespace IC.CalorieControl
 	public partial class MainForm : Form
 	{
 		private string _userName;
+		private UserProfile _currentUser;
 		private readonly UserService _userService = new UserService(new UserRepository());
+		private readonly ActivityService _activityService;
 		private MainForm _mainForm;
 		private UserProfileControl _userProfileControl;
 		private MealInputControl _mealInputControl;
 		private MealListControl _mealListControl;
 		private DailySummaryControl _dailySummaryControl;
 		private MainPanelControl _mainPanelControl;
+		//private ActivityLogControl _activityLogControl;
 
 		public MainForm(string userName)
 		{
@@ -37,6 +40,12 @@ namespace IC.CalorieControl
 
 			_userName = userName;
 			lblWelcome.Text = $"您好，{_userName}";
+
+			_currentUser = _userService.GetUserByUserName(userName);
+
+			_activityService = new ActivityService(
+		new ActivityRepository("Data Source=DESKTOP-PAKSETB\\SQLEXPRESS;Initial Catalog=CalorieControlSystem;Integrated Security=True")
+			   );
 
 			_mainPanelControl = new MainPanelControl();
 			_mainPanelControl.Dock = DockStyle.Fill;
@@ -55,6 +64,9 @@ namespace IC.CalorieControl
 			_dailySummaryControl = new DailySummaryControl();
 			_dailySummaryControl.Dock = DockStyle.Fill;
 			_dailySummaryControl.OnViewTodayLogsRequested += date => LoadMealListControl(date);
+
+			//_activityLogControl = new ActivityLogControl();
+			//_activityLogControl.Dock = DockStyle.Fill;
 
 			btnMealLog.Click += (s, e) => ShowControl(_mealInputControl);
 			LoadMainForm();
@@ -150,6 +162,18 @@ namespace IC.CalorieControl
 			pnMainpanel.Controls.Add(_dailySummaryControl);
 			_dailySummaryControl.LoadSummaryForDate(date);
 		}
+		private void LoadActivityLogControl()
+		{
+			pnMainpanel.Controls.Clear();
+			// 建立並傳入 ActivityService 與目前使用者資料
+			var activityCtrl = new ActivityLogControl(_activityService, _currentUser)
+			{
+				Dock = DockStyle.Fill
+			};
+
+			pnMainpanel.Controls.Add(activityCtrl);
+		}
+
 		// 在主畫面選單 ListItem 中設定事件：
 		private void btnUserProfile_Click(object sender, EventArgs e)
 		{
@@ -164,7 +188,10 @@ namespace IC.CalorieControl
 		{
 			LoadDailySummaryControl(DateTime.Today);
 		}
-
+		private void btnActivity_Click(object sender, EventArgs e)
+		{
+			LoadActivityLogControl();
+		}
 		private void pictureBox1_Click(object sender, EventArgs e)
 		{
 			LoadMainPanelControl();
@@ -188,6 +215,8 @@ namespace IC.CalorieControl
 		{
 			LoadMainPanelControl();
 		}
+
+
 	}
 
 }
