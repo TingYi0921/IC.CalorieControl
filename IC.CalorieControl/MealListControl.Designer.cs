@@ -29,8 +29,8 @@
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.dtpLogDate = new System.Windows.Forms.DateTimePicker();
 			this.label1 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
@@ -47,10 +47,11 @@
 			// 
 			// dtpLogDate
 			// 
-			this.dtpLogDate.CalendarFont = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.dtpLogDate.Location = new System.Drawing.Point(102, 87);
+			this.dtpLogDate.CalendarFont = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+			this.dtpLogDate.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+			this.dtpLogDate.Location = new System.Drawing.Point(102, 69);
 			this.dtpLogDate.Name = "dtpLogDate";
-			this.dtpLogDate.Size = new System.Drawing.Size(200, 22);
+			this.dtpLogDate.Size = new System.Drawing.Size(200, 25);
 			this.dtpLogDate.TabIndex = 0;
 			this.dtpLogDate.ValueChanged += new System.EventHandler(this.dtpLogDate_ValueChanged);
 			// 
@@ -58,7 +59,7 @@
 			// 
 			this.label1.AutoSize = true;
 			this.label1.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.label1.Location = new System.Drawing.Point(5, 88);
+			this.label1.Location = new System.Drawing.Point(5, 72);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(74, 21);
 			this.label1.TabIndex = 1;
@@ -67,10 +68,10 @@
 			// label2
 			// 
 			this.label2.AutoSize = true;
-			this.label2.BackColor = System.Drawing.Color.MidnightBlue;
+			this.label2.BackColor = System.Drawing.Color.RoyalBlue;
 			this.label2.Font = new System.Drawing.Font("Comic Sans MS", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label2.ForeColor = System.Drawing.Color.White;
-			this.label2.Location = new System.Drawing.Point(1, 28);
+			this.label2.Location = new System.Drawing.Point(0, 0);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(403, 45);
 			this.label2.TabIndex = 41;
@@ -104,7 +105,7 @@
 			this.btnDeleteLog.BackColor = System.Drawing.Color.Red;
 			this.btnDeleteLog.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
 			this.btnDeleteLog.ForeColor = System.Drawing.Color.White;
-			this.btnDeleteLog.Location = new System.Drawing.Point(451, 79);
+			this.btnDeleteLog.Location = new System.Drawing.Point(451, 63);
 			this.btnDeleteLog.Name = "btnDeleteLog";
 			this.btnDeleteLog.Size = new System.Drawing.Size(126, 30);
 			this.btnDeleteLog.TabIndex = 43;
@@ -115,15 +116,15 @@
 			// dgvMealLog
 			// 
 			this.dgvMealLog.AllowUserToOrderColumns = true;
-			dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-			this.dgvMealLog.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+			dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+			this.dgvMealLog.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
 			this.dgvMealLog.AutoGenerateColumns = false;
 			this.dgvMealLog.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvMealLog.DataSource = this.calorieControlSystemDataSet1;
 			this.dgvMealLog.Location = new System.Drawing.Point(0, 124);
 			this.dgvMealLog.Name = "dgvMealLog";
-			dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			this.dgvMealLog.RowsDefaultCellStyle = dataGridViewCellStyle2;
+			dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			this.dgvMealLog.RowsDefaultCellStyle = dataGridViewCellStyle8;
 			this.dgvMealLog.RowTemplate.Height = 24;
 			this.dgvMealLog.Size = new System.Drawing.Size(589, 300);
 			this.dgvMealLog.TabIndex = 44;

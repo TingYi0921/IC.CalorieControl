@@ -51,7 +51,9 @@
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.label1 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
+			this.pictureBox2 = new System.Windows.Forms.PictureBox();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// cmbActivityLevel
@@ -78,7 +80,7 @@
 			this.cmbGender.Items.AddRange(new object[] {
             "Male",
             "Female"});
-			this.cmbGender.Location = new System.Drawing.Point(394, 131);
+			this.cmbGender.Location = new System.Drawing.Point(394, 92);
 			this.cmbGender.Name = "cmbGender";
 			this.cmbGender.Size = new System.Drawing.Size(182, 27);
 			this.cmbGender.TabIndex = 33;
@@ -86,7 +88,7 @@
 			// txtWeight
 			// 
 			this.txtWeight.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.txtWeight.Location = new System.Drawing.Point(394, 215);
+			this.txtWeight.Location = new System.Drawing.Point(394, 202);
 			this.txtWeight.Name = "txtWeight";
 			this.txtWeight.Size = new System.Drawing.Size(182, 27);
 			this.txtWeight.TabIndex = 32;
@@ -94,7 +96,7 @@
 			// txtHeight
 			// 
 			this.txtHeight.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.txtHeight.Location = new System.Drawing.Point(394, 173);
+			this.txtHeight.Location = new System.Drawing.Point(394, 147);
 			this.txtHeight.Name = "txtHeight";
 			this.txtHeight.Size = new System.Drawing.Size(182, 27);
 			this.txtHeight.TabIndex = 31;
@@ -110,7 +112,7 @@
 			// txtPassword
 			// 
 			this.txtPassword.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.txtPassword.Location = new System.Drawing.Point(110, 215);
+			this.txtPassword.Location = new System.Drawing.Point(110, 202);
 			this.txtPassword.MaxLength = 16;
 			this.txtPassword.Name = "txtPassword";
 			this.txtPassword.PasswordChar = '*';
@@ -122,7 +124,7 @@
 			// txtEmail
 			// 
 			this.txtEmail.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.txtEmail.Location = new System.Drawing.Point(110, 173);
+			this.txtEmail.Location = new System.Drawing.Point(110, 147);
 			this.txtEmail.Name = "txtEmail";
 			this.txtEmail.Size = new System.Drawing.Size(182, 27);
 			this.txtEmail.TabIndex = 28;
@@ -130,7 +132,7 @@
 			// txtUserName
 			// 
 			this.txtUserName.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.txtUserName.Location = new System.Drawing.Point(110, 131);
+			this.txtUserName.Location = new System.Drawing.Point(110, 92);
 			this.txtUserName.MaxLength = 12;
 			this.txtUserName.Name = "txtUserName";
 			this.txtUserName.Size = new System.Drawing.Size(182, 27);
@@ -152,7 +154,7 @@
 			this.lblWeight.AutoSize = true;
 			this.lblWeight.BackColor = System.Drawing.Color.Transparent;
 			this.lblWeight.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.lblWeight.Location = new System.Drawing.Point(301, 221);
+			this.lblWeight.Location = new System.Drawing.Point(301, 208);
 			this.lblWeight.Name = "lblWeight";
 			this.lblWeight.Size = new System.Drawing.Size(93, 21);
 			this.lblWeight.TabIndex = 25;
@@ -163,7 +165,7 @@
 			this.lblHeight.AutoSize = true;
 			this.lblHeight.BackColor = System.Drawing.Color.Transparent;
 			this.lblHeight.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.lblHeight.Location = new System.Drawing.Point(301, 179);
+			this.lblHeight.Location = new System.Drawing.Point(301, 153);
 			this.lblHeight.Name = "lblHeight";
 			this.lblHeight.Size = new System.Drawing.Size(97, 21);
 			this.lblHeight.TabIndex = 24;
@@ -174,7 +176,7 @@
 			this.lblGender.AutoSize = true;
 			this.lblGender.BackColor = System.Drawing.Color.Transparent;
 			this.lblGender.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.lblGender.Location = new System.Drawing.Point(301, 137);
+			this.lblGender.Location = new System.Drawing.Point(301, 98);
 			this.lblGender.Name = "lblGender";
 			this.lblGender.Size = new System.Drawing.Size(42, 21);
 			this.lblGender.TabIndex = 23;
@@ -196,7 +198,7 @@
 			this.lblPassword.AutoSize = true;
 			this.lblPassword.BackColor = System.Drawing.Color.Transparent;
 			this.lblPassword.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.lblPassword.Location = new System.Drawing.Point(17, 221);
+			this.lblPassword.Location = new System.Drawing.Point(17, 208);
 			this.lblPassword.Name = "lblPassword";
 			this.lblPassword.Size = new System.Drawing.Size(42, 21);
 			this.lblPassword.TabIndex = 21;
@@ -207,7 +209,7 @@
 			this.lblEmail.AutoSize = true;
 			this.lblEmail.BackColor = System.Drawing.Color.Transparent;
 			this.lblEmail.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.lblEmail.Location = new System.Drawing.Point(17, 179);
+			this.lblEmail.Location = new System.Drawing.Point(17, 153);
 			this.lblEmail.Name = "lblEmail";
 			this.lblEmail.Size = new System.Drawing.Size(74, 21);
 			this.lblEmail.TabIndex = 20;
@@ -218,7 +220,7 @@
 			this.lblUserName.AutoSize = true;
 			this.lblUserName.BackColor = System.Drawing.Color.Transparent;
 			this.lblUserName.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.lblUserName.Location = new System.Drawing.Point(17, 137);
+			this.lblUserName.Location = new System.Drawing.Point(17, 98);
 			this.lblUserName.Name = "lblUserName";
 			this.lblUserName.Size = new System.Drawing.Size(90, 21);
 			this.lblUserName.TabIndex = 19;
@@ -253,11 +255,11 @@
 			// btnEdit
 			// 
 			this.btnEdit.BackColor = System.Drawing.Color.DodgerBlue;
-			this.btnEdit.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+			this.btnEdit.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
 			this.btnEdit.ForeColor = System.Drawing.Color.White;
-			this.btnEdit.Location = new System.Drawing.Point(476, 33);
+			this.btnEdit.Location = new System.Drawing.Point(476, 8);
 			this.btnEdit.Name = "btnEdit";
-			this.btnEdit.Size = new System.Drawing.Size(100, 40);
+			this.btnEdit.Size = new System.Drawing.Size(100, 33);
 			this.btnEdit.TabIndex = 37;
 			this.btnEdit.Text = "修改資料";
 			this.btnEdit.UseVisualStyleBackColor = false;
@@ -267,19 +269,20 @@
 			// 
 			this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
 			this.pictureBox1.InitialImage = null;
-			this.pictureBox1.Location = new System.Drawing.Point(0, 309);
+			this.pictureBox1.Location = new System.Drawing.Point(0, 302);
 			this.pictureBox1.Name = "pictureBox1";
-			this.pictureBox1.Size = new System.Drawing.Size(342, 101);
+			this.pictureBox1.Size = new System.Drawing.Size(226, 108);
+			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
 			this.pictureBox1.TabIndex = 38;
 			this.pictureBox1.TabStop = false;
 			// 
 			// label1
 			// 
 			this.label1.AutoSize = true;
-			this.label1.BackColor = System.Drawing.Color.MidnightBlue;
+			this.label1.BackColor = System.Drawing.Color.RoyalBlue;
 			this.label1.Font = new System.Drawing.Font("Comic Sans MS", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label1.ForeColor = System.Drawing.Color.White;
-			this.label1.Location = new System.Drawing.Point(1, 28);
+			this.label1.Location = new System.Drawing.Point(0, 0);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(452, 45);
 			this.label1.TabIndex = 39;
@@ -289,11 +292,21 @@
 			// 
 			this.label2.AutoSize = true;
 			this.label2.Font = new System.Drawing.Font("微軟正黑體", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.label2.Location = new System.Drawing.Point(416, 92);
+			this.label2.Location = new System.Drawing.Point(416, 59);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(160, 16);
 			this.label2.TabIndex = 40;
 			this.label2.Text = "註 : 性別及密碼無法進行修改";
+			// 
+			// pictureBox2
+			// 
+			this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+			this.pictureBox2.Location = new System.Drawing.Point(226, 302);
+			this.pictureBox2.Name = "pictureBox2";
+			this.pictureBox2.Size = new System.Drawing.Size(126, 108);
+			this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+			this.pictureBox2.TabIndex = 41;
+			this.pictureBox2.TabStop = false;
 			// 
 			// UserProfileControl
 			// 
@@ -322,10 +335,12 @@
 			this.Controls.Add(this.lblPassword);
 			this.Controls.Add(this.lblEmail);
 			this.Controls.Add(this.lblUserName);
+			this.Controls.Add(this.pictureBox2);
 			this.Name = "UserProfileControl";
 			this.Size = new System.Drawing.Size(589, 410);
 			this.Load += new System.EventHandler(this.UserProfileControl_Load);
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -355,5 +370,6 @@
 		private System.Windows.Forms.PictureBox pictureBox1;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Label label2;
+		private System.Windows.Forms.PictureBox pictureBox2;
 	}
 }

@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
 			this.lblWelcome = new System.Windows.Forms.Label();
 			this.pnTitle = new System.Windows.Forms.Panel();
@@ -39,6 +40,8 @@
 			this.btnMealLog = new System.Windows.Forms.Button();
 			this.btnUserProfile = new System.Windows.Forms.Button();
 			this.btnLogout = new System.Windows.Forms.Button();
+			this.lblTimer = new System.Windows.Forms.Label();
+			this.Timer = new System.Windows.Forms.Timer(this.components);
 			this.pnTitle.SuspendLayout();
 			this.pnListItems.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -49,7 +52,7 @@
 			this.lblWelcome.AutoSize = true;
 			this.lblWelcome.Font = new System.Drawing.Font("微軟正黑體", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(136)));
 			this.lblWelcome.ForeColor = System.Drawing.SystemColors.Window;
-			this.lblWelcome.Location = new System.Drawing.Point(410, 9);
+			this.lblWelcome.Location = new System.Drawing.Point(59, 9);
 			this.lblWelcome.Name = "lblWelcome";
 			this.lblWelcome.Size = new System.Drawing.Size(96, 26);
 			this.lblWelcome.TabIndex = 0;
@@ -57,7 +60,8 @@
 			// 
 			// pnTitle
 			// 
-			this.pnTitle.BackColor = System.Drawing.Color.MidnightBlue;
+			this.pnTitle.BackColor = System.Drawing.Color.DeepSkyBlue;
+			this.pnTitle.Controls.Add(this.lblTimer);
 			this.pnTitle.Controls.Add(this.lblWelcome);
 			this.pnTitle.Location = new System.Drawing.Point(189, 0);
 			this.pnTitle.Name = "pnTitle";
@@ -66,8 +70,9 @@
 			// 
 			// pnMainpanel
 			// 
-			this.pnMainpanel.BackColor = System.Drawing.SystemColors.Window;
+			this.pnMainpanel.BackColor = System.Drawing.Color.Transparent;
 			this.pnMainpanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnMainpanel.BackgroundImage")));
+			this.pnMainpanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
 			this.pnMainpanel.Location = new System.Drawing.Point(191, 47);
 			this.pnMainpanel.Name = "pnMainpanel";
 			this.pnMainpanel.Size = new System.Drawing.Size(589, 410);
@@ -192,6 +197,21 @@
 			this.btnLogout.MouseEnter += new System.EventHandler(this.btnLogout_MouseEnter);
 			this.btnLogout.MouseLeave += new System.EventHandler(this.btnLogout_MouseLeave);
 			// 
+			// lblTimer
+			// 
+			this.lblTimer.AutoSize = true;
+			this.lblTimer.Font = new System.Drawing.Font("微軟正黑體", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+			this.lblTimer.ForeColor = System.Drawing.SystemColors.Window;
+			this.lblTimer.Location = new System.Drawing.Point(342, 9);
+			this.lblTimer.Name = "lblTimer";
+			this.lblTimer.Size = new System.Drawing.Size(96, 26);
+			this.lblTimer.TabIndex = 1;
+			this.lblTimer.Text = "現在時間";
+			// 
+			// Timer
+			// 
+			this.Timer.Tick += new System.EventHandler(this.Timer_Tick);
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -210,6 +230,7 @@
 			this.Name = "MainForm";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Calorie Control";
+			this.Load += new System.EventHandler(this.MainForm_Load);
 			this.pnTitle.ResumeLayout(false);
 			this.pnTitle.PerformLayout();
 			this.pnListItems.ResumeLayout(false);
@@ -230,5 +251,7 @@
 		private System.Windows.Forms.Button btnMealLog;
 		private System.Windows.Forms.Button btnUserProfile;
 		private System.Windows.Forms.Button btnLogout;
+		private System.Windows.Forms.Label lblTimer;
+		private System.Windows.Forms.Timer Timer;
 	}
 }

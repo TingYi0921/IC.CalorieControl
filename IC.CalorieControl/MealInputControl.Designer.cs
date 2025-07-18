@@ -216,7 +216,9 @@
 			this.cbFoodList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cbFoodList.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
 			this.cbFoodList.FormattingEnabled = true;
+			this.cbFoodList.IntegralHeight = false;
 			this.cbFoodList.Location = new System.Drawing.Point(413, 101);
+			this.cbFoodList.MaxDropDownItems = 10;
 			this.cbFoodList.Name = "cbFoodList";
 			this.cbFoodList.Size = new System.Drawing.Size(143, 29);
 			this.cbFoodList.TabIndex = 16;
@@ -238,10 +240,10 @@
 			// label1
 			// 
 			this.label1.AutoSize = true;
-			this.label1.BackColor = System.Drawing.Color.MidnightBlue;
+			this.label1.BackColor = System.Drawing.Color.RoyalBlue;
 			this.label1.Font = new System.Drawing.Font("Comic Sans MS", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label1.ForeColor = System.Drawing.Color.White;
-			this.label1.Location = new System.Drawing.Point(1, 28);
+			this.label1.Location = new System.Drawing.Point(0, 0);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(403, 45);
 			this.label1.TabIndex = 40;
@@ -260,9 +262,9 @@
 			// pictureBox3
 			// 
 			this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-			this.pictureBox3.Location = new System.Drawing.Point(235, 316);
+			this.pictureBox3.Location = new System.Drawing.Point(305, 328);
 			this.pictureBox3.Name = "pictureBox3";
-			this.pictureBox3.Size = new System.Drawing.Size(136, 138);
+			this.pictureBox3.Size = new System.Drawing.Size(85, 82);
 			this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
 			this.pictureBox3.TabIndex = 42;
 			this.pictureBox3.TabStop = false;
@@ -272,7 +274,7 @@
 			this.btnViewLogs.BackColor = System.Drawing.Color.DeepSkyBlue;
 			this.btnViewLogs.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
 			this.btnViewLogs.ForeColor = System.Drawing.Color.White;
-			this.btnViewLogs.Location = new System.Drawing.Point(429, 28);
+			this.btnViewLogs.Location = new System.Drawing.Point(429, 13);
 			this.btnViewLogs.Name = "btnViewLogs";
 			this.btnViewLogs.Size = new System.Drawing.Size(127, 33);
 			this.btnViewLogs.TabIndex = 43;
@@ -282,9 +284,10 @@
 			// 
 			// dtpInputLogDate
 			// 
-			this.dtpInputLogDate.Location = new System.Drawing.Point(88, 104);
+			this.dtpInputLogDate.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+			this.dtpInputLogDate.Location = new System.Drawing.Point(88, 102);
 			this.dtpInputLogDate.Name = "dtpInputLogDate";
-			this.dtpInputLogDate.Size = new System.Drawing.Size(200, 22);
+			this.dtpInputLogDate.Size = new System.Drawing.Size(200, 25);
 			this.dtpInputLogDate.TabIndex = 44;
 			// 
 			// label2

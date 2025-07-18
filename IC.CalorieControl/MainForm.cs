@@ -23,14 +23,23 @@ namespace IC.CalorieControl
 		private MealInputControl _mealInputControl;
 		private MealListControl _mealListControl;
 		private DailySummaryControl _dailySummaryControl;
+		private MainPanelControl _mainPanelControl;
 
 		public MainForm(string userName)
 		{
 			InitializeComponent();
 			pnMainpanel.Visible = true;
 
+			System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
+			timer.Interval = 1000; // 1秒
+			timer.Tick += Timer_Tick;
+			timer.Start();
+
 			_userName = userName;
 			lblWelcome.Text = $"您好，{_userName}";
+
+			_mainPanelControl = new MainPanelControl();
+			_mainPanelControl.Dock = DockStyle.Fill;
 
 			_userProfileControl = new UserProfileControl(_userService, _userName);
 			_userProfileControl.Dock = DockStyle.Fill;
@@ -47,7 +56,6 @@ namespace IC.CalorieControl
 			_dailySummaryControl.Dock = DockStyle.Fill;
 			_dailySummaryControl.OnViewTodayLogsRequested += date => LoadMealListControl(date);
 
-			// 只要點選「Meal Log」就顯示 inputCtrl
 			btnMealLog.Click += (s, e) => ShowControl(_mealInputControl);
 			LoadMainForm();
 		}
@@ -111,6 +119,12 @@ namespace IC.CalorieControl
 			pnMainpanel.Controls.Add(_mainForm);
 		}
 
+		private void LoadMainPanelControl()
+		{
+			pnMainpanel.Controls.Clear(); // 清除舊的內容
+			pnMainpanel.Controls.Add(_mainPanelControl);
+		}
+
 		private void LoadUserProfileControl()
 		{
 			pnMainpanel.Controls.Clear(); // 清除舊的內容
@@ -153,9 +167,7 @@ namespace IC.CalorieControl
 
 		private void pictureBox1_Click(object sender, EventArgs e)
 		{
-			pnMainpanel.Controls.Clear();
-			pnMainpanel.Visible = true;
-			pnMainpanel.BringToFront();  // 確保 panel 在最上層
+			LoadMainPanelControl();
 		}
 
 		private void ShowControl(UserControl ctrl)
@@ -163,6 +175,18 @@ namespace IC.CalorieControl
 			pnMainpanel.Controls.Clear();
 			ctrl.Dock = DockStyle.Fill;
 			pnMainpanel.Controls.Add(ctrl);
+		}
+
+		private void Timer_Tick(object sender, EventArgs e)
+		{
+			DateTime now = DateTime.Now;
+			// 格式化日期和時間，例如: "yyyy-MM-dd HH:mm:ss"
+			lblTimer.Text = now.ToString("yyyy-MM-dd HH:mm:ss");
+		}
+
+		private void MainForm_Load(object sender, EventArgs e)
+		{
+			LoadMainPanelControl();
 		}
 	}
 

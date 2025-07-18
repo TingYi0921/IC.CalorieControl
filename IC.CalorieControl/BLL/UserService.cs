@@ -45,21 +45,21 @@ namespace IC.CalorieControl.BLL
 				return false;
 			}
 
-			if (user.Age < 0 || user.Age > 160 || user.Age %1 != 0)
+			if (user.Age < 0 || user.Age > 150 || user.Age %1 != 0)
 			{
-				message = "年齡須為正整數，請重新輸入!";
+				message = "年齡數值不合理，請重新輸入!";
 				return false;
 			}
 
-			if (user.HeightCm < 0.1m || user.HeightCm > 300 || user.HeightCm % 0.1m != 0)
+			if (user.HeightCm < 10 || user.HeightCm > 300 || user.HeightCm % 0.1m != 0)
 			{
-				message = "身高須為正數，請重新輸入!";
+				message = "身高數值不合理，請重新輸入!";
 				return false;
 			}
 
-			if (user.WeightKg < 0.1m || user.WeightKg > 400 || user.WeightKg % 0.1m != 0)
+			if (user.WeightKg < 1 || user.WeightKg > 350 || user.WeightKg % 0.1m != 0)
 			{
-				message = "體重須為正數，請重新輸入!";
+				message = "體重數值不合理，請重新輸入!";
 				return false;
 			}
 
@@ -91,19 +91,19 @@ namespace IC.CalorieControl.BLL
 
 			if (user.Age < 0 || user.Age > 160 || user.Age % 1 != 0)
 			{
-				message = "年齡須為正整數，請重新輸入!";
+				message = "年齡數值不合理，請重新輸入!";
 				return false;
 			}
 
 			if (user.HeightCm < 0.1m || user.HeightCm > 300 || user.HeightCm % 0.1m != 0)
 			{
-				message = "身高須為正數，請重新輸入!";
+				message = "身高數值不合理，請重新輸入!";
 				return false;
 			}
 
 			if (user.WeightKg < 0.1m || user.WeightKg > 400 || user.WeightKg % 0.1m != 0)
 			{
-				message = "體重須為正數，請重新輸入!";
+				message = "體重數值不合理，請重新輸入!";
 				return false;
 			}
 
