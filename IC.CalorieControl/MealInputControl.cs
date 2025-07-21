@@ -18,6 +18,7 @@ namespace IC.CalorieControl
 	{
 		public event Action<DateTime> OnAddToLogCompleted;
 		public event Action<DateTime> OnViewTodayLogsRequested; // 用於檢視當日紀錄事件
+		public event Action<DateTime> OnDateChanged; // 用於日期變更事件
 
 		private readonly MealService _mealService;
 		private readonly int _currentUserId = SessionManager.CurrentUserId;

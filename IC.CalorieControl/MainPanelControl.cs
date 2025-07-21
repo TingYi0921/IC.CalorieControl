@@ -12,6 +12,7 @@ namespace IC.CalorieControl
 {
 	public partial class MainPanelControl : UserControl
 	{
+		public event Action<DateTime> OnDateChanged; // 用於日期變更事件
 		public MainPanelControl()
 		{
 			InitializeComponent();

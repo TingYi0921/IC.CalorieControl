@@ -15,6 +15,8 @@ namespace IC.CalorieControl
 {
 	public partial class UserProfileControl : UserControl
 	{
+		public event Action<UserProfile> OnProfileUpdated; // 更新事件
+		public event Action<DateTime> OnDateChanged; // 用於日期變更事件
 		private bool _isEditing = false;
 		private readonly UserService userService;
 		private UserProfile currentUser;
@@ -137,6 +139,9 @@ namespace IC.CalorieControl
 				MessageBox.Show(msg, "更新成功", MessageBoxButtons.OK, MessageBoxIcon.Information);
 				originalUser = CloneUser(currentUser); // 更新參考備份
 				SetEditable(false); // 回復唯讀狀態
+
+				// 觸發事件，通知 MainForm 更新 _currentUser
+				OnProfileUpdated?.Invoke(currentUser);
 			}
 			else
 			{

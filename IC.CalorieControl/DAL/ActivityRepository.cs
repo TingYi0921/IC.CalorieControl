@@ -38,6 +38,10 @@ namespace IC.CalorieControl.DAL
 
 		public void AddActivityLog(ActivityLog log)
 		{
+			// 先做防呆：UserId 一定要大於 0
+			//if (log.UserId <= 0)
+			//	throw new ArgumentException("無效的使用者 ID，請先登入或確認使用者存在。", nameof(log.UserId));
+
 			string sql = @"
             INSERT INTO ActivityLog
               (UserId, ActivityLevelId, DurationHours, CaloriesBurned, ActivityDate, CreatedAt, UpdatedAt)

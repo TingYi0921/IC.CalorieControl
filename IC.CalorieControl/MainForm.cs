@@ -7,10 +7,12 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Tab;
 
 namespace IC.CalorieControl
 {
@@ -20,13 +22,14 @@ namespace IC.CalorieControl
 		private UserProfile _currentUser;
 		private readonly UserService _userService = new UserService(new UserRepository());
 		private readonly ActivityService _activityService;
+		private readonly MealService _mealService;
 		private MainForm _mainForm;
 		private UserProfileControl _userProfileControl;
 		private MealInputControl _mealInputControl;
 		private MealListControl _mealListControl;
 		private DailySummaryControl _dailySummaryControl;
 		private MainPanelControl _mainPanelControl;
-		//private ActivityLogControl _activityLogControl;
+		private ActivityLogControl _activityLogControl;
 
 		public MainForm(string userName)
 		{
@@ -42,6 +45,10 @@ namespace IC.CalorieControl
 			lblWelcome.Text = $"您好，{_userName}";
 
 			_currentUser = _userService.GetUserByUserName(userName);
+			_mealService = new MealService(
+				new FoodRepository("Data Source=DESKTOP-PAKSETB\\SQLEXPRESS;Initial Catalog=CalorieControlSystem;Integrated Security=True"),
+				new MealLogRepository("Data Source=DESKTOP-PAKSETB\\SQLEXPRESS;Initial Catalog=CalorieControlSystem;Integrated Security=True")
+			);
 
 			_activityService = new ActivityService(
 		new ActivityRepository("Data Source=DESKTOP-PAKSETB\\SQLEXPRESS;Initial Catalog=CalorieControlSystem;Integrated Security=True")
@@ -65,10 +72,18 @@ namespace IC.CalorieControl
 			_dailySummaryControl.Dock = DockStyle.Fill;
 			_dailySummaryControl.OnViewTodayLogsRequested += date => LoadMealListControl(date);
 
-			//_activityLogControl = new ActivityLogControl();
-			//_activityLogControl.Dock = DockStyle.Fill;
+			_activityLogControl = new ActivityLogControl(_activityService, _currentUser);
+			_activityLogControl.Dock = DockStyle.Fill;
 
 			btnMealLog.Click += (s, e) => ShowControl(_mealInputControl);
+
+			_mainPanelControl.OnDateChanged += date => UpdateNetCalories(date);
+			_userProfileControl.OnDateChanged += date => UpdateNetCalories(date);
+			_mealInputControl.OnDateChanged += date => UpdateNetCalories(date);
+			_mealListControl.OnDateChanged += date => UpdateNetCalories(date);
+			_dailySummaryControl.OnDateChanged += date => UpdateNetCalories(date);
+			_activityLogControl.OnDateChanged += date => UpdateNetCalories(date);
+
 			LoadMainForm();
 		}
 
@@ -131,22 +146,32 @@ namespace IC.CalorieControl
 			pnMainpanel.Controls.Add(_mainForm);
 		}
 
-		private void LoadMainPanelControl()
+		private void LoadMainPanelControl(DateTime date)
 		{
 			pnMainpanel.Controls.Clear(); // 清除舊的內容
 			pnMainpanel.Controls.Add(_mainPanelControl);
+			UpdateNetCalories(date);
 		}
 
-		private void LoadUserProfileControl()
+		private void LoadUserProfileControl(DateTime date)
 		{
 			pnMainpanel.Controls.Clear(); // 清除舊的內容
+			_userProfileControl.OnProfileUpdated += updatedUser =>
+			{
+				_currentUser = updatedUser;
+				// 如果 ActivityLogControl 正在顯示，就告訴它更新 UserProfile
+				_activityLogControl?.UpdateUserProfile(updatedUser);
+			};
+
 			pnMainpanel.Controls.Add(_userProfileControl);
+			UpdateNetCalories(date);
 		}
 
-		private void LoadMealInputControl()
+		private void LoadMealInputControl(DateTime date)
 		{
 			pnMainpanel.Controls.Clear();
 			pnMainpanel.Controls.Add(_mealInputControl);
+			UpdateNetCalories(date);
 		}
 
 		private void LoadMealListControl(DateTime date)
@@ -154,6 +179,7 @@ namespace IC.CalorieControl
 			pnMainpanel.Controls.Clear();
 			pnMainpanel.Controls.Add(_mealListControl);
 			_mealListControl.LoadMealLogs(date);
+			UpdateNetCalories(date);
 		}
 
 		private void LoadDailySummaryControl(DateTime date)
@@ -161,27 +187,29 @@ namespace IC.CalorieControl
 			pnMainpanel.Controls.Clear();
 			pnMainpanel.Controls.Add(_dailySummaryControl);
 			_dailySummaryControl.LoadSummaryForDate(date);
+			UpdateNetCalories(date);
 		}
-		private void LoadActivityLogControl()
+		private void LoadActivityLogControl(DateTime date)
 		{
 			pnMainpanel.Controls.Clear();
 			// 建立並傳入 ActivityService 與目前使用者資料
-			var activityCtrl = new ActivityLogControl(_activityService, _currentUser)
-			{
-				Dock = DockStyle.Fill
-			};
-
-			pnMainpanel.Controls.Add(activityCtrl);
+			//var activityCtrl = new ActivityLogControl(_activityService, _currentUser)
+			//{
+			//	Dock = DockStyle.Fill
+			//};
+			//pnMainpanel.Controls.Add(activityCtrl);
+			pnMainpanel.Controls.Add(_activityLogControl);
+			UpdateNetCalories(date);
 		}
 
 		// 在主畫面選單 ListItem 中設定事件：
 		private void btnUserProfile_Click(object sender, EventArgs e)
 		{
-			LoadUserProfileControl();
+			LoadUserProfileControl(DateTime.Today);
 		}
 		private void btnMealLog_Click(object sender, EventArgs e)
 		{
-			LoadMealInputControl();
+			LoadMealInputControl(DateTime.Today);
 		}
 
 		private void btnDailyLog_Click(object sender, EventArgs e)
@@ -190,11 +218,11 @@ namespace IC.CalorieControl
 		}
 		private void btnActivity_Click(object sender, EventArgs e)
 		{
-			LoadActivityLogControl();
+			LoadActivityLogControl(DateTime.Today);
 		}
 		private void pictureBox1_Click(object sender, EventArgs e)
 		{
-			LoadMainPanelControl();
+			LoadMainPanelControl(DateTime.Today);
 		}
 
 		private void ShowControl(UserControl ctrl)
@@ -213,9 +241,27 @@ namespace IC.CalorieControl
 
 		private void MainForm_Load(object sender, EventArgs e)
 		{
-			LoadMainPanelControl();
-		}
+			LoadMainPanelControl(DateTime.Today);
+			DateTime today = DateTime.Today;
+			UpdateNetCalories(today);
 
+			toolTip1.SetToolTip(lblNetCalories, @"淨熱量 = 今日總消耗 - 今日總攝取" + Environment.NewLine +
+				"今日總消耗 = 基礎代謝率 (BMR) + 活動消耗" + Environment.NewLine +
+				"今日總攝取 = 今日所有餐點的熱量總和");
+		}
+		private void UpdateNetCalories(DateTime date)
+		{
+			// 1. 取得當日總攝取熱量
+			var summary = _mealService.GetDailySummary(_currentUser.UserId, date);
+			double consumed = (double)summary.TotalCalories;
+
+			// 2. 取得當日總消耗熱量 (BMR + 活動)
+			double burned = _activityService.GetDailyTotalCaloriesBurned(_currentUser, date);
+
+			// 3. 計算淨熱量並顯示
+			double net = burned - consumed;
+			lblNetCalories.Text = $"今日淨熱量：{net:F2} Kcal";
+		}
 
 	}
 

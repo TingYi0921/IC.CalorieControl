@@ -42,6 +42,8 @@
 			this.btnUserProfile = new System.Windows.Forms.Button();
 			this.btnLogout = new System.Windows.Forms.Button();
 			this.Timer = new System.Windows.Forms.Timer(this.components);
+			this.lblNetCalories = new System.Windows.Forms.Label();
+			this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
 			this.pnTitle.SuspendLayout();
 			this.pnListItems.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -50,17 +52,18 @@
 			// lblWelcome
 			// 
 			this.lblWelcome.AutoSize = true;
-			this.lblWelcome.Font = new System.Drawing.Font("微軟正黑體", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+			this.lblWelcome.Font = new System.Drawing.Font("微軟正黑體", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(136)));
 			this.lblWelcome.ForeColor = System.Drawing.SystemColors.Window;
-			this.lblWelcome.Location = new System.Drawing.Point(59, 9);
+			this.lblWelcome.Location = new System.Drawing.Point(8, 12);
 			this.lblWelcome.Name = "lblWelcome";
-			this.lblWelcome.Size = new System.Drawing.Size(96, 26);
+			this.lblWelcome.Size = new System.Drawing.Size(74, 21);
 			this.lblWelcome.TabIndex = 0;
 			this.lblWelcome.Text = "歡迎標籤";
 			// 
 			// pnTitle
 			// 
 			this.pnTitle.BackColor = System.Drawing.Color.DeepSkyBlue;
+			this.pnTitle.Controls.Add(this.lblNetCalories);
 			this.pnTitle.Controls.Add(this.lblTimer);
 			this.pnTitle.Controls.Add(this.lblWelcome);
 			this.pnTitle.Location = new System.Drawing.Point(189, 0);
@@ -71,11 +74,11 @@
 			// lblTimer
 			// 
 			this.lblTimer.AutoSize = true;
-			this.lblTimer.Font = new System.Drawing.Font("微軟正黑體", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+			this.lblTimer.Font = new System.Drawing.Font("微軟正黑體", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(136)));
 			this.lblTimer.ForeColor = System.Drawing.SystemColors.Window;
-			this.lblTimer.Location = new System.Drawing.Point(342, 9);
+			this.lblTimer.Location = new System.Drawing.Point(408, 12);
 			this.lblTimer.Name = "lblTimer";
-			this.lblTimer.Size = new System.Drawing.Size(96, 26);
+			this.lblTimer.Size = new System.Drawing.Size(74, 21);
 			this.lblTimer.TabIndex = 1;
 			this.lblTimer.Text = "現在時間";
 			// 
@@ -213,6 +216,17 @@
 			// 
 			this.Timer.Tick += new System.EventHandler(this.Timer_Tick);
 			// 
+			// lblNetCalories
+			// 
+			this.lblNetCalories.AutoSize = true;
+			this.lblNetCalories.Font = new System.Drawing.Font("微軟正黑體", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+			this.lblNetCalories.ForeColor = System.Drawing.SystemColors.Window;
+			this.lblNetCalories.Location = new System.Drawing.Point(181, 12);
+			this.lblNetCalories.Name = "lblNetCalories";
+			this.lblNetCalories.Size = new System.Drawing.Size(106, 21);
+			this.lblNetCalories.TabIndex = 2;
+			this.lblNetCalories.Text = "當日熱量總覽";
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -254,5 +268,7 @@
 		private System.Windows.Forms.Button btnLogout;
 		private System.Windows.Forms.Label lblTimer;
 		private System.Windows.Forms.Timer Timer;
+		private System.Windows.Forms.Label lblNetCalories;
+		private System.Windows.Forms.ToolTip toolTip1;
 	}
 }

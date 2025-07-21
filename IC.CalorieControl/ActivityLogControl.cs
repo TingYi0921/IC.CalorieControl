@@ -17,6 +17,7 @@ namespace IC.CalorieControl
 {
 	public partial class ActivityLogControl : UserControl
 	{
+		public event Action<DateTime> OnDateChanged; // 用於日期變更事件
 		private readonly ActivityService _service;
 		private readonly int _userId = SessionManager.CurrentUserId;
 		private UserProfile _user;
@@ -72,6 +73,13 @@ namespace IC.CalorieControl
 
 			LoadActivityLogs(DateTime.Today);
 		}
+		public void UpdateUserProfile(UserProfile updatedUser)
+		{
+			if (updatedUser == null) throw new ArgumentNullException(nameof(updatedUser));
+			_user = updatedUser;                    // 更新內部的 UserProfile
+													// 重新計算並刷新當前選擇日期的所有顯示
+			LoadActivityLogs(dtpActivityDate.Value.Date);
+		}
 
 		private void btnAddActivity_Click(object sender, EventArgs e)
 		{
@@ -86,7 +94,7 @@ namespace IC.CalorieControl
 
 			var log = new ActivityLog
 			{
-				UserId = _userId,
+				UserId = SessionManager.CurrentUserId,
 				ActivityLevelId = (int)cbActivityLevel.SelectedValue,
 				DurationHours = nudDuration.Value,
 				ActivityDate = dtpActivityDate.Value.Date,
