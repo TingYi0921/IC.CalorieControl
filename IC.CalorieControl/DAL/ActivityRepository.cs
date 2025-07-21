@@ -11,14 +11,14 @@ namespace IC.CalorieControl.DAL
 {
 	public class ActivityRepository : IActivityRepository
 	{
-		private readonly string connStr;
-		public ActivityRepository(string connectionString) => connStr = connectionString;
+		private readonly string _connStr;
+		public ActivityRepository(string connectionString) => _connStr = connectionString;
 
 		public List<ActivityLevel> GetActivityLevels()
 		{
 			var list = new List<ActivityLevel>();
 			string sql = "SELECT ActivityLevelId, LevelName, CaloriesPerHour FROM ActivityLevel";
-			using (var conn = new SqlConnection(connStr))
+			using (var conn = new SqlConnection(_connStr))
 			using (var cmd = new SqlCommand(sql, conn))
 			{
 				conn.Open();
@@ -47,7 +47,7 @@ namespace IC.CalorieControl.DAL
               (UserId, ActivityLevelId, DurationHours, CaloriesBurned, ActivityDate, CreatedAt, UpdatedAt)
             VALUES
               (@UserId, @LevelId, @Duration, @Burned, @Date, SYSUTCDATETIME(), SYSUTCDATETIME())";
-			using (var conn = new SqlConnection(connStr))
+			using (var conn = new SqlConnection(_connStr))
 			using (var cmd = new SqlCommand(sql, conn))
 			{
 				cmd.Parameters.AddWithValue("@UserId", log.UserId);
@@ -68,7 +68,7 @@ namespace IC.CalorieControl.DAL
             FROM ActivityLog al
             WHERE al.UserId = @UserId AND al.ActivityDate = @Date
             ORDER BY al.ActivityLogId";
-			using (var conn = new SqlConnection(connStr))
+			using (var conn = new SqlConnection(_connStr))
 			using (var cmd = new SqlCommand(sql, conn))
 			{
 				cmd.Parameters.AddWithValue("@UserId", userId);
@@ -96,13 +96,24 @@ namespace IC.CalorieControl.DAL
 			string sql = @"
             SELECT ISNULL(SUM(CaloriesBurned),0) FROM ActivityLog
             WHERE UserId = @UserId AND ActivityDate = @Date";
-			using (var conn = new SqlConnection(connStr))
+			using (var conn = new SqlConnection(_connStr))
 			using (var cmd = new SqlCommand(sql, conn))
 			{
 				cmd.Parameters.AddWithValue("@UserId", userId);
 				cmd.Parameters.AddWithValue("@Date", date.Date);
 				conn.Open();
 				return (int)cmd.ExecuteScalar();
+			}
+		}
+		public void DeleteActivityLog(int activityLogId)
+		{
+			const string sql = "DELETE FROM ActivityLog WHERE ActivityLogId = @LogId";
+			using (var conn = new SqlConnection(_connStr))
+			using (var cmd = new SqlCommand(sql, conn))
+			{
+				cmd.Parameters.AddWithValue("@LogId", activityLogId);
+				conn.Open();
+				cmd.ExecuteNonQuery();
 			}
 		}
 	}

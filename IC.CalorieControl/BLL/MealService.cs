@@ -41,7 +41,7 @@ namespace IC.CalorieControl.BLL
 				return false;
 			}
 			_foodRepo.AddFoodItem(item);
-			message = "食物已加入收藏。";
+			message = "食物已加入。";
 			return true;
 		}
 

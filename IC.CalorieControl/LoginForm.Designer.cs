@@ -119,7 +119,7 @@
 			this.lblTitle.BackColor = System.Drawing.Color.Transparent;
 			this.lblTitle.Font = new System.Drawing.Font("微軟正黑體", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(136)));
 			this.lblTitle.ForeColor = System.Drawing.Color.Blue;
-			this.lblTitle.Location = new System.Drawing.Point(43, 9);
+			this.lblTitle.Location = new System.Drawing.Point(49, 8);
 			this.lblTitle.Name = "lblTitle";
 			this.lblTitle.Size = new System.Drawing.Size(209, 35);
 			this.lblTitle.TabIndex = 0;
@@ -131,7 +131,7 @@
 			this.label1.BackColor = System.Drawing.Color.Transparent;
 			this.label1.Font = new System.Drawing.Font("微軟正黑體", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
 			this.label1.ForeColor = System.Drawing.Color.Black;
-			this.label1.Location = new System.Drawing.Point(101, 55);
+			this.label1.Location = new System.Drawing.Point(107, 54);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(87, 35);
 			this.label1.TabIndex = 7;

@@ -13,5 +13,6 @@ namespace IC.CalorieControl.Interfaces
 		void AddActivityLog(ActivityLog log);
 		List<ActivityLog> GetActivityLogsByDate(int userId, DateTime date);
 		int GetDailyActivityCalories(int userId, DateTime date);
+		void DeleteActivityLog(int activityLogId);
 	}
 }

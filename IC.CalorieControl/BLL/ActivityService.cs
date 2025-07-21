@@ -10,11 +10,11 @@ namespace IC.CalorieControl.BLL
 {
 	public class ActivityService
 	{
-		private readonly IActivityRepository repo;
-		public ActivityService(IActivityRepository repository) => repo = repository;
+		private readonly IActivityRepository _repo;
+		public ActivityService(IActivityRepository repository) => _repo = repository;
 
 		// 取得強度清單
-		public List<ActivityLevel> GetActivityLevels() => repo.GetActivityLevels();
+		public List<ActivityLevel> GetActivityLevels() => _repo.GetActivityLevels();
 
 		// 新增一筆活動，並計算消耗
 		public bool AddActivityLog(ActivityLog log, out string message)
@@ -25,7 +25,7 @@ namespace IC.CalorieControl.BLL
 				return false;
 			}
 			// 先找對應強度的 kcal/hr
-			var level = repo.GetActivityLevels()
+			var level = _repo.GetActivityLevels()
 							.FirstOrDefault(l => l.ActivityLevelId == log.ActivityLevelId);
 			if (level == null)
 			{
@@ -34,18 +34,18 @@ namespace IC.CalorieControl.BLL
 			}
 			// 計算消耗
 			log.CaloriesBurned = (int)(level.CaloriesPerHour * log.DurationHours);
-			repo.AddActivityLog(log);
+			_repo.AddActivityLog(log);
 			message = "活動已記錄。";
 			return true;
 		}
 
 		// 讀該日所有活動
 		public List<ActivityLog> GetActivityLogs(int userId, DateTime date) =>
-			repo.GetActivityLogsByDate(userId, date);
+			_repo.GetActivityLogsByDate(userId, date);
 
 		// 該日活動總消耗
 		public int GetDailyActivityCalories(int userId, DateTime date) =>
-			repo.GetDailyActivityCalories(userId, date);
+			_repo.GetDailyActivityCalories(userId, date);
 
 		// 計算 BMR
 		public double CalculateBMR(UserProfile user)
@@ -68,6 +68,26 @@ namespace IC.CalorieControl.BLL
 			double bmr = CalculateBMR(user);
 			int act = GetDailyActivityCalories(user.UserId, date);
 			return bmr + act;
+		}
+
+		public bool DeleteActivityLog(int logId, out string message)
+		{
+			if (logId <= 0)
+			{
+				message = "請先選擇一筆有效的活動紀錄。";
+				return false;
+			}
+			try
+			{
+				_repo.DeleteActivityLog(logId);
+				message = "活動紀錄已刪除。";
+				return true;
+			}
+			catch (Exception ex)
+			{
+				message = "刪除失敗：" + ex.Message;
+				return false;
+			}
 		}
 	}
 }

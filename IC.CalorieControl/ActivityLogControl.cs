@@ -18,7 +18,7 @@ namespace IC.CalorieControl
 	public partial class ActivityLogControl : UserControl
 	{
 		public event Action<DateTime> OnDateChanged; // 用於日期變更事件
-		private readonly ActivityService _service;
+		private readonly ActivityService _activityService;
 		private readonly int _userId = SessionManager.CurrentUserId;
 		private UserProfile _user;
 		private readonly List<ActivityLevel> _levels;
@@ -29,10 +29,10 @@ namespace IC.CalorieControl
 			if (service == null) throw new ArgumentNullException(nameof(service));
 			if (user == null) throw new ArgumentNullException(nameof(user));
 
-			_service = service;
+			_activityService = service;
 			_user = user;
 
-			_levels = _service.GetActivityLevels();
+			_levels = _activityService.GetActivityLevels();
 
 			// 設定日期與下拉
 			dtpActivityDate.Format = DateTimePickerFormat.Custom;
@@ -84,7 +84,7 @@ namespace IC.CalorieControl
 		private void btnAddActivity_Click(object sender, EventArgs e)
 		{
 			// 確認所有關鍵物件都不為 null
-			if (_service == null) throw new InvalidOperationException("_activityService is null");
+			if (_activityService == null) throw new InvalidOperationException("_activityService is null");
 			if (cbActivityLevel == null) throw new InvalidOperationException("cbActivityLevel is null");
 			if (nudDuration == null) throw new InvalidOperationException("nudDuration is null");
 			if (dtpActivityDate == null) throw new InvalidOperationException("dtpActivityDate is null");
@@ -101,7 +101,7 @@ namespace IC.CalorieControl
 				CreatedAt = DateTime.Now,
 				UpdatedAt = DateTime.Now
 			};
-			if (_service.AddActivityLog(log, out string msg))
+			if (_activityService.AddActivityLog(log, out string msg))
 				MessageBox.Show(msg, "完成", MessageBoxButtons.OK, MessageBoxIcon.Information);
 			else
 				MessageBox.Show(msg, "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -111,7 +111,7 @@ namespace IC.CalorieControl
 		private void LoadActivityLogs(DateTime date)
 		{
 			// 1. 讀取該日活動明細到 DataGridView
-			var logs = _service.GetActivityLogs(_user.UserId, date);
+			var logs = _activityService.GetActivityLogs(_user.UserId, date);
 			dgvActivityLogs.DataSource = logs
 				.Select(l => new
 				{
@@ -133,7 +133,7 @@ namespace IC.CalorieControl
 			for (int i = 0; i < 7; i++)
 			{
 				var d = start.AddDays(i);
-				double dailyBurn = _service.GetDailyTotalCaloriesBurned(_user, d);
+				double dailyBurn = _activityService.GetDailyTotalCaloriesBurned(_user, d);
 				// X 軸顯示「月-日」，Y 軸顯示當日總消耗
 				series.Points.AddXY(d.ToString("MM-dd"), dailyBurn);
 			}
@@ -147,8 +147,8 @@ namespace IC.CalorieControl
 		}
 		private void UpdateSummaryLabels(DateTime date)
 		{
-			lblBMR.Text = $"{_service.CalculateBMR(_user):F2} Kcal";
-			lblCalorieBurn.Text = $"{_service.GetDailyTotalCaloriesBurned(_user, date):F2} Kcal";
+			lblBMR.Text = $"{_activityService.CalculateBMR(_user):F2} Kcal";
+			lblCalorieBurn.Text = $"{_activityService.GetDailyTotalCaloriesBurned(_user, date):F2} Kcal";
 		}
 
 		// 為 LoadActivityLogs 的事件訂閱執行點
@@ -177,6 +177,32 @@ namespace IC.CalorieControl
 男性:(10*體重)+(6.25*身高)-(5*年齡)+5
 女性:(10*體重)+(6.25*身高)-(5*年齡)-161");
 			toolTip1.SetToolTip(label5, @"今日總消耗計算公式：基礎代謝率(BMR) + 活動消耗");
+		}
+
+		private void btnDeleteActivity_Click(object sender, EventArgs e)
+		{
+			if (dgvActivityLogs.SelectedRows.Count == 0)
+			{
+				MessageBox.Show("請先從列表中選擇要刪除的紀錄。", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				return;
+			}
+
+			// 取得被選中的 ActivityLogId
+			var row = dgvActivityLogs.SelectedRows[0];
+			int logId = (int)row.Cells["ActivityLogId"].Value;
+
+			// 呼叫 Service 刪除
+			if (_activityService.DeleteActivityLog(logId, out string msg))
+			{
+				MessageBox.Show(msg, "完成", MessageBoxButtons.OK, MessageBoxIcon.Information);
+			}
+			else
+			{
+				MessageBox.Show(msg, "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+
+			// 刪除後重新載入該日期的列表、圖表與摘要
+			LoadActivityLogs(dtpActivityDate.Value.Date);
 		}
 	}
 }
