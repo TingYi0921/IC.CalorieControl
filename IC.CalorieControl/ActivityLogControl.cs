@@ -48,9 +48,27 @@ namespace IC.CalorieControl
 			var series = new Series("Calories")
 			{
 				ChartType = SeriesChartType.Line,   // 折線圖
-				XValueType = ChartValueType.String
+				XValueType = ChartValueType.String,
+				Color = Color.Blue,  // 線條顏色
+				MarkerStyle = MarkerStyle.Circle,
+				MarkerSize = 7,                 // 標記大小
+				MarkerColor = Color.DarkBlue,       // 標記顏色
+				IsValueShownAsLabel = true,                  // 顯示數值
+				LabelForeColor = Color.DarkBlue,        // 數值文字顏色
+				Font = new Font("Segoe UI", 8)
 			};
 			chartDailyBurn.Series.Add(series);
+
+			//chartDailyBurn.Legends.Clear();
+			//var legend = new Legend("Activity")
+			//{
+			//	Docking = Docking.Top,            // 放頂端
+			//	Alignment = StringAlignment.Near,   // 靠左
+			//	LegendStyle = LegendStyle.Row,
+			//	BackColor = Color.Transparent,
+			//	Font = new Font("Segoe UI", 9)
+			//};
+			//chartDailyBurn.Legends.Add(legend);
 
 			LoadActivityLogs(DateTime.Today);
 		}
@@ -111,6 +129,7 @@ namespace IC.CalorieControl
 				// X 軸顯示「月-日」，Y 軸顯示當日總消耗
 				series.Points.AddXY(d.ToString("MM-dd"), dailyBurn);
 			}
+			UpdateSummaryLabels(date);
 		}
 		// 輔助：根據 ID 找 LevelName（可改成直接 join 顯示）
 		private string levelsLookup(int id)
@@ -118,11 +137,38 @@ namespace IC.CalorieControl
 			var level = _levels.FirstOrDefault(l => l.ActivityLevelId == id);
 			return level?.LevelName ?? "未知";
 		}
+		private void UpdateSummaryLabels(DateTime date)
+		{
+			lblBMR.Text = $"{_service.CalculateBMR(_user):F2} Kcal";
+			lblCalorieBurn.Text = $"{_service.GetDailyTotalCaloriesBurned(_user, date):F2} Kcal";
+		}
 
 		// 為 LoadActivityLogs 的事件訂閱執行點
 		private void DtpActivityDate_ValueChanged(object sender, EventArgs e)
 		{
 			LoadActivityLogs(dtpActivityDate.Value.Date);
+		}
+
+		private void ActivityLogControl_Load(object sender, EventArgs e)
+		{
+			toolTip1.SetToolTip(label3, @"運動消耗(hr/Kcal)：
+低強度：220 Kcal
+正常強度：300 Kcal
+中強度：400 Kcal
+高強度：500 Kcal
+超高強度：600 Kcal");
+
+			toolTip1.SetToolTip(cbActivityLevel, @"運動消耗(hr/Kcal)：
+低強度：220 Kcal
+正常強度：300 Kcal
+中強度：400 Kcal
+高強度：500 Kcal
+超高強度：600 Kcal");
+
+			toolTip1.SetToolTip(label6, @"基礎代謝率計算公式：
+男性:(10*體重)+(6.25*身高)-(5*年齡)+5
+女性:(10*體重)+(6.25*身高)-(5*年齡)-161");
+			toolTip1.SetToolTip(label5, @"今日總消耗計算公式：基礎代謝率(BMR) + 活動消耗");
 		}
 	}
 }

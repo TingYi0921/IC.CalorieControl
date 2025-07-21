@@ -193,7 +193,7 @@
 			this.btnViewLogs.BackColor = System.Drawing.Color.DeepSkyBlue;
 			this.btnViewLogs.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
 			this.btnViewLogs.ForeColor = System.Drawing.Color.White;
-			this.btnViewLogs.Location = new System.Drawing.Point(459, 13);
+			this.btnViewLogs.Location = new System.Drawing.Point(433, 12);
 			this.btnViewLogs.Name = "btnViewLogs";
 			this.btnViewLogs.Size = new System.Drawing.Size(127, 33);
 			this.btnViewLogs.TabIndex = 55;

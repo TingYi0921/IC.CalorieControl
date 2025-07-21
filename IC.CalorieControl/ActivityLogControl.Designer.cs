@@ -28,11 +28,12 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-			System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-			System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+			this.components = new System.ComponentModel.Container();
+			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea11 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+			System.Windows.Forms.DataVisualization.Charting.Legend legend11 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+			System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.label1 = new System.Windows.Forms.Label();
 			this.dtpActivityDate = new System.Windows.Forms.DateTimePicker();
 			this.cbActivityLevel = new System.Windows.Forms.ComboBox();
@@ -43,6 +44,11 @@
 			this.label3 = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
 			this.dgvActivityLogs = new System.Windows.Forms.DataGridView();
+			this.label5 = new System.Windows.Forms.Label();
+			this.lblCalorieBurn = new System.Windows.Forms.Label();
+			this.label6 = new System.Windows.Forms.Label();
+			this.lblBMR = new System.Windows.Forms.Label();
+			this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
 			((System.ComponentModel.ISupportInitialize)(this.nudDuration)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.chartDailyBurn)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.dgvActivityLogs)).BeginInit();
@@ -67,14 +73,14 @@
 			this.dtpActivityDate.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
 			this.dtpActivityDate.Location = new System.Drawing.Point(105, 63);
 			this.dtpActivityDate.Name = "dtpActivityDate";
-			this.dtpActivityDate.Size = new System.Drawing.Size(200, 25);
+			this.dtpActivityDate.Size = new System.Drawing.Size(153, 25);
 			this.dtpActivityDate.TabIndex = 42;
 			this.dtpActivityDate.ValueChanged += new System.EventHandler(this.DtpActivityDate_ValueChanged);
 			// 
 			// cbActivityLevel
 			// 
 			this.cbActivityLevel.FormattingEnabled = true;
-			this.cbActivityLevel.Location = new System.Drawing.Point(105, 111);
+			this.cbActivityLevel.Location = new System.Drawing.Point(137, 97);
 			this.cbActivityLevel.Name = "cbActivityLevel";
 			this.cbActivityLevel.Size = new System.Drawing.Size(121, 20);
 			this.cbActivityLevel.TabIndex = 43;
@@ -82,9 +88,9 @@
 			// nudDuration
 			// 
 			this.nudDuration.DecimalPlaces = 2;
-			this.nudDuration.Location = new System.Drawing.Point(443, 109);
+			this.nudDuration.Location = new System.Drawing.Point(137, 126);
 			this.nudDuration.Name = "nudDuration";
-			this.nudDuration.Size = new System.Drawing.Size(120, 22);
+			this.nudDuration.Size = new System.Drawing.Size(121, 22);
 			this.nudDuration.TabIndex = 44;
 			// 
 			// btnAddActivity
@@ -92,7 +98,7 @@
 			this.btnAddActivity.BackColor = System.Drawing.Color.DodgerBlue;
 			this.btnAddActivity.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
 			this.btnAddActivity.ForeColor = System.Drawing.Color.White;
-			this.btnAddActivity.Location = new System.Drawing.Point(453, 60);
+			this.btnAddActivity.Location = new System.Drawing.Point(447, 58);
 			this.btnAddActivity.Name = "btnAddActivity";
 			this.btnAddActivity.Size = new System.Drawing.Size(110, 33);
 			this.btnAddActivity.TabIndex = 45;
@@ -103,39 +109,39 @@
 			// chartDailyBurn
 			// 
 			this.chartDailyBurn.BackColor = System.Drawing.Color.PaleTurquoise;
-			chartArea1.AxisX.Title = "Date";
-			chartArea1.AxisX.TitleFont = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			chartArea1.AxisY.Title = "Calorie";
-			chartArea1.AxisY.TitleFont = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			chartArea1.BackColor = System.Drawing.Color.White;
-			chartArea1.Name = "ChartArea1";
-			this.chartDailyBurn.ChartAreas.Add(chartArea1);
-			legend1.BackColor = System.Drawing.Color.Transparent;
-			legend1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
-			legend1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			legend1.IsTextAutoFit = false;
-			legend1.LegendStyle = System.Windows.Forms.DataVisualization.Charting.LegendStyle.Row;
-			legend1.Name = "Legend1";
-			this.chartDailyBurn.Legends.Add(legend1);
-			this.chartDailyBurn.Location = new System.Drawing.Point(0, 137);
+			chartArea11.AxisX.Title = "Date";
+			chartArea11.AxisX.TitleFont = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			chartArea11.AxisY.Title = "Calorie";
+			chartArea11.AxisY.TitleFont = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			chartArea11.BackColor = System.Drawing.Color.White;
+			chartArea11.Name = "ChartArea1";
+			this.chartDailyBurn.ChartAreas.Add(chartArea11);
+			legend11.BackColor = System.Drawing.Color.Transparent;
+			legend11.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
+			legend11.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			legend11.IsTextAutoFit = false;
+			legend11.LegendStyle = System.Windows.Forms.DataVisualization.Charting.LegendStyle.Row;
+			legend11.Name = "Default";
+			this.chartDailyBurn.Legends.Add(legend11);
+			this.chartDailyBurn.Location = new System.Drawing.Point(0, 154);
 			this.chartDailyBurn.Name = "chartDailyBurn";
-			series1.BorderColor = System.Drawing.Color.Yellow;
-			series1.BorderWidth = 3;
-			series1.ChartArea = "ChartArea1";
-			series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-			series1.Color = System.Drawing.Color.Blue;
-			series1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			series1.IsValueShownAsLabel = true;
-			series1.LabelForeColor = System.Drawing.Color.DarkBlue;
-			series1.Legend = "Legend1";
-			series1.MarkerBorderColor = System.Drawing.Color.DarkBlue;
-			series1.MarkerBorderWidth = 2;
-			series1.MarkerColor = System.Drawing.Color.DarkBlue;
-			series1.MarkerSize = 7;
-			series1.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
-			series1.Name = "Calories";
-			this.chartDailyBurn.Series.Add(series1);
-			this.chartDailyBurn.Size = new System.Drawing.Size(589, 187);
+			series11.BorderColor = System.Drawing.Color.Yellow;
+			series11.BorderWidth = 3;
+			series11.ChartArea = "ChartArea1";
+			series11.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+			series11.Color = System.Drawing.Color.Blue;
+			series11.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			series11.IsValueShownAsLabel = true;
+			series11.LabelForeColor = System.Drawing.Color.DarkBlue;
+			series11.Legend = "Default";
+			series11.MarkerBorderColor = System.Drawing.Color.DarkBlue;
+			series11.MarkerBorderWidth = 2;
+			series11.MarkerColor = System.Drawing.Color.DarkBlue;
+			series11.MarkerSize = 7;
+			series11.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
+			series11.Name = "Calories";
+			this.chartDailyBurn.Series.Add(series11);
+			this.chartDailyBurn.Size = new System.Drawing.Size(589, 184);
 			this.chartDailyBurn.TabIndex = 47;
 			this.chartDailyBurn.Text = "Daily Calorie";
 			// 
@@ -153,17 +159,18 @@
 			// 
 			this.label3.AutoSize = true;
 			this.label3.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.label3.Location = new System.Drawing.Point(21, 108);
+			this.label3.Location = new System.Drawing.Point(21, 96);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(78, 21);
 			this.label3.TabIndex = 49;
+			this.label3.Tag = "運動消耗(hr/Kcal):低強度:220Kcal、正常強度:300Kcal、中強度:400Kcal、高強度:500Kcal、超高強度:6000Kcal";
 			this.label3.Text = "活動等級:";
 			// 
 			// label4
 			// 
 			this.label4.AutoSize = true;
 			this.label4.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.label4.Location = new System.Drawing.Point(326, 108);
+			this.label4.Location = new System.Drawing.Point(21, 128);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(106, 21);
 			this.label4.TabIndex = 50;
@@ -171,24 +178,68 @@
 			// 
 			// dgvActivityLogs
 			// 
-			dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-			this.dgvActivityLogs.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+			dataGridViewCellStyle21.BackColor = System.Drawing.Color.White;
+			this.dgvActivityLogs.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle21;
 			this.dgvActivityLogs.BackgroundColor = System.Drawing.Color.PaleTurquoise;
 			this.dgvActivityLogs.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.dgvActivityLogs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dgvActivityLogs.Location = new System.Drawing.Point(83, 323);
+			this.dgvActivityLogs.Location = new System.Drawing.Point(73, 344);
 			this.dgvActivityLogs.Name = "dgvActivityLogs";
-			dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-			this.dgvActivityLogs.RowsDefaultCellStyle = dataGridViewCellStyle2;
+			dataGridViewCellStyle22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+			this.dgvActivityLogs.RowsDefaultCellStyle = dataGridViewCellStyle22;
 			this.dgvActivityLogs.RowTemplate.Height = 24;
-			this.dgvActivityLogs.Size = new System.Drawing.Size(443, 87);
+			this.dgvActivityLogs.Size = new System.Drawing.Size(443, 66);
 			this.dgvActivityLogs.TabIndex = 51;
+			// 
+			// label5
+			// 
+			this.label5.AutoSize = true;
+			this.label5.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+			this.label5.Location = new System.Drawing.Point(297, 128);
+			this.label5.Name = "label5";
+			this.label5.Size = new System.Drawing.Size(169, 21);
+			this.label5.TabIndex = 52;
+			this.label5.Text = "今日總消耗熱量(Kcal):";
+			// 
+			// lblCalorieBurn
+			// 
+			this.lblCalorieBurn.AutoSize = true;
+			this.lblCalorieBurn.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+			this.lblCalorieBurn.Location = new System.Drawing.Point(472, 128);
+			this.lblCalorieBurn.Name = "lblCalorieBurn";
+			this.lblCalorieBurn.Size = new System.Drawing.Size(85, 21);
+			this.lblCalorieBurn.TabIndex = 53;
+			this.lblCalorieBurn.Text = "熱量(Kcal)";
+			// 
+			// label6
+			// 
+			this.label6.AutoSize = true;
+			this.label6.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+			this.label6.Location = new System.Drawing.Point(297, 96);
+			this.label6.Name = "label6";
+			this.label6.Size = new System.Drawing.Size(169, 21);
+			this.label6.TabIndex = 54;
+			this.label6.Text = "您的基礎代謝率(Kcal):";
+			// 
+			// lblBMR
+			// 
+			this.lblBMR.AutoSize = true;
+			this.lblBMR.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+			this.lblBMR.Location = new System.Drawing.Point(472, 94);
+			this.lblBMR.Name = "lblBMR";
+			this.lblBMR.Size = new System.Drawing.Size(85, 21);
+			this.lblBMR.TabIndex = 55;
+			this.lblBMR.Text = "基代(Kcal)";
 			// 
 			// ActivityLogControl
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.PaleTurquoise;
+			this.Controls.Add(this.lblBMR);
+			this.Controls.Add(this.label6);
+			this.Controls.Add(this.lblCalorieBurn);
+			this.Controls.Add(this.label5);
 			this.Controls.Add(this.dgvActivityLogs);
 			this.Controls.Add(this.label4);
 			this.Controls.Add(this.label3);
@@ -201,6 +252,7 @@
 			this.Controls.Add(this.label1);
 			this.Name = "ActivityLogControl";
 			this.Size = new System.Drawing.Size(589, 410);
+			this.Load += new System.EventHandler(this.ActivityLogControl_Load);
 			((System.ComponentModel.ISupportInitialize)(this.nudDuration)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.chartDailyBurn)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.dgvActivityLogs)).EndInit();
@@ -221,5 +273,10 @@
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.Label label4;
 		private System.Windows.Forms.DataGridView dgvActivityLogs;
+		private System.Windows.Forms.Label label5;
+		private System.Windows.Forms.Label lblCalorieBurn;
+		private System.Windows.Forms.Label label6;
+		private System.Windows.Forms.Label lblBMR;
+		private System.Windows.Forms.ToolTip toolTip1;
 	}
 }
