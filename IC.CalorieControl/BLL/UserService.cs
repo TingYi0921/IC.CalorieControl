@@ -4,6 +4,7 @@ using IC.CalorieControl.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -133,5 +134,35 @@ namespace IC.CalorieControl.BLL
 		{
 			userRepository.LogLoginSession(userId, ip);
 		}
+
+		public bool ResetPassword(string userName, string newPassword, out string message)
+		{
+			// 簡單驗證：中英文+數字，至少 6 碼
+			if (!Regex.IsMatch(newPassword, @"^[a-zA-Z0-9]{6,}$"))
+			{
+				message = "密碼需至少 6 碼，且只能包含英數。";
+				return false;
+			}
+
+			var user = userRepository.GetUserByUserName(userName);
+			if (user == null)
+			{
+				message = "找不到此使用者。";
+				return false;
+			}
+
+			// 雜湊新密碼
+			string hash = userRepository.ComputeSha256Hash(newPassword);
+			userRepository.UpdatePassword(user.UserId, hash);
+			message = "重設密碼成功！";
+			return true;
+		}
+		//// HashPassword 方法
+		//private string ComputeSha256Hash(string rawData)
+		//{
+		//	var sha256 = SHA256.Create();
+		//	var bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(rawData));
+		//	return BitConverter.ToString(bytes).Replace("-", "").ToLower();
+		//}
 	}
 }

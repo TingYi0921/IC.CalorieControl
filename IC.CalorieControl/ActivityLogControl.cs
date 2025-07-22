@@ -17,6 +17,7 @@ namespace IC.CalorieControl
 {
 	public partial class ActivityLogControl : UserControl
 	{
+		public DateTime SelectedDate => dtpActivityDate.Value.Date;
 		public event Action<DateTime> OnDateChanged; // 用於日期變更事件
 		private readonly ActivityService _activityService;
 		private readonly int _userId = SessionManager.CurrentUserId;
@@ -44,6 +45,8 @@ namespace IC.CalorieControl
 			cbActivityLevel.DisplayMember = "LevelName";
 			cbActivityLevel.ValueMember = "ActivityLevelId";
 
+			LoadActivityLogs(DateTime.Today);
+
 			// 初始化圖表
 			chartDailyBurn.Series.Clear();
 			var series = new Series("Calories")
@@ -70,8 +73,6 @@ namespace IC.CalorieControl
 			//	Font = new Font("Segoe UI", 9)
 			//};
 			//chartDailyBurn.Legends.Add(legend);
-
-			LoadActivityLogs(DateTime.Today);
 		}
 		public void UpdateUserProfile(UserProfile updatedUser)
 		{
@@ -108,9 +109,14 @@ namespace IC.CalorieControl
 
 			LoadActivityLogs(dtpActivityDate.Value.Date);
 		}
-		private void LoadActivityLogs(DateTime date)
+		public void LoadActivityLogs(DateTime date)
 		{
-			// 1. 讀取該日活動明細到 DataGridView
+			// 1. 同步更新日期選擇器
+			dtpActivityDate.ValueChanged -= DtpActivityDate_ValueChanged;
+			dtpActivityDate.Value = date.Date;
+			dtpActivityDate.ValueChanged += DtpActivityDate_ValueChanged;
+
+			// 2. 讀取該日活動明細到 DataGridView
 			var logs = _activityService.GetActivityLogs(_user.UserId, date);
 			dgvActivityLogs.DataSource = logs
 				.Select(l => new
@@ -120,11 +126,6 @@ namespace IC.CalorieControl
 					Duration = l.DurationHours,
 					Burned = l.CaloriesBurned
 				}).ToList();
-
-			// 2. 同步更新日期選擇器
-			dtpActivityDate.ValueChanged -= DtpActivityDate_ValueChanged;
-			dtpActivityDate.Value = date.Date;
-			dtpActivityDate.ValueChanged += DtpActivityDate_ValueChanged;
 
 			// 3. 一週資料：當天往前推 6 天到當天，共 7 天
 			var series = chartDailyBurn.Series["Calories"];
@@ -176,7 +177,7 @@ namespace IC.CalorieControl
 			toolTip1.SetToolTip(label6, @"基礎代謝率計算公式：
 男性:(10*體重)+(6.25*身高)-(5*年齡)+5
 女性:(10*體重)+(6.25*身高)-(5*年齡)-161");
-			toolTip1.SetToolTip(label5, @"今日總消耗計算公式：基礎代謝率(BMR) + 活動消耗");
+			toolTip1.SetToolTip(label5, @"當日總消耗計算公式：基礎代謝率(BMR) + 活動消耗");
 		}
 
 		private void btnDeleteActivity_Click(object sender, EventArgs e)

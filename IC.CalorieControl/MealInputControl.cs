@@ -16,6 +16,7 @@ namespace IC.CalorieControl
 {
 	public partial class MealInputControl : UserControl
 	{
+		public DateTime SelectedDate => dtpInputLogDate.Value.Date;
 		public event Action<DateTime> OnAddToLogCompleted;
 		public event Action<DateTime> OnViewTodayLogsRequested; // 用於檢視當日紀錄事件
 		public event Action<DateTime> OnDateChanged; // 用於日期變更事件
@@ -35,11 +36,16 @@ namespace IC.CalorieControl
 			_mealService = new MealService
 				(new FoodRepository("Data Source=DESKTOP-PAKSETB\\SQLEXPRESS;Initial Catalog=CalorieControlSystem;Integrated Security=True"), 
 				new MealLogRepository("Data Source=DESKTOP-PAKSETB\\SQLEXPRESS;Initial Catalog=CalorieControlSystem;Integrated Security=True"));
-			LoadFavoriteFoods();
+			LoadFavoriteFoods(dtpInputLogDate.Value.Date);
 		}
 
-		private void LoadFavoriteFoods()
+		public void LoadFavoriteFoods(DateTime date)
 		{
+			// 1. 同步更新日期選擇器
+			dtpInputLogDate.ValueChanged -= DtpInputLogDate_ValueChanged;
+			dtpInputLogDate.Value = date.Date;
+			dtpInputLogDate.ValueChanged += DtpInputLogDate_ValueChanged;
+
 			var allFoods = _mealService.GetUserFoodItems(_currentUserId);
 
 			// 2. 依 Name 去重，只保留每個食物名稱的第一筆
@@ -83,6 +89,10 @@ namespace IC.CalorieControl
 				chkSaveAsFavorite.Checked = true;
 			}
 		}
+		private void DtpInputLogDate_ValueChanged(object sender, EventArgs e)
+		{
+			LoadFavoriteFoods(dtpInputLogDate.Value.Date);
+		}
 
 		private void btnAddToLog_Click(object sender, EventArgs e)
 		{
@@ -124,7 +134,7 @@ namespace IC.CalorieControl
 			{
 				if (chkSaveAsFavorite.Checked)
 				{
-					LoadFavoriteFoods(); // 重新載入
+					LoadFavoriteFoods(dtpInputLogDate.Value.Date); // 重新載入
 				}
 				MessageBox.Show(foodMsg, "完成", MessageBoxButtons.OK, MessageBoxIcon.Information);
 			}

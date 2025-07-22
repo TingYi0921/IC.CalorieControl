@@ -16,6 +16,7 @@ namespace IC.CalorieControl
 {
 	public partial class DailySummaryControl : UserControl
 	{
+		public DateTime SelectedDate => dtpSummaryDate.Value.Date;
 		public event Action<DateTime> OnViewTodayLogsRequested; // 用於檢視當日紀錄事件
 		public event Action<DateTime> OnDateChanged; // 用於日期變更事件
 		private readonly MealService _mealService;
@@ -31,6 +32,8 @@ namespace IC.CalorieControl
 			dtpSummaryDate.CustomFormat = "yyyy-MM-dd";
 			// 預設選擇今天並載入統計
 			dtpSummaryDate.Value = DateTime.Today;
+			dtpSummaryDate.ValueChanged += (s, e) => LoadSummaryForDate(dtpSummaryDate.Value.Date);
+
 			LoadSummaryForDate(DateTime.Today);
 		}
 
@@ -40,6 +43,15 @@ namespace IC.CalorieControl
 		}
 		public void LoadSummaryForDate(DateTime date)
 		{
+			// 先解除 ValueChanged 事件，避免下面設定 Value 觸發重入
+			dtpSummaryDate.ValueChanged -= dtpSummaryDate_ValueChanged;
+
+			// 1. 同步更新日期選擇器
+			dtpSummaryDate.Value = date.Date;
+
+			// 重新綁回事件
+			dtpSummaryDate.ValueChanged += dtpSummaryDate_ValueChanged;
+
 			// 加入 Debug 方便排查
 			int uid = SessionManager.CurrentUserId;
 			//MessageBox.Show($"[Debug] 讀取統計 → UserId={uid}, Date={date:yyyy-MM-dd}");

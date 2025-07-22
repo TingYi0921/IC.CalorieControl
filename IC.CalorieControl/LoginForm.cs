@@ -145,5 +145,13 @@ namespace IC.CalorieControl
 			Register.FormClosed += (s, args) => this.Close();
 			Register.Show();
 		}
+
+		private void lblForgotPassword_Click(object sender, EventArgs e)
+		{
+			using (var frm = new ResetPasswordForm(_userService))
+			{
+				frm.ShowDialog(this);
+			}
+		}
 	}
 }

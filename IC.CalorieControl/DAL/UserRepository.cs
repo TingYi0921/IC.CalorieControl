@@ -85,7 +85,7 @@ namespace IC.CalorieControl.DAL
 			}
 		}
 
-		private string ComputeSha256Hash(string rawData)
+		public string ComputeSha256Hash(string rawData)
 		{
 			var sha256 = SHA256.Create();
 			var bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(rawData));
@@ -174,6 +174,23 @@ namespace IC.CalorieControl.DAL
 				conn.Open();
 				var result = cmd.ExecuteScalar();
 				return result?.ToString();
+			}
+		}
+
+		public void UpdatePassword(int userId, string passwordHash)
+		{
+			const string sql = @"
+        UPDATE UserProfile
+        SET PasswordHash = @Hash, UpdatedAt = @Now
+        WHERE UserId = @Id";
+			using (var conn = new SqlConnection(connectionString))
+			using (var cmd = new SqlCommand(sql, conn))
+			{
+				cmd.Parameters.AddWithValue("@Hash", passwordHash);
+				cmd.Parameters.AddWithValue("@Now", DateTime.UtcNow);
+				cmd.Parameters.AddWithValue("@Id", userId);
+				conn.Open();
+				cmd.ExecuteNonQuery();
 			}
 		}
 	}

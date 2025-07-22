@@ -32,6 +32,7 @@
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
 			this.lblWelcome = new System.Windows.Forms.Label();
 			this.pnTitle = new System.Windows.Forms.Panel();
+			this.lblNetCalories = new System.Windows.Forms.Label();
 			this.lblTimer = new System.Windows.Forms.Label();
 			this.pnMainpanel = new System.Windows.Forms.Panel();
 			this.pnListItems = new System.Windows.Forms.Panel();
@@ -42,7 +43,6 @@
 			this.btnUserProfile = new System.Windows.Forms.Button();
 			this.btnLogout = new System.Windows.Forms.Button();
 			this.Timer = new System.Windows.Forms.Timer(this.components);
-			this.lblNetCalories = new System.Windows.Forms.Label();
 			this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
 			this.pnTitle.SuspendLayout();
 			this.pnListItems.SuspendLayout();
@@ -70,6 +70,17 @@
 			this.pnTitle.Name = "pnTitle";
 			this.pnTitle.Size = new System.Drawing.Size(591, 47);
 			this.pnTitle.TabIndex = 1;
+			// 
+			// lblNetCalories
+			// 
+			this.lblNetCalories.AutoSize = true;
+			this.lblNetCalories.Font = new System.Drawing.Font("微軟正黑體", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+			this.lblNetCalories.ForeColor = System.Drawing.SystemColors.Window;
+			this.lblNetCalories.Location = new System.Drawing.Point(181, 12);
+			this.lblNetCalories.Name = "lblNetCalories";
+			this.lblNetCalories.Size = new System.Drawing.Size(106, 21);
+			this.lblNetCalories.TabIndex = 2;
+			this.lblNetCalories.Text = "當日熱量總覽";
 			// 
 			// lblTimer
 			// 
@@ -215,17 +226,6 @@
 			// Timer
 			// 
 			this.Timer.Tick += new System.EventHandler(this.Timer_Tick);
-			// 
-			// lblNetCalories
-			// 
-			this.lblNetCalories.AutoSize = true;
-			this.lblNetCalories.Font = new System.Drawing.Font("微軟正黑體", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.lblNetCalories.ForeColor = System.Drawing.SystemColors.Window;
-			this.lblNetCalories.Location = new System.Drawing.Point(181, 12);
-			this.lblNetCalories.Name = "lblNetCalories";
-			this.lblNetCalories.Size = new System.Drawing.Size(106, 21);
-			this.lblNetCalories.TabIndex = 2;
-			this.lblNetCalories.Text = "當日熱量總覽";
 			// 
 			// MainForm
 			// 

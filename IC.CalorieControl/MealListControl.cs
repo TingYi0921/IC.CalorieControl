@@ -16,6 +16,7 @@ namespace IC.CalorieControl
 {
 	public partial class MealListControl : UserControl
 	{
+		public DateTime SelectedDate => dtpLogDate.Value.Date;
 		public event Action<DateTime> OnDateChanged; // 用於日期變更事件
 		private readonly MealService _mealService;
 		private readonly int _currentUserId;

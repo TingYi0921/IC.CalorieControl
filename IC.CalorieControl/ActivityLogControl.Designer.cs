@@ -201,7 +201,7 @@
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(169, 21);
 			this.label5.TabIndex = 52;
-			this.label5.Text = "今日總消耗熱量(Kcal):";
+			this.label5.Text = "當日總消耗熱量(Kcal):";
 			// 
 			// lblCalorieBurn
 			// 

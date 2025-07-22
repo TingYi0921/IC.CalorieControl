@@ -14,8 +14,10 @@ namespace IC.CalorieControl.Interfaces
 		UserProfile GetUserByNameAndPassword(string userName, string password);
 		UserProfile GetUserByUserName(string userName);
 		string GetCurrentUserPassword(string userName);
+		string ComputeSha256Hash(string rawData);
 		UserProfile CloneUser(UserProfile user);
 		void UpdateUserProfile(UserProfile user);
 		void LogLoginSession(int userId, string ipAddress);
+		void UpdatePassword(int userId, string passwordHash);
 	}
 }

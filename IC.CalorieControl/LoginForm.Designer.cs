@@ -37,6 +37,7 @@
 			this.btnNewuser = new System.Windows.Forms.Button();
 			this.lblTitle = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
+			this.lblForgotPassword = new System.Windows.Forms.Label();
 			this.SuspendLayout();
 			// 
 			// lblUserName
@@ -137,6 +138,18 @@
 			this.label1.TabIndex = 7;
 			this.label1.Text = "Login";
 			// 
+			// lblForgotPassword
+			// 
+			this.lblForgotPassword.AutoSize = true;
+			this.lblForgotPassword.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.lblForgotPassword.ForeColor = System.Drawing.Color.Blue;
+			this.lblForgotPassword.Location = new System.Drawing.Point(223, 179);
+			this.lblForgotPassword.Name = "lblForgotPassword";
+			this.lblForgotPassword.Size = new System.Drawing.Size(65, 12);
+			this.lblForgotPassword.TabIndex = 8;
+			this.lblForgotPassword.Text = "忘記密碼？";
+			this.lblForgotPassword.Click += new System.EventHandler(this.lblForgotPassword_Click);
+			// 
 			// LoginForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -145,6 +158,7 @@
 			this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
 			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
 			this.ClientSize = new System.Drawing.Size(300, 277);
+			this.Controls.Add(this.lblForgotPassword);
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.lblTitle);
 			this.Controls.Add(this.btnNewuser);
@@ -177,6 +191,7 @@
 		private System.Windows.Forms.Button btnNewuser;
 		private System.Windows.Forms.Label lblTitle;
 		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.Label lblForgotPassword;
 	}
 }
 

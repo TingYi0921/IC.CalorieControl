@@ -171,6 +171,7 @@ namespace IC.CalorieControl
 		{
 			pnMainpanel.Controls.Clear();
 			pnMainpanel.Controls.Add(_mealInputControl);
+			_mealInputControl.LoadFavoriteFoods(date);
 			UpdateNetCalories(date);
 		}
 
@@ -199,30 +200,137 @@ namespace IC.CalorieControl
 			//};
 			//pnMainpanel.Controls.Add(activityCtrl);
 			pnMainpanel.Controls.Add(_activityLogControl);
+			_activityLogControl.LoadActivityLogs(date);
 			UpdateNetCalories(date);
 		}
 
 		// 在主畫面選單 ListItem 中設定事件：
 		private void btnUserProfile_Click(object sender, EventArgs e)
 		{
-			LoadUserProfileControl(DateTime.Today);
+			// 1. 預設為今天
+			DateTime date = DateTime.Today;
+
+			// 2. 如果當前 panel 有這三個控制項其中一個，優先拿它上面的 SelectedDate
+			if (pnMainpanel.Controls.Count > 0)
+			{
+				var ctrl = pnMainpanel.Controls[0];
+				switch (ctrl)
+				{
+					case MealInputControl mic:
+						date = mic.SelectedDate;
+						break;
+					case MealListControl mlc:
+						date = mlc.SelectedDate;
+						break;
+					case DailySummaryControl dic:
+						date = dic.SelectedDate;
+						break;
+					case ActivityLogControl alc:
+						date = alc.SelectedDate;
+						break;
+				}
+			}
+			LoadUserProfileControl(date);
 		}
 		private void btnMealLog_Click(object sender, EventArgs e)
 		{
-			LoadMealInputControl(DateTime.Today);
+			// 1. 預設為今天
+			DateTime date = DateTime.Today;
+
+			// 2. 如果當前 panel 有這三個控制項其中一個，優先拿它上面的 SelectedDate
+			if (pnMainpanel.Controls.Count > 0)
+			{
+				var ctrl = pnMainpanel.Controls[0];
+				switch (ctrl)
+				{
+					case MealListControl mlc:
+						date = mlc.SelectedDate;
+						break;
+					case DailySummaryControl dic:
+						date = dic.SelectedDate;
+						break;
+					case ActivityLogControl alc:
+						date = alc.SelectedDate;
+						break;
+				}
+			}
+			LoadMealInputControl(date);
 		}
 
 		private void btnDailyLog_Click(object sender, EventArgs e)
 		{
-			LoadDailySummaryControl(DateTime.Today);
+			// 1. 預設為今天
+			DateTime date = DateTime.Today;
+
+			// 2. 如果當前 panel 有這三個控制項其中一個，優先拿它上面的 SelectedDate
+			if (pnMainpanel.Controls.Count > 0)
+			{
+				var ctrl = pnMainpanel.Controls[0];
+				switch (ctrl)
+				{
+					case MealInputControl mic:
+						date = mic.SelectedDate;
+						break;
+					case MealListControl mlc:
+						date = mlc.SelectedDate;
+						break;
+					case ActivityLogControl alc:
+						date = alc.SelectedDate;
+						break;
+				}
+			}
+			LoadDailySummaryControl(date);
 		}
 		private void btnActivity_Click(object sender, EventArgs e)
 		{
-			LoadActivityLogControl(DateTime.Today);
+			// 1. 預設為今天
+			DateTime date = DateTime.Today;
+
+			// 2. 如果當前 panel 有這三個控制項其中一個，優先拿它上面的 SelectedDate
+			if (pnMainpanel.Controls.Count > 0)
+			{
+				var ctrl = pnMainpanel.Controls[0];
+				switch (ctrl)
+				{
+					case MealInputControl mic:
+						date = mic.SelectedDate;
+						break;
+					case MealListControl mlc:
+						date = mlc.SelectedDate;
+						break;
+					case DailySummaryControl dic:
+						date = dic.SelectedDate;
+						break;
+				}
+			}
+			LoadActivityLogControl(date);
 		}
 		private void pictureBox1_Click(object sender, EventArgs e)
 		{
-			LoadMainPanelControl(DateTime.Today);
+			// 1. 預設為今天
+			DateTime date = DateTime.Today;
+
+			// 2. 如果當前 panel 有這三個控制項其中一個，優先拿它上面的 SelectedDate
+			if (pnMainpanel.Controls.Count > 0)
+			{
+				var ctrl = pnMainpanel.Controls[0];
+				switch (ctrl)
+				{
+					case MealInputControl mic:
+						date = mic.SelectedDate;
+						break;
+					case MealListControl mlc:
+						date = mlc.SelectedDate;
+						break;
+					case DailySummaryControl dic:
+						date = dic.SelectedDate;
+						break;
+					case ActivityLogControl alc:
+						date = alc.SelectedDate;
+						break;
+				}
+			}
+			LoadMainPanelControl(date);
 		}
 
 		private void ShowControl(UserControl ctrl)
@@ -245,9 +353,9 @@ namespace IC.CalorieControl
 			DateTime today = DateTime.Today;
 			UpdateNetCalories(today);
 
-			toolTip1.SetToolTip(lblNetCalories, @"淨熱量 = 今日總消耗 - 今日總攝取" + Environment.NewLine +
+			toolTip1.SetToolTip(lblNetCalories, @"淨熱量 = 當日總消耗 - 當日總攝取" + Environment.NewLine +
 				"今日總消耗 = 基礎代謝率 (BMR) + 活動消耗" + Environment.NewLine +
-				"今日總攝取 = 今日所有餐點的熱量總和");
+				"當日總攝取 = 當日所有餐點的熱量總和");
 		}
 		private void UpdateNetCalories(DateTime date)
 		{
@@ -260,7 +368,7 @@ namespace IC.CalorieControl
 
 			// 3. 計算淨熱量並顯示
 			double net = burned - consumed;
-			lblNetCalories.Text = $"今日淨熱量：{net:F2} Kcal";
+			lblNetCalories.Text = $"當日淨熱量：{net:F2} Kcal";
 		}
 
 	}
