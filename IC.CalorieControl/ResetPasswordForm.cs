@@ -27,58 +27,6 @@ namespace IC.CalorieControl
 			txtConfirmPassword.Text = "請再次輸入新密碼";
 			txtConfirmPassword.UseSystemPasswordChar = false;
 		}
-		private void txtUserName_Enter(object sender, EventArgs e)
-		{
-			// 這裡可以添加用戶名輸入的相關邏輯
-			if (txtUserName.Text.Trim() == "請輸入您的帳號")
-			{
-				txtUserName.Text = "";
-			}
-		}
-		private void txtUserName_Leave(object sender, EventArgs e)
-		{
-			// 這裡可以添加用戶名輸入的相關邏輯
-			if (string.IsNullOrWhiteSpace(txtUserName.Text))
-			{
-				txtUserName.Text = "請輸入您的帳號";
-			}
-		}
-		private void txtNewPassword_Enter(object sender, EventArgs e)
-		{
-			// 這裡可以添加密碼輸入的相關邏輯
-			if (txtNewPassword.Text.Trim() == "請輸入新密碼(最長16字元)")
-			{
-				txtNewPassword.Text = "";
-				txtNewPassword.PasswordChar = '*'; // 使用密碼字符
-			}
-		}
-		private void txtNewPassword_Leave(object sender, EventArgs e)
-		{
-			// 這裡可以添加密碼輸入的相關邏輯
-			if (string.IsNullOrWhiteSpace(txtNewPassword.Text))
-			{
-				txtNewPassword.Text = "請輸入新密碼(最長16字元)";
-				txtNewPassword.PasswordChar = '\0'; // 不使用密碼字符
-			}
-		}
-		private void txtConfirmPassword_Enter(object sender, EventArgs e)
-		{
-			// 這裡可以添加密碼輸入的相關邏輯
-			if (txtConfirmPassword.Text.Trim() == "請再次輸入新密碼")
-			{
-				txtConfirmPassword.Text = "";
-				txtConfirmPassword.PasswordChar = '*'; // 使用密碼字符
-			}
-		}
-		private void txtConfirmPassword_Leave(object sender, EventArgs e)
-		{
-			// 這裡可以添加密碼輸入的相關邏輯
-			if (string.IsNullOrWhiteSpace(txtConfirmPassword.Text))
-			{
-				txtConfirmPassword.Text = "請再次輸入新密碼";
-				txtConfirmPassword.PasswordChar = '\0'; // 不使用密碼字符
-			}
-		}
 
 		private void btnReset_Click(object sender, EventArgs e)
 		{
@@ -119,6 +67,62 @@ namespace IC.CalorieControl
 			}
 		}
 
+		private void txtUserName_Enter(object sender, EventArgs e)
+		{
+			//這裡可以添加用戶名輸入的相關邏輯
+			if (txtUserName.Text.Trim() == "請輸入您的帳號")
+			{
+				txtUserName.Text = "";
+			}
+		}
 
+		private void txtUserName_Leave(object sender, EventArgs e)
+		{
+			// 這裡可以添加用戶名輸入的相關邏輯
+			if (string.IsNullOrWhiteSpace(txtUserName.Text))
+			{
+				txtUserName.Text = "請輸入您的帳號";
+			}
+		}
+
+		private void txtNewPassword_Enter(object sender, EventArgs e)
+		{
+			// 這裡可以添加密碼輸入的相關邏輯
+			if (txtNewPassword.Text.Trim() == "請輸入新密碼(最長16字元)")
+			{
+				txtNewPassword.Text = "";
+				txtNewPassword.PasswordChar = '*'; // 使用密碼字符
+			}
+		}
+
+		private void txtNewPassword_Leave(object sender, EventArgs e)
+		{
+			// 這裡可以添加密碼輸入的相關邏輯
+			if (string.IsNullOrWhiteSpace(txtNewPassword.Text))
+			{
+				txtNewPassword.Text = "請輸入新密碼(最長16字元)";
+				txtNewPassword.PasswordChar = '\0'; // 不使用密碼字符
+			}
+		}
+
+		private void txtConfirmPassword_Enter(object sender, EventArgs e)
+		{
+			// 這裡可以添加密碼輸入的相關邏輯
+			if (txtConfirmPassword.Text.Trim() == "請再次輸入新密碼")
+			{
+				txtConfirmPassword.Text = "";
+				txtConfirmPassword.PasswordChar = '*'; // 使用密碼字符
+			}
+		}
+
+		private void txtConfirmPassword_Leave(object sender, EventArgs e)
+		{
+			// 這裡可以添加密碼輸入的相關邏輯
+			if (string.IsNullOrWhiteSpace(txtConfirmPassword.Text))
+			{
+				txtConfirmPassword.Text = "請再次輸入新密碼";
+				txtConfirmPassword.PasswordChar = '\0'; // 不使用密碼字符
+			}
+		}
 	}
 }

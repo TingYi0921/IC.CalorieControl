@@ -46,8 +46,8 @@
 			this.txtUserName.Name = "txtUserName";
 			this.txtUserName.Size = new System.Drawing.Size(164, 25);
 			this.txtUserName.TabIndex = 0;
-			this.txtUserName.MouseEnter += new System.EventHandler(this.txtUserName_Enter);
-			this.txtUserName.MouseLeave += new System.EventHandler(this.txtUserName_Leave);
+			this.txtUserName.Enter += new System.EventHandler(this.txtUserName_Enter);
+			this.txtUserName.Leave += new System.EventHandler(this.txtUserName_Leave);
 			// 
 			// lblUserName
 			// 
@@ -78,8 +78,8 @@
 			this.txtNewPassword.Name = "txtNewPassword";
 			this.txtNewPassword.Size = new System.Drawing.Size(164, 25);
 			this.txtNewPassword.TabIndex = 2;
-			this.txtNewPassword.MouseEnter += new System.EventHandler(this.txtNewPassword_Enter);
-			this.txtNewPassword.MouseLeave += new System.EventHandler(this.txtNewPassword_Leave);
+			this.txtNewPassword.Enter += new System.EventHandler(this.txtNewPassword_Enter);
+			this.txtNewPassword.Leave += new System.EventHandler(this.txtNewPassword_Leave);
 			// 
 			// lblConfirmPassword
 			// 
@@ -99,8 +99,8 @@
 			this.txtConfirmPassword.Name = "txtConfirmPassword";
 			this.txtConfirmPassword.Size = new System.Drawing.Size(164, 25);
 			this.txtConfirmPassword.TabIndex = 4;
-			this.txtConfirmPassword.MouseEnter += new System.EventHandler(this.txtConfirmPassword_Enter);
-			this.txtConfirmPassword.MouseLeave += new System.EventHandler(this.txtConfirmPassword_Leave);
+			this.txtConfirmPassword.Enter += new System.EventHandler(this.txtConfirmPassword_Enter);
+			this.txtConfirmPassword.Leave += new System.EventHandler(this.txtConfirmPassword_Leave);
 			// 
 			// btnReset
 			// 
