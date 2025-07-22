@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -29,6 +30,9 @@ namespace IC.CalorieControl
 			txtUserName.Text = "請輸入帳號(最長12字元)";
 			txtPassword.Text = "請輸入密碼(最長16字元)";
 			txtPassword.UseSystemPasswordChar = false;
+
+			toolTip1.SetToolTip(cmbActivityLevel, "1：低強度\n2：正常強度\n3：中強度\n4：高強度\n5：超高強度");
+			toolTip1.SetToolTip(lblActivityLevel, "1：低強度\n2：正常強度\n3：中強度\n4：高強度\n5：超高強度");
 		}
 		private void txtUserName_Enter(object sender, EventArgs e)
 		{

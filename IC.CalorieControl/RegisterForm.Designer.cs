@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegisterForm));
 			this.lblTitle = new System.Windows.Forms.Label();
 			this.lblUserName = new System.Windows.Forms.Label();
@@ -48,6 +49,7 @@
 			this.cmbActivityLevel = new System.Windows.Forms.ComboBox();
 			this.btnBackToLogin = new System.Windows.Forms.Button();
 			this.btnRegister = new System.Windows.Forms.Button();
+			this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
 			this.SuspendLayout();
 			// 
 			// lblTitle
@@ -322,5 +324,6 @@
 		private System.Windows.Forms.ComboBox cmbActivityLevel;
 		private System.Windows.Forms.Button btnBackToLogin;
 		private System.Windows.Forms.Button btnRegister;
+		private System.Windows.Forms.ToolTip toolTip1;
 	}
 }
