@@ -130,7 +130,7 @@
 			legend1.LegendStyle = System.Windows.Forms.DataVisualization.Charting.LegendStyle.Row;
 			legend1.Name = "Default";
 			this.chartDailyBurn.Legends.Add(legend1);
-			this.chartDailyBurn.Location = new System.Drawing.Point(0, 146);
+			this.chartDailyBurn.Location = new System.Drawing.Point(0, 224);
 			this.chartDailyBurn.Name = "chartDailyBurn";
 			series1.BorderColor = System.Drawing.Color.Yellow;
 			series1.BorderWidth = 3;
@@ -190,7 +190,7 @@
 			this.dgvActivityLogs.BackgroundColor = System.Drawing.Color.PaleTurquoise;
 			this.dgvActivityLogs.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.dgvActivityLogs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dgvActivityLogs.Location = new System.Drawing.Point(117, 332);
+			this.dgvActivityLogs.Location = new System.Drawing.Point(118, 147);
 			this.dgvActivityLogs.Name = "dgvActivityLogs";
 			dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
 			this.dgvActivityLogs.RowsDefaultCellStyle = dataGridViewCellStyle2;
@@ -254,7 +254,7 @@
 			// pictureBox1
 			// 
 			this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-			this.pictureBox1.Location = new System.Drawing.Point(0, 332);
+			this.pictureBox1.Location = new System.Drawing.Point(1, 147);
 			this.pictureBox1.Name = "pictureBox1";
 			this.pictureBox1.Size = new System.Drawing.Size(115, 78);
 			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
