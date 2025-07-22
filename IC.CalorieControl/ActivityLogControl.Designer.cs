@@ -93,6 +93,11 @@
 			// 
 			this.nudDuration.DecimalPlaces = 2;
 			this.nudDuration.Location = new System.Drawing.Point(137, 116);
+			this.nudDuration.Maximum = new decimal(new int[] {
+            24,
+            0,
+            0,
+            0});
 			this.nudDuration.Name = "nudDuration";
 			this.nudDuration.Size = new System.Drawing.Size(121, 22);
 			this.nudDuration.TabIndex = 44;
