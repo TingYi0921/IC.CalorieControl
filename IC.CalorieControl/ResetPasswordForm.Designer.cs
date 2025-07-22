@@ -42,17 +42,19 @@
 			// txtUserName
 			// 
 			this.txtUserName.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.txtUserName.Location = new System.Drawing.Point(128, 50);
+			this.txtUserName.Location = new System.Drawing.Point(123, 50);
 			this.txtUserName.Name = "txtUserName";
-			this.txtUserName.Size = new System.Drawing.Size(145, 25);
+			this.txtUserName.Size = new System.Drawing.Size(164, 25);
 			this.txtUserName.TabIndex = 0;
+			this.txtUserName.MouseEnter += new System.EventHandler(this.txtUserName_Enter);
+			this.txtUserName.MouseLeave += new System.EventHandler(this.txtUserName_Leave);
 			// 
 			// lblUserName
 			// 
 			this.lblUserName.AutoSize = true;
 			this.lblUserName.BackColor = System.Drawing.Color.Transparent;
 			this.lblUserName.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.lblUserName.Location = new System.Drawing.Point(32, 50);
+			this.lblUserName.Location = new System.Drawing.Point(27, 50);
 			this.lblUserName.Name = "lblUserName";
 			this.lblUserName.Size = new System.Drawing.Size(90, 21);
 			this.lblUserName.TabIndex = 1;
@@ -63,7 +65,7 @@
 			this.lblNewPassword.AutoSize = true;
 			this.lblNewPassword.BackColor = System.Drawing.Color.Transparent;
 			this.lblNewPassword.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.lblNewPassword.Location = new System.Drawing.Point(32, 102);
+			this.lblNewPassword.Location = new System.Drawing.Point(27, 102);
 			this.lblNewPassword.Name = "lblNewPassword";
 			this.lblNewPassword.Size = new System.Drawing.Size(58, 21);
 			this.lblNewPassword.TabIndex = 3;
@@ -72,18 +74,19 @@
 			// txtNewPassword
 			// 
 			this.txtNewPassword.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.txtNewPassword.Location = new System.Drawing.Point(128, 102);
+			this.txtNewPassword.Location = new System.Drawing.Point(123, 102);
 			this.txtNewPassword.Name = "txtNewPassword";
-			this.txtNewPassword.PasswordChar = '*';
-			this.txtNewPassword.Size = new System.Drawing.Size(145, 25);
+			this.txtNewPassword.Size = new System.Drawing.Size(164, 25);
 			this.txtNewPassword.TabIndex = 2;
+			this.txtNewPassword.MouseEnter += new System.EventHandler(this.txtNewPassword_Enter);
+			this.txtNewPassword.MouseLeave += new System.EventHandler(this.txtNewPassword_Leave);
 			// 
 			// lblConfirmPassword
 			// 
 			this.lblConfirmPassword.AutoSize = true;
 			this.lblConfirmPassword.BackColor = System.Drawing.Color.Transparent;
 			this.lblConfirmPassword.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.lblConfirmPassword.Location = new System.Drawing.Point(32, 154);
+			this.lblConfirmPassword.Location = new System.Drawing.Point(27, 154);
 			this.lblConfirmPassword.Name = "lblConfirmPassword";
 			this.lblConfirmPassword.Size = new System.Drawing.Size(90, 21);
 			this.lblConfirmPassword.TabIndex = 5;
@@ -92,18 +95,19 @@
 			// txtConfirmPassword
 			// 
 			this.txtConfirmPassword.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.txtConfirmPassword.Location = new System.Drawing.Point(128, 154);
+			this.txtConfirmPassword.Location = new System.Drawing.Point(123, 154);
 			this.txtConfirmPassword.Name = "txtConfirmPassword";
-			this.txtConfirmPassword.PasswordChar = '*';
-			this.txtConfirmPassword.Size = new System.Drawing.Size(145, 25);
+			this.txtConfirmPassword.Size = new System.Drawing.Size(164, 25);
 			this.txtConfirmPassword.TabIndex = 4;
+			this.txtConfirmPassword.MouseEnter += new System.EventHandler(this.txtConfirmPassword_Enter);
+			this.txtConfirmPassword.MouseLeave += new System.EventHandler(this.txtConfirmPassword_Leave);
 			// 
 			// btnReset
 			// 
 			this.btnReset.BackColor = System.Drawing.Color.DodgerBlue;
 			this.btnReset.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
 			this.btnReset.ForeColor = System.Drawing.Color.White;
-			this.btnReset.Location = new System.Drawing.Point(173, 208);
+			this.btnReset.Location = new System.Drawing.Point(187, 208);
 			this.btnReset.Name = "btnReset";
 			this.btnReset.Size = new System.Drawing.Size(100, 40);
 			this.btnReset.TabIndex = 6;
@@ -116,7 +120,7 @@
 			this.btnCancel.BackColor = System.Drawing.Color.Red;
 			this.btnCancel.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
 			this.btnCancel.ForeColor = System.Drawing.Color.White;
-			this.btnCancel.Location = new System.Drawing.Point(36, 208);
+			this.btnCancel.Location = new System.Drawing.Point(31, 208);
 			this.btnCancel.Name = "btnCancel";
 			this.btnCancel.Size = new System.Drawing.Size(100, 40);
 			this.btnCancel.TabIndex = 7;
@@ -145,6 +149,7 @@
 			this.Name = "ResetPasswordForm";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Reset Password";
+			this.Load += new System.EventHandler(this.ResetPasswordForm_Load);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

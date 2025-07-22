@@ -99,7 +99,7 @@
 			this.btnAddActivity.BackColor = System.Drawing.Color.DodgerBlue;
 			this.btnAddActivity.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
 			this.btnAddActivity.ForeColor = System.Drawing.Color.White;
-			this.btnAddActivity.Location = new System.Drawing.Point(301, 55);
+			this.btnAddActivity.Location = new System.Drawing.Point(303, 120);
 			this.btnAddActivity.Name = "btnAddActivity";
 			this.btnAddActivity.Size = new System.Drawing.Size(110, 33);
 			this.btnAddActivity.TabIndex = 45;
@@ -110,6 +110,8 @@
 			// chartDailyBurn
 			// 
 			this.chartDailyBurn.BackColor = System.Drawing.Color.PaleTurquoise;
+			this.chartDailyBurn.BackSecondaryColor = System.Drawing.SystemColors.ControlDark;
+			this.chartDailyBurn.BorderlineColor = System.Drawing.SystemColors.ControlDark;
 			chartArea1.AxisX.Title = "Date";
 			chartArea1.AxisX.TitleFont = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			chartArea1.AxisY.Title = "Calorie";
@@ -197,7 +199,7 @@
 			// 
 			this.label5.AutoSize = true;
 			this.label5.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.label5.Location = new System.Drawing.Point(297, 128);
+			this.label5.Location = new System.Drawing.Point(299, 96);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(169, 21);
 			this.label5.TabIndex = 52;
@@ -207,7 +209,7 @@
 			// 
 			this.lblCalorieBurn.AutoSize = true;
 			this.lblCalorieBurn.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.lblCalorieBurn.Location = new System.Drawing.Point(472, 128);
+			this.lblCalorieBurn.Location = new System.Drawing.Point(474, 96);
 			this.lblCalorieBurn.Name = "lblCalorieBurn";
 			this.lblCalorieBurn.Size = new System.Drawing.Size(85, 21);
 			this.lblCalorieBurn.TabIndex = 53;
@@ -217,7 +219,7 @@
 			// 
 			this.label6.AutoSize = true;
 			this.label6.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.label6.Location = new System.Drawing.Point(297, 96);
+			this.label6.Location = new System.Drawing.Point(299, 64);
 			this.label6.Name = "label6";
 			this.label6.Size = new System.Drawing.Size(169, 21);
 			this.label6.TabIndex = 54;
@@ -227,7 +229,7 @@
 			// 
 			this.lblBMR.AutoSize = true;
 			this.lblBMR.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.lblBMR.Location = new System.Drawing.Point(472, 94);
+			this.lblBMR.Location = new System.Drawing.Point(474, 62);
 			this.lblBMR.Name = "lblBMR";
 			this.lblBMR.Size = new System.Drawing.Size(85, 21);
 			this.lblBMR.TabIndex = 55;
@@ -238,7 +240,7 @@
 			this.btnDeleteActivity.BackColor = System.Drawing.Color.Red;
 			this.btnDeleteActivity.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
 			this.btnDeleteActivity.ForeColor = System.Drawing.Color.White;
-			this.btnDeleteActivity.Location = new System.Drawing.Point(447, 55);
+			this.btnDeleteActivity.Location = new System.Drawing.Point(449, 120);
 			this.btnDeleteActivity.Name = "btnDeleteActivity";
 			this.btnDeleteActivity.Size = new System.Drawing.Size(110, 33);
 			this.btnDeleteActivity.TabIndex = 56;

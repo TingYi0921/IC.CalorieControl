@@ -54,12 +54,13 @@ namespace IC.CalorieControl
 				ChartType = SeriesChartType.Line,   // 折線圖
 				XValueType = ChartValueType.String,
 				Color = Color.Blue,  // 線條顏色
+				BorderWidth = 3, // 線條寬度
 				MarkerStyle = MarkerStyle.Circle,
-				MarkerSize = 7,                 // 標記大小
+				MarkerSize = 8,                 // 標記大小
 				MarkerColor = Color.DarkBlue,       // 標記顏色
 				IsValueShownAsLabel = true,                  // 顯示數值
-				LabelForeColor = Color.DarkBlue,        // 數值文字顏色
-				Font = new Font("Segoe UI", 8)
+				LabelForeColor = Color.Red,        // 數值文字顏色
+				Font = new Font("Segoe UI", 9)
 			};
 			chartDailyBurn.Series.Add(series);
 

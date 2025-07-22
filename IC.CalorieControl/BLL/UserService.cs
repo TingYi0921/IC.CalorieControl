@@ -52,7 +52,7 @@ namespace IC.CalorieControl.BLL
 				return false;
 			}
 
-			if (user.HeightCm < 10 || user.HeightCm > 300 || user.HeightCm % 0.1m != 0)
+			if (user.HeightCm < 30 || user.HeightCm > 270 || user.HeightCm % 0.1m != 0)
 			{
 				message = "身高數值不合理，請重新輸入!";
 				return false;

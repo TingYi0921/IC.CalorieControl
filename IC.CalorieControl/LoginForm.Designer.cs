@@ -66,10 +66,11 @@
 			// 
 			// txtUserName
 			// 
+			this.txtUserName.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
 			this.txtUserName.Location = new System.Drawing.Point(113, 114);
 			this.txtUserName.MaxLength = 12;
 			this.txtUserName.Name = "txtUserName";
-			this.txtUserName.Size = new System.Drawing.Size(172, 22);
+			this.txtUserName.Size = new System.Drawing.Size(172, 23);
 			this.txtUserName.TabIndex = 3;
 			this.txtUserName.Enter += new System.EventHandler(this.txtUserName_Enter);
 			this.txtUserName.Leave += new System.EventHandler(this.txtUserName_Leave);
@@ -78,10 +79,11 @@
 			// 
 			// txtPassword
 			// 
+			this.txtPassword.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
 			this.txtPassword.Location = new System.Drawing.Point(113, 154);
 			this.txtPassword.MaxLength = 16;
 			this.txtPassword.Name = "txtPassword";
-			this.txtPassword.Size = new System.Drawing.Size(172, 22);
+			this.txtPassword.Size = new System.Drawing.Size(172, 23);
 			this.txtPassword.TabIndex = 4;
 			this.txtPassword.Enter += new System.EventHandler(this.txtPassword_Enter);
 			this.txtPassword.Leave += new System.EventHandler(this.txtPassword_Leave);
