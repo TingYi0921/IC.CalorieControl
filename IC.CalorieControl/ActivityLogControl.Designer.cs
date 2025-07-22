@@ -34,6 +34,7 @@
 			System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ActivityLogControl));
 			this.label1 = new System.Windows.Forms.Label();
 			this.dtpActivityDate = new System.Windows.Forms.DateTimePicker();
 			this.cbActivityLevel = new System.Windows.Forms.ComboBox();
@@ -50,9 +51,11 @@
 			this.lblBMR = new System.Windows.Forms.Label();
 			this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
 			this.btnDeleteActivity = new System.Windows.Forms.Button();
+			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			((System.ComponentModel.ISupportInitialize)(this.nudDuration)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.chartDailyBurn)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.dgvActivityLogs)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// label1
@@ -72,7 +75,7 @@
 			this.dtpActivityDate.CalendarFont = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
 			this.dtpActivityDate.CustomFormat = "\"yyyy-MM-dd\"";
 			this.dtpActivityDate.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.dtpActivityDate.Location = new System.Drawing.Point(105, 63);
+			this.dtpActivityDate.Location = new System.Drawing.Point(105, 53);
 			this.dtpActivityDate.Name = "dtpActivityDate";
 			this.dtpActivityDate.Size = new System.Drawing.Size(153, 25);
 			this.dtpActivityDate.TabIndex = 42;
@@ -81,7 +84,7 @@
 			// cbActivityLevel
 			// 
 			this.cbActivityLevel.FormattingEnabled = true;
-			this.cbActivityLevel.Location = new System.Drawing.Point(137, 97);
+			this.cbActivityLevel.Location = new System.Drawing.Point(137, 87);
 			this.cbActivityLevel.Name = "cbActivityLevel";
 			this.cbActivityLevel.Size = new System.Drawing.Size(121, 20);
 			this.cbActivityLevel.TabIndex = 43;
@@ -89,7 +92,7 @@
 			// nudDuration
 			// 
 			this.nudDuration.DecimalPlaces = 2;
-			this.nudDuration.Location = new System.Drawing.Point(137, 126);
+			this.nudDuration.Location = new System.Drawing.Point(137, 116);
 			this.nudDuration.Name = "nudDuration";
 			this.nudDuration.Size = new System.Drawing.Size(121, 22);
 			this.nudDuration.TabIndex = 44;
@@ -99,7 +102,7 @@
 			this.btnAddActivity.BackColor = System.Drawing.Color.DodgerBlue;
 			this.btnAddActivity.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
 			this.btnAddActivity.ForeColor = System.Drawing.Color.White;
-			this.btnAddActivity.Location = new System.Drawing.Point(303, 120);
+			this.btnAddActivity.Location = new System.Drawing.Point(303, 110);
 			this.btnAddActivity.Name = "btnAddActivity";
 			this.btnAddActivity.Size = new System.Drawing.Size(110, 33);
 			this.btnAddActivity.TabIndex = 45;
@@ -127,7 +130,7 @@
 			legend1.LegendStyle = System.Windows.Forms.DataVisualization.Charting.LegendStyle.Row;
 			legend1.Name = "Default";
 			this.chartDailyBurn.Legends.Add(legend1);
-			this.chartDailyBurn.Location = new System.Drawing.Point(0, 154);
+			this.chartDailyBurn.Location = new System.Drawing.Point(0, 146);
 			this.chartDailyBurn.Name = "chartDailyBurn";
 			series1.BorderColor = System.Drawing.Color.Yellow;
 			series1.BorderWidth = 3;
@@ -153,7 +156,7 @@
 			// 
 			this.label2.AutoSize = true;
 			this.label2.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.label2.Location = new System.Drawing.Point(21, 64);
+			this.label2.Location = new System.Drawing.Point(21, 54);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(78, 21);
 			this.label2.TabIndex = 48;
@@ -163,7 +166,7 @@
 			// 
 			this.label3.AutoSize = true;
 			this.label3.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.label3.Location = new System.Drawing.Point(21, 96);
+			this.label3.Location = new System.Drawing.Point(21, 86);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(78, 21);
 			this.label3.TabIndex = 49;
@@ -174,7 +177,7 @@
 			// 
 			this.label4.AutoSize = true;
 			this.label4.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.label4.Location = new System.Drawing.Point(21, 128);
+			this.label4.Location = new System.Drawing.Point(21, 118);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(106, 21);
 			this.label4.TabIndex = 50;
@@ -187,19 +190,19 @@
 			this.dgvActivityLogs.BackgroundColor = System.Drawing.Color.PaleTurquoise;
 			this.dgvActivityLogs.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.dgvActivityLogs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dgvActivityLogs.Location = new System.Drawing.Point(73, 344);
+			this.dgvActivityLogs.Location = new System.Drawing.Point(117, 332);
 			this.dgvActivityLogs.Name = "dgvActivityLogs";
 			dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
 			this.dgvActivityLogs.RowsDefaultCellStyle = dataGridViewCellStyle2;
 			this.dgvActivityLogs.RowTemplate.Height = 24;
-			this.dgvActivityLogs.Size = new System.Drawing.Size(443, 66);
+			this.dgvActivityLogs.Size = new System.Drawing.Size(450, 78);
 			this.dgvActivityLogs.TabIndex = 51;
 			// 
 			// label5
 			// 
 			this.label5.AutoSize = true;
 			this.label5.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.label5.Location = new System.Drawing.Point(299, 96);
+			this.label5.Location = new System.Drawing.Point(299, 86);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(169, 21);
 			this.label5.TabIndex = 52;
@@ -209,7 +212,7 @@
 			// 
 			this.lblCalorieBurn.AutoSize = true;
 			this.lblCalorieBurn.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.lblCalorieBurn.Location = new System.Drawing.Point(474, 96);
+			this.lblCalorieBurn.Location = new System.Drawing.Point(474, 86);
 			this.lblCalorieBurn.Name = "lblCalorieBurn";
 			this.lblCalorieBurn.Size = new System.Drawing.Size(85, 21);
 			this.lblCalorieBurn.TabIndex = 53;
@@ -219,7 +222,7 @@
 			// 
 			this.label6.AutoSize = true;
 			this.label6.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.label6.Location = new System.Drawing.Point(299, 64);
+			this.label6.Location = new System.Drawing.Point(299, 54);
 			this.label6.Name = "label6";
 			this.label6.Size = new System.Drawing.Size(169, 21);
 			this.label6.TabIndex = 54;
@@ -229,7 +232,7 @@
 			// 
 			this.lblBMR.AutoSize = true;
 			this.lblBMR.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-			this.lblBMR.Location = new System.Drawing.Point(474, 62);
+			this.lblBMR.Location = new System.Drawing.Point(474, 52);
 			this.lblBMR.Name = "lblBMR";
 			this.lblBMR.Size = new System.Drawing.Size(85, 21);
 			this.lblBMR.TabIndex = 55;
@@ -240,7 +243,7 @@
 			this.btnDeleteActivity.BackColor = System.Drawing.Color.Red;
 			this.btnDeleteActivity.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
 			this.btnDeleteActivity.ForeColor = System.Drawing.Color.White;
-			this.btnDeleteActivity.Location = new System.Drawing.Point(449, 120);
+			this.btnDeleteActivity.Location = new System.Drawing.Point(449, 110);
 			this.btnDeleteActivity.Name = "btnDeleteActivity";
 			this.btnDeleteActivity.Size = new System.Drawing.Size(110, 33);
 			this.btnDeleteActivity.TabIndex = 56;
@@ -248,11 +251,22 @@
 			this.btnDeleteActivity.UseVisualStyleBackColor = false;
 			this.btnDeleteActivity.Click += new System.EventHandler(this.btnDeleteActivity_Click);
 			// 
+			// pictureBox1
+			// 
+			this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+			this.pictureBox1.Location = new System.Drawing.Point(0, 332);
+			this.pictureBox1.Name = "pictureBox1";
+			this.pictureBox1.Size = new System.Drawing.Size(115, 78);
+			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+			this.pictureBox1.TabIndex = 57;
+			this.pictureBox1.TabStop = false;
+			// 
 			// ActivityLogControl
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.PaleTurquoise;
+			this.Controls.Add(this.pictureBox1);
 			this.Controls.Add(this.btnDeleteActivity);
 			this.Controls.Add(this.lblBMR);
 			this.Controls.Add(this.label6);
@@ -274,6 +288,7 @@
 			((System.ComponentModel.ISupportInitialize)(this.nudDuration)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.chartDailyBurn)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.dgvActivityLogs)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -297,5 +312,6 @@
 		private System.Windows.Forms.Label lblBMR;
 		private System.Windows.Forms.ToolTip toolTip1;
 		private System.Windows.Forms.Button btnDeleteActivity;
+		private System.Windows.Forms.PictureBox pictureBox1;
 	}
 }

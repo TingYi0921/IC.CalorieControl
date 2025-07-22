@@ -119,6 +119,8 @@
 			dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
 			this.dgvMealLog.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
 			this.dgvMealLog.AutoGenerateColumns = false;
+			this.dgvMealLog.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
+			this.dgvMealLog.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.dgvMealLog.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvMealLog.DataSource = this.calorieControlSystemDataSet1;
 			this.dgvMealLog.Location = new System.Drawing.Point(0, 124);
@@ -126,7 +128,7 @@
 			dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
 			this.dgvMealLog.RowsDefaultCellStyle = dataGridViewCellStyle2;
 			this.dgvMealLog.RowTemplate.Height = 24;
-			this.dgvMealLog.Size = new System.Drawing.Size(589, 300);
+			this.dgvMealLog.Size = new System.Drawing.Size(589, 286);
 			this.dgvMealLog.TabIndex = 44;
 			// 
 			// MealListControl
