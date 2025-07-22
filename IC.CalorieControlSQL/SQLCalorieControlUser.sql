@@ -1,13 +1,13 @@
 CREATE TABLE dbo.UserProfile (
-    UserId       INT IDENTITY(1,1) PRIMARY KEY,     -- �ϥΪ̧޳N�ѧO�X�A�۰ʻ��W
-    UserName     NVARCHAR(100)   NOT NULL,          -- �ϥΪ̦W��
-    Email        NVARCHAR(200)   NULL,              -- �q�l�l��
-    PasswordHash NVARCHAR(64)    NOT NULL,          -- �K�X����]���i�f�^
-    Age          INT             NOT NULL,         -- �~��
-    Gender       VARCHAR(6)      NOT NULL,          -- �ʧO 'Male' �� 'Female'
-    HeightCm     DECIMAL(5,2)    NOT NULL,          -- ���� (����)
-    WeightKg     DECIMAL(5,2)    NOT NULL,          -- �魫 (����)
-    ActivityLevel SMALLINT       NOT NULL,          -- ���ʵ��� (1~5)
+    UserId       INT IDENTITY(1,1) PRIMARY KEY,     -- 使用者ID，自動遞增
+    UserName     NVARCHAR(100)   NOT NULL,          -- 使用者名稱
+    Email        NVARCHAR(200)   NULL,              -- 電子郵件
+    PasswordHash NVARCHAR(64)    NOT NULL,          -- 密碼雜湊（不可逆）
+    Age          INT             NOT NULL,         -- 年齡
+    Gender       VARCHAR(6)      NOT NULL,          -- 性別 'Male' 或 'Female'
+    HeightCm     DECIMAL(5,2)    NOT NULL,          -- 身高 (公分)
+    WeightKg     DECIMAL(5,2)    NOT NULL,          -- 體重 (公斤)
+    ActivityLevel SMALLINT       NOT NULL,          -- 活動等級 (1~5)
     CreatedAt    DATETIME2       NOT NULL DEFAULT SYSUTCDATETIME(),
     UpdatedAt    DATETIME2       NOT NULL DEFAULT SYSUTCDATETIME()
 );
