@@ -65,17 +65,36 @@ namespace IC.CalorieControl
 			// 2. 依照 foodId 計算營養並建匿名物件清單
 			var data = logs.Select(log =>
 			{
-				var food = _mealService.GetFoodItemById(log.FoodId);
-				decimal cal = 0, carb = 0, prot = 0, fat = 0;
-				string name = "手動輸入";
+				decimal cal, carb, prot, fat;
+				string name;
 
-				if (food != null && food.WeightGrams > 0)
+				if (log.FoodId > 0)
 				{
-					name = food.Name;
-					cal = food.Calories * log.Quantity / food.WeightGrams;
-					carb = food.Carbohydrates * log.Quantity / food.WeightGrams;
-					prot = food.Protein * log.Quantity / food.WeightGrams;
-					fat = food.Fat * log.Quantity / food.WeightGrams;
+					// 常用食物，依比例計算
+					var food = _mealService.GetFoodItemById(log.FoodId);
+					if (food != null && food.WeightGrams > 0)
+					{
+						name = food.Name;
+						cal = food.Calories * log.Quantity / food.WeightGrams;
+						carb = food.Carbohydrates * log.Quantity / food.WeightGrams;
+						prot = food.Protein * log.Quantity / food.WeightGrams;
+						fat = food.Fat * log.Quantity / food.WeightGrams;
+					}
+					else
+					{
+						// 萬一撈不到 FoodItem
+						name = "未知食物";
+						cal = carb = prot = fat = 0m;
+					}
+				}
+				else
+				{
+					// 手動輸入，直接讀 MealLog 裡的欄位
+					name = log.FoodName ?? "--手動輸入--";
+					cal = log.FoodCalories ?? 0m;
+					carb = log.FoodCarbs ?? 0m;
+					prot = log.FoodProtein ?? 0m;
+					fat = log.FoodFat ?? 0m;
 				}
 
 				return new
@@ -91,21 +110,11 @@ namespace IC.CalorieControl
 				};
 			}).ToList();
 
-			// 偵錯：看看匿名清單第一筆長什麼樣子
-			//if (data.Any())
-			//	Debug.WriteLine($"[MealListControl] First item: {string.Join(", ", data.First().GetType().GetProperties().Select(p => p.Name + "=" + p.GetValue(data.First())))}");
-			//else
-			//	Debug.WriteLine("[MealListControl] No data to bind");
-
-			// 3. 清除任何既有綁定，並整列清除欄位（如果你之前手動加過欄位）
+			// 綁定 DataGridView
 			dgvMealLog.DataSource = null;
 			dgvMealLog.Columns.Clear();
-
-			// 4. 交給 DataGridView 依匿名物件自動產生欄位
 			dgvMealLog.AutoGenerateColumns = true;
 			dgvMealLog.DataSource = data;
-
-			// 5. 隱藏內部辨識用的 LogId
 			if (dgvMealLog.Columns.Contains("LogId"))
 				dgvMealLog.Columns["LogId"].Visible = false;
 		}

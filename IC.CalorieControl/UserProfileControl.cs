@@ -30,11 +30,11 @@ namespace IC.CalorieControl
 
 		private Dictionary<short, string> activityMap = new Dictionary<short, string>()
 		{
-			{ 1, "低強度" },
-			{ 2, "正常強度" },
-			{ 3, "中強度" },
-			{ 4, "高強度" },
-			{ 5, "超高強度" }
+			{ 1, "1:低強度" },
+			{ 2, "2:正常強度" },
+			{ 3, "3:中強度" },
+			{ 4, "4:高強度" },
+			{ 5, "5:超高強度" }
 		};
 		private void UserProfileControl_Load(object sender, EventArgs e)
 		{

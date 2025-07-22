@@ -71,6 +71,34 @@ namespace IC.CalorieControl.BLL
 				message = "食用份量必須大於 0。";
 				return false;
 			}
+			if (log.FoodId <= 0)
+			{
+				// 手動輸入：直接把前端傳入的欄位帶進來
+				// 假設你的 MealLog class 有這些屬性
+				// log.FoodName, log.FoodCalories, log.FoodCarbs, log.FoodProtein, log.FoodFat
+				if (string.IsNullOrWhiteSpace(log.FoodName))
+				{
+					message = "手動輸入需提供食物名稱。";
+					return false;
+				}
+			}
+			else
+			{
+				// 引用型：從 FoodItem 抓一次，讓手動欄位留 null
+				var food = _foodRepo.GetFoodItemById(log.FoodId);
+				if (food == null)
+				{
+					message = "找不到對應的食物。";
+					return false;
+				}
+				// 清空手動欄位
+				log.FoodName = null;
+				log.FoodCalories = null;
+				log.FoodCarbs = null;
+				log.FoodProtein = null;
+				log.FoodFat = null;
+			}
+
 			_logRepo.AddMealLog(log);
 			message = "餐點已紀錄。";
 			return true;

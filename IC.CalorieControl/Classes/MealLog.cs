@@ -15,5 +15,10 @@ namespace IC.CalorieControl.Classes
 		public decimal Quantity { get; set; } // 幾克
 		public DateTime CreatedAt { get; set; }
 		public DateTime UpdatedAt { get; set; }
+		public string FoodName { get; set; }
+		public decimal? FoodCalories { get; set; } // 食物卡路里
+		public decimal? FoodCarbs { get; set; } // 食物碳水化合物
+		public decimal? FoodProtein { get; set; } // 食物蛋白質
+		public decimal? FoodFat { get; set; } // 食物脂肪
 	}
 }

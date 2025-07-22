@@ -130,42 +130,51 @@ namespace IC.CalorieControl
 			};
 
 			// 儲存至 DB 並更新下拉清單
-			if (_mealService.AddFoodItem(food, out string foodMsg))
+			if (chkSaveAsFavorite.Checked)
 			{
-				if (chkSaveAsFavorite.Checked)
+				if (!_mealService.AddFoodItem(food, out string msgFood))
 				{
-					LoadFavoriteFoods(dtpInputLogDate.Value.Date); // 重新載入
+					MessageBox.Show(msgFood, "儲存常用食物失敗", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					return;
 				}
-				MessageBox.Show(foodMsg, "完成", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				LoadFavoriteFoods(dtpInputLogDate.Value.Date);
 			}
 			else
 			{
-				MessageBox.Show(foodMsg, "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
-				return;
+				food.FoodId = 0;
 			}
 
 			// 取得實際 FoodId
-			var selectedItem = cbFoodList.SelectedItem as FoodItem;
-			int foodId = selectedItem != null && selectedItem.FoodId > 0
-				? selectedItem.FoodId
-				: food.UserId == null ? food.FoodId : food.FoodId;
+			//var selectedItem = cbFoodList.SelectedItem as FoodItem;
+			//int foodId = selectedItem != null && selectedItem.FoodId > 0
+			//	? selectedItem.FoodId
+			//	: food.UserId == null ? food.FoodId : food.FoodId;
 
 			// 建立並儲存餐點日誌
 			var log = new MealLog
 			{
 				UserId = SessionManager.CurrentUserId,
-				FoodId = food.FoodId,
+				FoodId = chkSaveAsFavorite.Checked ? food.FoodId : 0,
 				LogTime = selectedDate,
 				Quantity = weight,
 				CreatedAt = DateTime.Now,
-				UpdatedAt = DateTime.Now
+				UpdatedAt = DateTime.Now,
+				// **手動輸入時**帶入這些欄位
+				FoodName = chkSaveAsFavorite.Checked ? null : txtFoodName.Text.Trim(),
+				FoodCalories = chkSaveAsFavorite.Checked ? (decimal?)null : cal,
+				FoodCarbs = chkSaveAsFavorite.Checked ? (decimal?)null : carbs,
+				FoodProtein = chkSaveAsFavorite.Checked ? (decimal?)null : protein,
+				FoodFat = chkSaveAsFavorite.Checked ? (decimal?)null : fat,
 			};
 			//MessageBox.Show($"[Debug] 新增日誌時 UserId = {SessionManager.CurrentUserId}");
 
-			if (_mealService.AddMealLog(log, out string logMsg))
-				MessageBox.Show("餐點已加入 " + selectedDate.ToString("yyyy-MM-dd") + " 的日誌！", "完成", MessageBoxButtons.OK, MessageBoxIcon.Information);
-			else
-				MessageBox.Show(logMsg, "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			if (!_mealService.AddMealLog(log, out string msgLog))
+			{
+				MessageBox.Show(msgLog, "記錄餐點失敗", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return;
+			}
+
+			MessageBox.Show($"已將餐點新增到 {selectedDate:yyyy-MM-dd}。", "新增成功", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 			OnAddToLogCompleted?.Invoke(selectedDate);
 		}
