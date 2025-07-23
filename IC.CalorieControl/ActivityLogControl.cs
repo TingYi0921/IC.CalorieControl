@@ -122,10 +122,11 @@ namespace IC.CalorieControl
 			dgvActivityLogs.DataSource = logs
 				.Select(l => new
 				{
-					//l.ActivityLogId,
+					
 					運動等級 = levelsLookup(l.ActivityLevelId),
 					運動時長 = l.DurationHours,
-					消耗熱量 = l.CaloriesBurned
+					消耗熱量 = l.CaloriesBurned,
+					l.ActivityLogId
 				}).ToList();
 
 			// 3. 一週資料：當天往前推 6 天到當天，共 7 天
