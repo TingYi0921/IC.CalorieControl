@@ -100,13 +100,13 @@ namespace IC.CalorieControl
 				return new
 				{
 					log.LogId,
-					Name = name,
-					Calories = cal.ToString("F2"),
-					Quantity = log.Quantity,
-					Carbohydrates = carb.ToString("F2"),
-					Protein = prot.ToString("F2"),
-					Fat = fat.ToString("F2"),
-					Time = log.LogTime.ToString("HH:mm")
+					食物名稱 = name,
+					熱量 = cal.ToString("F2"),
+					份量 = log.Quantity,
+					碳水化合物 = carb.ToString("F2"),
+					蛋白質 = prot.ToString("F2"),
+					脂肪 = fat.ToString("F2"),
+					//Time = log.LogTime.ToString("HH:mm")
 				};
 			}).ToList();
 
