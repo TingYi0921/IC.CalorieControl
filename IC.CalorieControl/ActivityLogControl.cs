@@ -122,7 +122,6 @@ namespace IC.CalorieControl
 			dgvActivityLogs.DataSource = logs
 				.Select(l => new
 				{
-					
 					運動等級 = levelsLookup(l.ActivityLevelId),
 					運動時長 = l.DurationHours,
 					消耗熱量 = l.CaloriesBurned,
