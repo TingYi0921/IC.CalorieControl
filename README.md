@@ -27,14 +27,11 @@
 ## 🏗️ 系統架構
 
  UI (WinForms)   LoginForm, MainForm, UserProfilePanel, MealInputControl
-         │
-         ▼
+
  BLL (Business Logic Layer)   UserService, MealService, ActivityService
-         │
-         ▼
+
  DAL (Data Access Layer)    UserRepository, FoodRepository, MealLogRepository, ActivityRepository
-         │
-         ▼
+
  SQL Server Database   UserProfile, FoodItem, MealLog, ActivityLog, ActivityLevel, LoginSession
 
 ## ⚙️ 技術棧
