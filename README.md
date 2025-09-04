@@ -240,8 +240,6 @@ F5 Run
 
 - 所有輸入需驗證（帳號/密碼/Email 格式、年齡/身高/體重範圍檢查）
 
-- Commit 流程遵守 Git Flow：feature/、bugfix/、release/ 分支
-
 ## 🤝 貢獻
 
 - 歡迎透過 Fork & PR 提交新功能或修正。
