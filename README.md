@@ -25,16 +25,17 @@
 ### 資料安全：使用者密碼以 SHA256 雜湊儲存，並具備登入 Session 管理。
 
 ## 🏗️ 系統架構
-[ UI (WinForms) ]       LoginForm, MainForm, UserProfilePanel, MealInputControl
+
+ UI (WinForms)   LoginForm, MainForm, UserProfilePanel, MealInputControl
          │
          ▼
-[ BLL (Business Logic Layer) ]   UserService, MealService, ActivityService
+ BLL (Business Logic Layer)   UserService, MealService, ActivityService
          │
          ▼
-[ DAL (Data Access Layer) ]      UserRepository, FoodRepository, MealLogRepository, ActivityRepository
+ DAL (Data Access Layer)    UserRepository, FoodRepository, MealLogRepository, ActivityRepository
          │
          ▼
-[ SQL Server Database ]          UserProfile, FoodItem, MealLog, ActivityLog, ActivityLevel, LoginSession
+ SQL Server Database   UserProfile, FoodItem, MealLog, ActivityLog, ActivityLevel, LoginSession
 
 ## ⚙️ 技術棧
 - 程式語言：C# (.NET Framework 4.8)
