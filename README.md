@@ -105,16 +105,16 @@
   ## 🗄️ 資料表設計
 
   ### UserProfile
-  | 欄位            | 型別            | 描述    |
-| ------------- | ------------- | ----- |
-| UserId        | int (PK)      | 使用者ID |
-| UserName      | nvarchar(50)  | 帳號    |
+| 欄位           | 型別           | 描述     |
+| ------------- | ------------- | --------- |
+| UserId        | int (PK)      | 使用者ID  |
+| UserName      | nvarchar(50)  | 帳號      |
 | Email         | nvarchar(100) | 電子郵件  |
 | PasswordHash  | varbinary     | 雜湊密碼  |
-| Age           | int           | 年齡    |
-| Gender        | nvarchar(10)  | 性別    |
-| HeightCm      | int           | 身高    |
-| WeightKg      | decimal(5,1)  | 體重    |
+| Age           | int           | 年齡      |
+| Gender        | nvarchar(10)  | 性別      |
+| HeightCm      | int           | 身高      |
+| WeightKg      | decimal(5,1)  | 體重      |
 | ActivityLevel | smallint      | 活動強度  |
 | CreatedAt     | datetime      | 建立時間  |
 | UpdatedAt     | datetime      | 更新時間  |
