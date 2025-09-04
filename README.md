@@ -26,7 +26,7 @@
 
 ## 🏗️ 系統架構
 
-- UI層 (WinForms)   LoginForm, MainForm, UserProfilePanel, MealInputControl
+- UI層 (WinForms)   LoginForm, RegisterForm, ResetPasswordForm, MainForm, UserProfileControl, MealInputControl, MealListControl, DailySummaryControl, ActivityLogControl
  
 - BLL層 (Business Logic Layer)   UserService, MealService, ActivityService
 
