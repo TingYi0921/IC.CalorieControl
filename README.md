@@ -103,39 +103,84 @@
   ## 🗄️ 資料表設計
 
   ### UserProfile
+  
 | 欄位           | 型別           | 描述     |
 | ------------- | ------------- | --------- |
 | UserId        | int (PK)      | 使用者ID  |
-| UserName      | nvarchar(50)  | 帳號      |
-| Email         | nvarchar(100) | 電子郵件  |
-| PasswordHash  | varbinary     | 雜湊密碼  |
+| UserName      | nvarchar(16)  | 帳號      |
+| Email         | nvarchar(200) | 電子郵件  |
+| PasswordHash  | nvarchar(64)  | 雜湊密碼  |
 | Age           | int           | 年齡      |
-| Gender        | nvarchar(10)  | 性別      |
-| HeightCm      | int           | 身高      |
-| WeightKg      | decimal(5,1)  | 體重      |
+| Gender        | nvarchar(6)   | 性別      |
+| HeightCm      | decimal(5,2)  | 身高      |
+| WeightKg      | decimal(5,2)  | 體重      |
 | ActivityLevel | smallint      | 活動強度  |
 | CreatedAt     | datetime      | 建立時間  |
 | UpdatedAt     | datetime      | 更新時間  |
 
-### FoodItem
+  ### FoodItem
 
-| FoodId | Name | Calories | WeightGrams | Carbohydrates | Protein | Fat | UserId |
+| 欄位           | 型別           | 描述     |
+| ------------- | -------------- | --------- |
+| FoodId        | int (PK)       | 食物ID    |
+| Name          | nvarchar(100)  | 食物名稱  |
+| Calories      | decimal(10, 2) | 卡路里    |
+| WeightGrams   | decimal(10, 2) | 重量      |
+| Carbohydrates | decimal(10, 2) | 碳水化合物 |
+| Protein       | decimal(10, 2) | 蛋白質    |
+| Fat           | decimal(10,2)  | 脂肪      |
+| UserId        | int            | 使用者ID  |
+| CreatedAt     | datetime       | 建立時間  |
+| UpdatedAt     | datetime       | 更新時間  |
 
-### MealLog
+  ### MealLog
 
-| LogId | UserId | FoodId | Quantity | LogTime | FoodName | FoodCalories | FoodCarbs | FoodProtein | FoodFat |
+| 欄位           | 型別            | 描述      |
+| ------------- | --------------- | --------- |
+| LogId         | int (PK)        | 紀錄ID    |
+| UserId        | int             | 使用者ID  |
+| FoodId        | int             | 食物ID    |
+| Quantity      | decimal(10, 2)  | 數量      |
+| LogTime       | datetime        | 紀錄時間  |
+| FoodName      | nvarchar(100)   | 食物名稱  |
+| FoodCalories  | decimal(18, 2)  | 食物卡路里|
+| FoodCarbs     | decimal(18, 2)  | 食物碳水  |
+| FoodProtein   | decimal(18, 2)  | 食物蛋白質|
+| FoodFat       | decimal(18, 2)  | 食物脂肪  |
+| CreatedAt     | datetime        | 建立時間  |
+| UpdatedAt     | datetime        | 更新時間  |
 
-### ActivityLevel
+  ### ActivityLevel
 
-| ActivityLevelId | LevelName | CaloriesPerHour |
+| 欄位            | 型別             | 描述      |
+| --------------- | --------------- | --------- |
+| ActivityLevelId | int (PK)        | 紀錄ID    |
+| LevelName       | nvarchar(50)    | 使用者ID  |
+| CaloriesPerHour | int             | 食物ID    |
+| CreatedAt       | datetime        | 建立時間  |
+| UpdatedAt       | datetime        | 更新時間  |
 
-### ActivityLog
+  ### ActivityLog
 
-| LogId | UserId | ActivityLevelId | DurationHours | CaloriesBurned | ActivityDate |
+| 欄位             | 型別            | 描述      |
+| --------------- | --------------- | --------- |
+| LogId           | int (PK)        | 紀錄ID    |
+| UserId          | int             | 使用者ID  |
+| ActivityLevelId | int             | 食物ID    |
+| DurationHours   | decimal(5, 2)   | 持續時間  |
+| CaloriesBurned  | int             | 燃燒卡路里|
+| ActivityDate    | date            | 活動日期  |
+| CreatedAt       | datetime        | 建立時間  |
+| UpdatedAt       | datetime        | 更新時間  |
 
-### LoginSession
+  ### LoginSession
 
-| SessionId | UserId | LoginTime | IPAddress |
+| 欄位         | 型別            | 描述      |
+| ----------- | --------------- | --------- |
+| SessionId   | int (PK)        | 識別ID    |
+| UserId      | int             | 使用者ID  |
+| LoginTime   | datetime2(7)    | 登入時間  |
+| IPAddress   | nvarchar(50)    | IP位址    |
 
 ## 🚀 安裝與使用
 ### 1️⃣ 環境需求
