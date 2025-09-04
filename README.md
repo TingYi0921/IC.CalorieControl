@@ -169,13 +169,13 @@ F5 Run
 
 2. 登入後進入 MainForm，可在左側清單切換功能模組
    
-   User Profile → 更新個人資料
+  - User Profile → 更新個人資料
 
-  Meal Log → 新增餐點 / 瀏覽紀錄
+  - Meal Log → 新增餐點 / 瀏覽紀錄
 
-  Daily Log → 查看每日統計
+  - Daily Log → 查看每日統計
 
-  Activity Log → 新增運動 / 查看一週消耗
+  - Activity Log → 新增運動 / 查看一週消耗
 
 ## 📊 範例畫面
 
